@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/follow.css">
+</head>
+<body>
+    <div id="root">
+        <div id="root">
+            <div class="wrapper">
+                <header id="header" class="opaque">
+                    <div class="container">
+                        <div class="header-left">
+                            <h1 class="page-title">
+                                <span class="__d-flex __h-center">타임라인 
+                                    <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/icons/beta2.svg" alt="betaIcon" class="ml-8">
+                                </span>
+                            </h1>
+                        </div>
+                    </div>
+                </header>
+                <main id="main">
+                    <div class="tab-menu sticky" style="z-index: 11;">
+                        <ul>
+                            <li>
+                                <a>
+                                    <span>추천</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a>
+                                    <span>팔로잉</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="feedRootDiv" class="timeline-posts"><div id="feedCardListScroll"></div></div>
+                    <section class="section">
+                        <div class="container">
+                            <div class="pt-80 pb-80 txt-center">
+                                <div class="mb-30"><svg width="91" height="61" viewBox="0 0 91 61" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <mask id="path-1-inside-1_508_4089" fill="white">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M87.3761 51.1015C89.6729 47.8807 91 44.076 91 40C91 28.402 80.2548 19 67 19C53.7452 19 43 28.402 43 40C43 51.598 53.7452 61 67 61C71.9788 61 76.6035 59.6735 80.4376 57.4023L89.9421 59.6387L87.3761 51.1015Z">
+                                            </path>
+                                        </mask>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M87.3761 51.1015C89.6729 47.8807 91 44.076 91 40C91 28.402 80.2548 19 67 19C53.7452 19 43 28.402 43 40C43 51.598 53.7452 61 67 61C71.9788 61 76.6035 59.6735 80.4376 57.4023L89.9421 59.6387L87.3761 51.1015Z"
+                                            fill="#F4F4F4"></path>
+                                        <path
+                                            d="M87.3761 51.1015L85.7477 49.9402C85.3887 50.4437 85.2828 51.085 85.4608 51.6772L87.3761 51.1015ZM80.4376 57.4023L80.8957 55.4555C80.3925 55.3371 79.8631 55.4181 79.4183 55.6815L80.4376 57.4023ZM89.9421 59.6387L89.4841 61.5855C90.1794 61.7491 90.9092 61.5295 91.3987 61.0092C91.8883 60.4889 92.0631 59.7471 91.8575 59.063L89.9421 59.6387ZM89 40C89 43.6295 87.8209 47.0331 85.7477 49.9402L89.0045 52.2627C91.5249 48.7283 93 44.5224 93 40H89ZM67 21C79.4095 21 89 29.7491 89 40H93C93 27.0549 81.1002 17 67 17V21ZM45 40C45 29.7491 54.5905 21 67 21V17C52.8998 17 41 27.0549 41 40H45ZM67 59C54.5905 59 45 50.2509 45 40H41C41 52.9451 52.8998 63 67 63V59ZM79.4183 55.6815C75.8957 57.7682 71.6235 59 67 59V63C72.334 63 77.3113 61.5788 81.4569 59.1231L79.4183 55.6815ZM90.4002 57.6919L80.8957 55.4555L79.9795 59.3491L89.4841 61.5855L90.4002 57.6919ZM85.4608 51.6772L88.0268 60.2144L91.8575 59.063L89.2915 50.5258L85.4608 51.6772Z"
+                                            fill="#666666" mask="url(#path-1-inside-1_508_4089)"></path>
+                                        <mask id="path-3-inside-2_508_4089" fill="white">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.83163 42.0373C1.76941 37.8197 0 32.8374 0 27.5C0 12.3122 14.3269 0 32 0C49.6731 0 64 12.3122 64 27.5C64 42.6878 49.6731 55 32 55C25.3616 55 19.1953 53.2629 14.0831 50.2887L1.41015 53.2173L4.83163 42.0373Z">
+                                            </path>
+                                        </mask>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M4.83163 42.0373C1.76941 37.8197 0 32.8374 0 27.5C0 12.3122 14.3269 0 32 0C49.6731 0 64 12.3122 64 27.5C64 42.6878 49.6731 55 32 55C25.3616 55 19.1953 53.2629 14.0831 50.2887L1.41015 53.2173L4.83163 42.0373Z"
+                                            fill="white"></path>
+                                        <path
+                                            d="M4.83163 42.0373L6.45003 40.8623C6.81894 41.3703 6.92782 42.0222 6.74407 42.6226L4.83163 42.0373ZM14.0831 50.2887L13.6327 48.34C14.1284 48.2255 14.6491 48.3041 15.0888 48.5599L14.0831 50.2887ZM1.41015 53.2173L1.86047 55.166C1.16412 55.3269 0.434811 55.104 -0.0526047 54.5813C-0.540016 54.0586 -0.711449 53.3155 -0.502296 52.632L1.41015 53.2173ZM2 27.5C2 32.382 3.61553 36.9583 6.45003 40.8623L3.21322 43.2124C-0.0767212 38.6812 -2 33.2929 -2 27.5H2ZM32 2C15.1363 2 2 13.6904 2 27.5H-2C-2 10.9339 13.5175 -2 32 -2V2ZM62 27.5C62 13.6904 48.8637 2 32 2V-2C50.4825 -2 66 10.9339 66 27.5H62ZM32 53C48.8637 53 62 41.3096 62 27.5H66C66 44.0661 50.4825 57 32 57V53ZM15.0888 48.5599C19.8913 51.3539 25.7098 53 32 53V57C25.0134 57 18.4993 55.1718 13.0773 52.0174L15.0888 48.5599ZM0.959824 51.2687L13.6327 48.34L14.5334 52.2373L1.86047 55.166L0.959824 51.2687ZM6.74407 42.6226L3.32259 53.8026L-0.502296 52.632L2.91918 41.452L6.74407 42.6226Z"
+                                            fill="#666666" mask="url(#path-3-inside-2_508_4089)"></path>
+                                        <circle cx="19" cy="29" r="3" fill="#666666"></circle>
+                                        <circle cx="33" cy="29" r="3" fill="#666666"></circle>
+                                        <circle cx="46" cy="29" r="3" fill="#666666"></circle>
+                                    </svg></div>
+                                <p class="font-14 plain-txt color-gray">내가 팔로잉 하는 사람들의 게시물을<br>여기에서 볼 수 있어요</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section">
+                        <div class="pl-20 pr-20 mb-10">
+                            <h3 class="ebold font-16 mb-4">캐치테이블 탑 리뷰어</h3>
+                            <p class="font-12 color-gray">예약도 리뷰도 독보적인 VIP</p>
+                        </div>
+                        <div class="__mypage-following-list">
+                            <div class="__following-item">
+                                <div class="mypage-profile">
+                                    <div class="profile-pic">
+                                        <div class="img"
+                                            style="background-image: url(&quot;https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/noimg/profile_default_v2.png&quot;);">
+                                        </div><i class="vip"></i>
+                                    </div>
+                                    <div class="mypage-profile-meta">
+                                        <h4 class="name username"><span class="txt">인기많은 식도락가_20750</span></h4>
+                                        <p class="__desc __single"></p>
+                                    </div>
+                                </div>
+                                <div class="__action"><button class="btn btn-orange btn-rounded"><span class="label">팔로우</span></button></div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

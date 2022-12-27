@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/modify_pro_1_1.css" />
+  </head>
+  <body class="disable-user-select">
+    <div>
+      <span itemscope itemtype="http://schema.org/Organization"></span>
+    </div>
+    <div style="display: none">
+      <a href="#">레스토랑 예약</a>
+      <a href="#">티켓 할인</a>
+      <a href="#">신규 오픈</a>
+    </div>
+    <div id="root">
+      <div class="wrapper">
+        <header id="header" class="opaque">
+          <div class="container">
+            <div class="header-left">
+              <button class="btn-back">이전</button>
+              <h1 class="page-title">이름변경</h1>
+            </div>
+          </div>
+        </header>
+        <main id="main">
+          <div class="my-account">
+            <div class="pt-10">
+              <div class="container gutter-sm mb-20">
+                <p class="mb-20 plain-txt color-gray">
+                  레스토랑 예약에 필요한 정보이므로 반드시 실명을 입력해주세요.
+                </p>
+                <div class="input-control mb-10">
+                  <input
+                    type="text"
+                    id="textField"
+                    class="form-input"
+                    placeholder="이름을 입력해주세요."
+                  />
+                </div>
+                <button class="btn btn-lg btn-red full-width" disabled>
+                  변경
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

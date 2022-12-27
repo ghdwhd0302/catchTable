@@ -1,0 +1,415 @@
+
+
+:root {
+    --mbsc-safe-top: 0;
+    --mbsc-safe-right: 0;
+    --mbsc-safe-bottom: 0;
+    --mbsc-safe-left: 0;
+}
+:root {
+    --swiper-navigation-size: 44px;
+}
+:root {
+    --swiper-theme-color: #007aff;
+}
+#root, body, html {
+    height: 100%;
+    width: 100%;
+}
+html {
+    background: #fff;
+}
+html {
+    font-family: "-apple-system",BlinkMacSystemFont,"Apple SD Gothic Neo",Inter,Lato,"Noto Sans KR","Spoqa Han Sans","Segoe UI",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    word-break: keep-all;
+    -webkit-text-size-adjust: none;
+}
+
+a, address, article, aside, b, body, center, code, dd, del, details, div, dl, dt, em, embed, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, label, li, mark, menu, nav, object, ol, p, pre, q, s, section, small, span, strong, sub, summary, table, tbody, td, th, thead, time, tr, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -.05em;
+}
+* {
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+div {
+    display: block;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+
+
+
+.wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    width: auto;
+    position: relative;
+    background: #fff;
+    min-height: 100%;
+    box-shadow: 0 0 20px rgb(0 0 0 / 5%);
+}
+
+
+
+#main.fullpage {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    max-width: 480px;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-wrapper {
+
+
+    padding-top: 130px;
+    left: 0;
+    right: 0;
+}
+
+.signin-wrapper .__inner {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.container {
+    padding: 0 30px;
+}
+.disable-user-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.underline .color-gray .font-12{
+    text-align: center;
+}
+body {
+    line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+    display: block;
+}
+
+h1 {
+    word-break: break-word;
+    line-height: normal;
+}
+
+.brand-title.brand-title-sm small {
+    font-size: 12px;
+    color: #666;
+}
+.brand-title small {
+    
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.brand-title.brand-title-sm strong {
+    width: 182px;
+    height: 22px;
+}
+.brand-title strong {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMTgiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMTggMjIiPgogICAgPHBhdGggZmlsbD0iI0ZGM0QwMCIgZD0iTTExLjQ0NSAyMmMxLjkwMyAwIDMuNjE3LS4zNDIgNS4xNDMtMS4wMjcgMS41MjYtLjY4NSAyLjc5NS0xLjY3MyAzLjgwNi0yLjk2MmwtMy43NDYtMy40NDVjLTEuMzQ4IDEuNjUyLTIuOTgzIDIuNDc4LTQuOTA1IDIuNDc4LTEuMTMgMC0yLjEzNi0uMjUyLTMuMDE4LS43NTYtLjg4Mi0uNTAzLTEuNTY1LTEuMjEzLTIuMDUxLTIuMTMtLjQ4Ni0uOTE3LS43MjgtMS45Ny0uNzI4LTMuMTU4IDAtMS4xODkuMjQyLTIuMjQxLjcyOC0zLjE1OC40ODYtLjkxNyAxLjE3LTEuNjI3IDIuMDUxLTIuMTMuODgyLS41MDQgMS44ODgtLjc1NiAzLjAxOC0uNzU2IDEuOTIyIDAgMy41NTcuODI2IDQuOTA1IDIuNDc4bDMuNzQ2LTMuNDQ1Yy0xLjAxMS0xLjI5LTIuMjgtMi4yNzctMy44MDYtMi45NjJDMTUuMDYyLjM0MiAxMy4zNDggMCAxMS40NDUgMGMtMi4xOCAwLTQuMTM3LjQ2OC01Ljg3MSAxLjQwNS0xLjczNC45MzctMy4wOTcgMi4yNDItNC4wODggMy45MTRDLjQ5NiA2Ljk5IDAgOC44ODUgMCAxMXMuNDk1IDQuMDEgMS40ODYgNS42ODFjLjk5MSAxLjY3MiAyLjM1NCAyLjk3NyA0LjA4OCAzLjkxNEM3LjMwOCAyMS41MzIgOS4yNjUgMjIgMTEuNDQ1IDIyem0xNS43MzMtLjQyM2wxLjYzNS00LjExaDguOGwxLjYzNSA0LjExaDYuMTI0TDM2LjE1Ni40MjNIMzAuMzZsLTkuMTg2IDIxLjE1NGg2LjAwNXptOC43MS04LjUyMmgtNS4zNWwyLjY3NS02Ljc3IDIuNjc2IDYuNzd6bTE5LjU0OCA4LjUyMlY1LjE2N2g2LjM2MlYuNDI0aC0xOC42NHY0Ljc0NWg2LjM5MnYxNi40MDloNS44ODZ6TTc0LjM3MyAyMmMxLjkwMyAwIDMuNjE3LS4zNDIgNS4xNDMtMS4wMjcgMS41MjYtLjY4NSAyLjc5NC0xLjY3MyAzLjgwNS0yLjk2MmwtMy43NDYtMy40NDVjLTEuMzQ3IDEuNjUyLTIuOTgyIDIuNDc4LTQuOTA1IDIuNDc4LTEuMTMgMC0yLjEzNS0uMjUyLTMuMDE3LS43NTYtLjg4Mi0uNTAzLTEuNTY2LTEuMjEzLTIuMDUxLTIuMTMtLjQ4Ni0uOTE3LS43MjktMS45Ny0uNzI5LTMuMTU4IDAtMS4xODkuMjQzLTIuMjQxLjcyOS0zLjE1OC40ODUtLjkxNyAxLjE2OS0xLjYyNyAyLjA1LTIuMTMuODgzLS41MDQgMS44ODktLjc1NiAzLjAxOC0uNzU2IDEuOTIzIDAgMy41NTguODI2IDQuOTA1IDIuNDc4bDMuNzQ2LTMuNDQ1Yy0xLjAxLTEuMjktMi4yNzktMi4yNzctMy44MDUtMi45NjJDNzcuOTkuMzQyIDc2LjI3NiAwIDc0LjM3MyAwYy0yLjE4IDAtNC4xMzcuNDY4LTUuODcxIDEuNDA1LTEuNzM1LjkzNy0zLjA5NyAyLjI0Mi00LjA4OCAzLjkxNC0uOTkgMS42NzItMS40ODYgMy41NjYtMS40ODYgNS42ODFzLjQ5NSA0LjAxIDEuNDg2IDUuNjgxYy45OSAxLjY3MiAyLjM1MyAyLjk3NyA0LjA4OCAzLjkxNCAxLjczNC45MzcgMy42OSAxLjQwNSA1Ljg3MSAxLjQwNXptMTcuNDUtLjQyM3YtOC4yNWg4LjAyN3Y4LjI1aDUuODg2Vi40MjNIOTkuODV2Ny45NDhoLTguMDI3Vi40MjNoLTUuODg2djIxLjE1NGg1Ljg4NnptMzcuMDQyIDBWNS4xNjdoNi4zNjJWLjQyNGgtMTguNjR2NC43NDVoNi4zOTJ2MTYuNDA5aDUuODg2em0xMS41NzQgMGwxLjYzNS00LjExaDguOGwxLjYzNSA0LjExaDYuMTI0TDE0OS40MTcuNDIzaC01Ljc5N2wtOS4xODYgMjEuMTU0aDYuMDA1em04LjcxLTguNTIyaC01LjM1bDIuNjc1LTYuNzcgMi42NzUgNi43N3ptMjIuMzg2IDguNTIyYzIuNzc0IDAgNC44OTUtLjUwNCA2LjM2Mi0xLjUxMSAxLjQ2Ni0xLjAwNyAyLjItMi40MzggMi4yLTQuMjkxIDAtMS4yNy0uMzM3LTIuMzUyLTEuMDExLTMuMjQ5LS42NzQtLjg5Ni0xLjYwNi0xLjU1Ni0yLjc5NS0xLjk4Ljg5Mi0uNDYzIDEuNTgtMS4wOTIgMi4wNjYtMS44ODguNDg2LS43OTYuNzI5LTEuNjk3LjcyOS0yLjcwNSAwLTEuNjkyLS42OTQtMy4wMzctMi4wODEtNC4wMzQtMS4zODgtLjk5Ny0zLjQxLTEuNDk2LTYuMDY1LTEuNDk2aC0xMC42NDN2MjEuMTU0aDExLjIzOHptLTEuMzY4LTEyLjc1M2gtNC4wNDN2LTQuMDhoNC4wNDNjMS45ODIgMCAyLjk3My42NzUgMi45NzMgMi4wMjUgMCAxLjM3LS45OSAyLjA1NS0yLjk3MyAyLjA1NXptLjg5MiA4LjQzMWgtNC45MzV2LTQuMjloNC45MzVjMi4wNjEgMCAzLjA5Mi43MTQgMy4wOTIgMi4xNDUgMCAxLjQzLTEuMDMgMi4xNDUtMy4wOTIgMi4xNDV6bTI3LjkxNSA0LjMyMnYtNC43NDVoLTkuOTNWLjQyM2gtNS44ODV2MjEuMTU0aDE1LjgxNXptMTkuMDI2IDB2LTQuNjI0aC0xMC44OHYtMy44NjhoOS4yNDVWOC42MTNoLTkuMjQ2VjUuMDQ3aDEwLjQ5NVYuNDIzaC0xNi4zMjF2MjEuMTU0SDIxOHoiLz4KPC9zdmc+Cg==) no-repeat;
+    background-size: contain;
+    width: 218px;
+    height: 22px;
+    text-indent: -999em;
+    overflow: hidden;
+    display: block;
+}
+
+
+/* 10초만에 빠른 가입 */
+element.style {
+    margin-bottom: 10vh;
+}
+h1, h2, h3, h4, h5, h6, p {
+    word-break: break-word;
+    line-height: normal;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.__login-with-kakao {
+    position: relative;
+}
+
+.__login-with-kakao .__quick {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+
+.__login-with-kakao .__quick em {
+    color: #000;
+}
+
+.__login-with-kakao .__quick em {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    /* color: #ff3d00; */
+}
+
+/*  카카오 버튼 */
+.__login-with-kakao button img {
+    display: block;
+    margin-right: 10px;
+}
+
+.__login-with-kakao button.__kakao {
+    background: #fee500;
+    border-color: #fee500;
+}
+
+.__login-with-kakao button {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    font-size: 16px;
+    position: relative;
+    box-sizing: border-box;
+}
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    background: 0 0;
+    color: #000;
+}
+
+/* __또는__ */
+.__or__ {
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-gap: 10px;
+    margin: 4vh 0;
+    font-size: 14px;
+}
+.__or__:after, .__or__:before {
+    height: 1px;
+    background: #e8e8e8;
+    flex: 1;
+    content: "";
+}
+
+/* social 로그인 */
+.social-logins.social-logins-o {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    grid-gap: 25px;
+}
+
+.social-logins {
+    margin: -5px;
+    display: flex;
+}
+
+.social-logins.social-logins-o a {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    margin-bottom: 20px;
+}
+.social-logins a {
+    margin: 5px;
+    padding: 15px 0;
+    border-radius: 6px;
+    border: solid 1px #e8e8e8;
+    background-color: #fff;
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+}
+.social-logins.social-logins-o .__split {
+    width: 1px;
+    height: 15px;
+    display: block;
+    background: #e8e8e8;
+}
+.social-logins.social-logins-o a:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.social-logins a:before {
+    background: 50% 50% no-repeat;
+    background-size: contain;
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: 0 auto 8px;
+    content: "";
+}
+
+/* 이미 가입하셨나요 */
+.__already-signin {
+    margin: 40px auto;
+}
+.__already-signin {
+    margin-top: 4vh;
+    text-align: center;
+}
+
+.__already-signin p {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+
+
+/* 전화번호 로그인하기 버튼 */
+
+.__already-signin button {
+    width: 100%;
+    max-width: 255px;
+    font-size: 14px;
+}
+.__already-signin button {
+    margin: 0 auto;
+    display: flex;
+    height: 48px;
+    max-width: 255px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    background: 0 0;
+    color: #000;
+}
+
+
+/* 회원가입 문의 */
+.sticky-bottom-btns .pb-68{
+
+    bottom: 0;
+    width: auto;
+    max-width: 480px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100vw;
+    background: rgba(255,255,255,.7);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    display: flex;
+}
+
+
+.__ml-auto{
+    display: flex;
+    justify-content: center;
+}
+element.style {
+    padding: 10px;
+}
+
+.pb-68 {
+    padding-bottom: 68px!important;
+}
+
+
+.underline {
+    text-decoration: underline!important;
+
+}
+
+.color-gray {
+    color: #666!important;
+}
+.font-12 {
+    font-size: 12px!important;
+}
