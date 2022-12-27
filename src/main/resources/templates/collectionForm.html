@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/make_collection.css" />
+  </head>
+  <body class="disable-user-select">
+    <div>
+      <span itemscope itemtype="http://schema.org/Organization"></span>
+    </div>
+    <div style="display: none">
+      <a href="#">레스토랑 예약</a>
+      <a href="#">티켓 할인</a>
+      <a href="#">신규 오픈</a>
+    </div>
+    <div id="root">
+      <div class="wrapper __d-flex f-d-column" style="height: 100%">
+        <header id="header" class="opaque">
+          <div class="container">
+            <div class="header-left">
+              <button class="btn-back">이전</button>
+              <h1 class="page-title">새 컬렉션 만들기</h1>
+            </div>
+          </div>
+        </header>
+        <main id="main" class="pb-0">
+          <section class="section pt-10">
+            <div class="container gutter-sm">
+              <div class="form-block">
+                <div class="form-block-header">
+                  <h3 class="form-block-title">컬렉션 이름</h3>
+                  <span class="color-red">*</span>
+                </div>
+                <div class="form-block-body">
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="컬렉션 이름을 입력해주세요"
+                    id="categoryName"
+                    maxlength="30"
+                  />
+                  <span class="textarea-count">
+                    <span class="current">0</span>
+                    /
+                    <span class="total">30</span>
+                  </span>
+                </div>
+              </div>
+              <div class="form-block">
+                <div class="form-block-header">
+                  <h3 class="form-block-title">설명</h3>
+                </div>
+                <div class="form-block-body">
+                  <textarea
+                    rows="4"
+                    class="form-input"
+                    placeholder="컬렉션에 대한 설명을 입력해주세요"
+                    id="categoryNote"
+                    maxlength="2000"
+                  ></textarea>
+                  <span class="textarea-count">
+                    <span class="current">0</span>
+                    /
+                    <span class="total">2000</span>
+                  </span>
+                </div>
+              </div>
+              <div class="form-block mb-30">
+                <div class="form-block-header form-option-header">
+                  <h3 class="form-block-title">컬렉션 공개하기</h3>
+                  <div class="__ml-auto">
+                    <label class="switch">
+                      <input type="checkbox" checked />
+                      <span class="gadget"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <hr class="space-40" />
+        </main>
+        <div class="sticky-bottom-btns">
+          <button class="btn btn-lg btn-red">등록</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

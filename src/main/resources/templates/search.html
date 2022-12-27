@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/searchstyle.css">
+</head>
+<body>
+    <div id="root">
+        <div id="root">
+            <div class="wrapper">
+                <header id="header" class="opaque">
+                    <div class="container">
+                        <div class="header-left">
+                            <h1 class="page-title">
+                                검색하기
+                            </h1>
+                        </div>
+                    </div>
+                </header>
+                <main id="main">
+                    <div class="search-header">
+                        <div class="keyword">
+                            <input type="text" name="keyword" placeholder="지역, 음식, 레스토랑명으로 찾아보세요." readonly="" style="cursor: pointer; font-size: 13px;">
+                        </div>
+                        <div class="datetime-selector">
+                            <a style="cursor: pointer;">
+                                <span class="value">
+                                    1.16(월) / 2명 / 오전 11:00
+                                </span>
+                            </a>
+                        </div>
+                        <div class="__filter-list">
+                            <div class="__actions">
+                                <a class="__setting " id="btnShowFilter">
+                                    <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/wad-custom/filter-header/filter_header_setting.svg">
+                                </a>
+                            </div>
+                            <span class="__split"></span>
+                            <div class="__list">
+                                <div class="swiper swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-backface-hidden">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide swiper-slide-active" style="margin-right: 8px;">
+                                            <a>
+                                                <span>내 주변</span>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide swiper-slide-next" style="margin-right: 8px;">
+                                            <a>
+                                                <span>지역</span>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="margin-right: 8px;">
+                                            <a>
+                                                <span>음식 종류</span>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="margin-right: 8px;">
+                                            <a>
+                                                <span>가격</span>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="margin-right: 8px;">
+                                            <a>
+                                                <span>분위기</span>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="margin-right: 8px;">
+                                            <a>
+                                                <span>편의시설</span>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="margin-right: 8px;">
+                                            <a>
+                                                <span>테이블 타입</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="separator mb-30">
+                    <section class="section section-overflow-hidden">
+                        <div class="container gutter-sm">
+                            <div class="section-header mb-16">
+                                <h3 class="color-gray">추천 해시태그</h3>
+                                <div class="__tooltip __sm ml-5"><button class="__toggle">?</button>
+                                    <div class="__msg " style="width: 250px;">
+                                        <div class="plain-txt font-12">캐치테이블 MD 추천 키워드</div><button class="__close">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="__recom-hashtag mb-24">
+                                <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+                                    <div class="swiper-wrapper">
+                                        <div id="suggest-hash-tag-list" class="v-scroll">
+                                            <div class="v-scroll-inner">
+                                                <div id="suggest-hash-tag-list" class="swiper-wrapper"
+                                                    style="display: flex; flex-wrap: nowrap;">
+                                                    <div class="swiper-slide" style="margin-right: 8px;"><a href="#">#믿고먹는 브랜드관</a></div>
+                                                    <div class="swiper-slide" style="margin-right: 8px;"><a href="#">#전통주 페어링</a></div>
+                                                    <div class="swiper-slide" style="margin-right: 8px;"><a href="#">#예약 오픈 달력</a></div>
+                                                    <div class="swiper-slide" style="margin-right: 8px;"><a href="#">#스시오마카세</a></div>
+                                                    <div class="swiper-slide" style="margin-right: 8px;"><a href="#">#연말 예약 찬스</a></div>
+                                                    <div class="swiper-slide" style="margin-right: 8px;"><a href="#">#주차 가능한</a></div><span
+                                                        class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section-header mb-24">
+                                <h3 class="ebold font-16">관심 급상승 레스토랑</h3>
+                            </div>
+                            <div class="__now-popular-keyword mb-32">
+                                <ul>
+                                    <li style="cursor: pointer;"><span class="__rank">1</span><a style="line-height: normal;">우판등심 수원점</a>
+                                    </li>
+                                    <li style="cursor: pointer;"><span class="__rank">2</span><a style="line-height: normal;">트라고 TRAGO</a>
+                                    </li>
+                                    <li style="cursor: pointer;"><span class="__rank">3</span><a style="line-height: normal;">광명긴자</a></li>
+                                    <li style="cursor: pointer;"><span class="__rank">4</span><a style="line-height: normal;">한참치</a></li>
+                                    <li style="cursor: pointer;"><span class="__rank">5</span><a style="line-height: normal;">마노디셰프 명동점</a>
+                                    </li>
+                                    <li style="cursor: pointer;"><span class="__rank">6</span><a style="line-height: normal;">한남소관 漢南小館</a>
+                                    </li>
+                                    <li style="cursor: pointer;"><span class="__rank">7</span><a style="line-height: normal;">도원스타일 서울역점</a>
+                                    </li>
+                                    <li style="cursor: pointer;"><span class="__rank">8</span><a style="line-height: normal;">봉플라봉뱅</a></li>
+                                    <li style="cursor: pointer;"><span class="__rank">9</span><a style="line-height: normal;">암소서울</a></li>
+                                    <li style="cursor: pointer;"><span class="__rank">10</span><a style="line-height: normal;">이플다이닝</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="section-header mb-16">
+                                <h3 class="color-gray">이런 레스토랑을 찾으시나요?</h3>
+                            </div>
+                            <div class="__recom-restaurant">
+                                <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+                                    <div class="swiper-wrapper">
+                                        <div id="banner-list" class="v-scroll">
+                                            <div class="v-scroll-inner">
+                                                <div id="banner-list" class="swiper-wrapper" style="display: flex; flex-wrap: nowrap;">
+                                                    <div class="swiper-slide" style="margin-right: 12px;"><a href="#"><img
+                                                                src=" https://d3kzx7mqemhf0.cloudfront.net/catchtable/main/banner/comm_2281115183722372.webp"
+                                                                height="152" width="152"
+                                                                style="border-radius: 10px; box-sizing: border-box; align-items: center;"></a>
+                                                    </div>
+                                                    <div class="swiper-slide" style="margin-right: 12px;"><a href="#"><img
+                                                                src="https://d3kzx7mqemhf0.cloudfront.net/catchtable/main/banner/comm_2281115183715420.webp"
+                                                                height="152" width="152"
+                                                                style="border-radius: 10px; box-sizing: border-box; align-items: center;"></a>
+                                                    </div>
+                                                    <div class="swiper-slide" style="margin-right: 12px;"><a href="#"><img
+                                                                src="https://d3kzx7mqemhf0.cloudfront.net/catchtable/main/banner/comm_2281115183747690.webp"
+                                                                height="152" width="152"
+                                                                style="border-radius: 10px; box-sizing: border-box; align-items: center;"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="space-90">
+                        </div>
+                    </section>
+                </main>
+                <div class="sticky-bottom-btns upper"><button class="btn btn-lg btn-red">검색</button></div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
