@@ -4,48 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Noto+Sans+KR:300,400,500,700&amp;display=block&amp;subset=korean" as="style" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
-    
+    <title>즐거운 미식 생활의 시작, 캐치테이블</title>
+    <div th:replace="fragment/link :: link"/>
+    <link rel="stylesheet" href="/css/login_tel.css">
+    <link rel="stylesheet" href="/css/collection_detail.css">
+    <link rel="stylesheet" href="/images/kakao_button.svg">
+    <link rel="stylesheet" href="/images/kakao_button_gainsboro.svg">
 </head>
-<link rel="stylesheet" href="css/login.css">
 <body>
-    <div id="root">
-        <div class="wrapper">
-            <main id="main" class="fullpage">
-                <section class="signin-wrapper">
-                    <div class="__inner">
-                        <div class="container">
-                            <h1 class="brand-title brand-title-sm" style="margin-bottom: 10vh;">
-                                <small>즐거운 미식생활의 시작</small>
-                                <strong>CATCH TABLE</strong>
-                            </h1>
-                            <div class="__login-with-kakao">
-                                <span class="__quick">
-                                    <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/login/kakao_tooltip.svg" alt="">
-                                    <em>⚡️10초만에 빠른가입⚡️</em>
-                                </span>
-                                <button class="__kakao"><img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/login/kakao_button.svg" alt="">카카오로 시작하기</button>
-                            </div>
-                            <div class="__or__"> 또는</div>
-
-                            <div class="social-logins social-logins-o">
-                                <div id="naver_id_login" style="display: none;"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&amp;client_id=f3q_cD4_tH77OcyZ6EjN&amp;redirect_uri=https%3A%2F%2Fapp.catchtable.co.kr%2Fct%2Foauth%2Fnaver_callback&amp;state=catchtable" id="naver_id_login_anchor"><img src="http://static.nid.naver.com/oauth/button_g.PNG" border="0" title="네이버 아이디로 로그인" width="40" height="40"></a> </div>
-                                <a href="" class="__naver "><img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/login/naver_v2.svg" alt=""></a>
-                                <span class="__split"></span>
-                                <a href="" class="__apple "><img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/login/apple_v2.svg" alt=""></a>
-                                <span class="__split"></span>
-                                <a href="" class="__phone"><img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/login/phone.svg" alt=""></a>
-                            </div>
-                            <div class="__already-signin"><p>이미 가입하셨나요?</p><button>전화번호로 로그인 하기</button></div>
+<div id="root">
+<!--header 시작-->
+<div th:replace="fragment/header :: header"/>
+<!--header 끝-->
+    <div class="wrapper">
+        <main id="main">
+            <section class="signin-wrapper" style="height: auto;">
+                <div class="__inner">
+                    <form class="container">
+                        <div class="css-o5dw7d">
+                            로그인
                         </div>
-                    </div>
-                </section>
-                <div class="sticky-bottom-btns pb-68" style="padding: 10px;"><div class="__ml-auto __mr-auto"><a href="" class="underline color-gray font-12">회원 가입 문의</a></div>
+                        <div class="input-control mb-30">
+                            <input type="text" class="form-input form-input-underline" id="login-id" name="login-id"
+                                   placeholder="휴대폰 번호 or 닉네임" autocomplete="off" value="">
+                        </div>
+                        <div class="input-control mb-30">
+                            <input type="password" id="login-pw" name="login-pw" class="form-input form-input-underline"
+                                   placeholder="비밀번호" autocomplete="off" value="">
+                            <button type="button" class="hide-password ">패스워드보이기</button>
+                        </div>
+                        <div id="signin-extra-block">
+                            <div class="signin-extra mt-35 mb-35">
+                                <a href="#" class="color-gray underline">회원가입</a>
+                            </div>
+                            <div class="signin-extra mt-35 mb-35">
+                                <a href="#" class="color-gray underline">비밀번호 찾기</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </main>
-        </div>
+            </section>
+            <div class="sticky-bottom-btns pb-68 display-none-with-aos-keyboard login-btn">
+                <button id="login-btn" class="btn btn-lg btn-red full-width login-btn" disabled="">
+                    <strong class="bold">로그인</strong>
+                </button>
+            </div>
+            <!--            <div class="sticky-bottom-btns pb-68 display-none-with-aos-keyboard kakao-btn">-->
+            <!--                <button id="kakao-btn" class="btn btn-lg btn-yellow full-width kakao-btn">-->
+            <!--                    <strong class="bold kakao-btn"><img id="kakao-balloon"-->
+            <!--                                                        src="https://catchtable.co.kr/web-static/static_webapp_v2/img/login/kakao_button.svg"-->
+            <!--                                                        alt="">카카오로 시작하기</strong>-->
+            <!--                </button>-->
+            <!--            </div>-->
+        </main>
     </div>
-    
+    <!-- footer 시작 -->
+    <div th:replace="fragment/footer :: footer"/>
+    <!-- footer 끝 -->
+</div>
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
