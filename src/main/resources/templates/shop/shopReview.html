@@ -1,41 +1,28 @@
-<!-- 리뷰 탭 -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리뷰 탭</title>
-    <link rel="stylesheet" href="css/st_review.css">
+    <title>즐거운 미식 생활의 시작, 캐치테이블</title>
+    <div th:replace="fragment/link :: link"/>
+    <link rel="shortcut icon" href="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp/img/app/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div class="wrapper" id="wrapperDiv" style="">
+<div id="root">
+<div th:replace="fragment/header :: header"/>
+    <div class="wrapper" id="wrapperDiv">
         <div class="wrapper">
             <header id="header" class="opaque">
                 <div class="container">
-                    <div class="header-left">
-                        <a href="#" class="btn-back">뒤로</a>
+                    <div class="header-left-1">
                         <h1 class="page-title" style="padding-right: 4px;">텍사스 데 브라질 센트럴시티점</h1>
                     </div>
                 </div>
             </header>
             <main id="main">
-                <div class="tab-menu sticky">
-                    <ul>
-                        <li class=""><a><span>홈</span></a></li>
-                        <li class=""><a><span>메뉴</span></a></li>
-                        <li class=""><a style="display: flex; align-items: center;"><span>사진</span>
-                                <span
-                                    style="font-size: 10px; color: rgb(170, 170, 170); padding-left: 3px; padding-top: 1px;">123</span></a>
-                        </li>
-                        <li class="active"><a style="display: flex; align-items: center;"><span>리뷰</span>
-                                <span
-                                    style="font-size: 10px; color: rgb(170, 170, 170); padding-left: 3px; padding-top: 1px;">183</span></a>
-                        </li>
-                    </ul>
-                </div>
                 <section class="section mb-40">
                     <div class="container gutter-sm">
                         <div class="review-rating-summary review-rating-summary-splitview">
@@ -81,7 +68,7 @@
                                             <div class="__header">
                                                 <div class="__user-info"><a class="profile">
                                                         <div class="profile-pic">
-                                                            <img                                                     src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/noimg/profile_default_v2.png"
+                                                            <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/noimg/profile_default_v2.png"
                                                                 alt="" class="img"></div>
                                                         <h4 class="name username"><span class="txt">박건</span></h4>
                                                     </a></div>
@@ -147,6 +134,10 @@
             </main>
         </div>
     </div>
+</div>
+<!--footer-->
+<div th:replace="fragment/footer :: footer"/>
+<!--/footer-->
 </body>
-
+<script src="/js/header.js"></script>
 </html>

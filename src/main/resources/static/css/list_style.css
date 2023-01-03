@@ -38,16 +38,24 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     outline: 0;
     -webkit-tap-highlight-color: transparent;
 }
+html {
+    font-family: "-apple-system",BlinkMacSystemFont,"Apple SD Gothic Neo",Inter,Lato,"Noto Sans KR","Spoqa Han Sans","Segoe UI",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    word-break: keep-all;
+    -webkit-text-size-adjust: none;
+}
 
 .wrapper {
-    max-width: 480px;
+    max-width: 1100px;
     margin: 0 auto;
     background: #fff;
     width: auto;
     position: relative;
     background: #fff;
     min-height: 100%;
-    box-shadow: 0 0 20px rgb(0 0 0 / 5%);
+    /* box-shadow: 0 0 20px rgb(0 0 0 / 5%); */
 }
 #header {
     position: sticky;
@@ -125,15 +133,16 @@ button {
     word-break: break-word;
 }
 
-#main {
+/* #main {
     padding-bottom: 48px;
-}
+} */
 
 .search-header {
-    position: sticky;
-    top: 48px;
+    /* position: sticky;
+    top: 48px; */
     z-index: 100;
     background: #fff;
+    padding: 15px;
 }
 
 .search-header .datetime-selector {
@@ -425,7 +434,7 @@ hr {
 }
 
 .saved-restaurant-list-item .restaurant-info .detail .excerpt {
-    font-size: 11px;
+    font-size: 15px;
     line-height: 15px;
     color: #000;
     margin-bottom: 8px;
@@ -593,4 +602,39 @@ hr {
     width: 76px;
     text-align: center;
     font-weight: 500;
+}
+
+#footer {
+    background: #f9f9f9;
+    padding: 35px 0;
+    margin-top: 90px;
+}
+
+#footer h4, #footer p {
+    font-size: 11px;
+    color: #8f8f8f;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+#footer h4 strong, #footer p strong {
+    color: #666;
+}
+
+#footer .footer-menu {
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+#footer .footer-menu a {
+    color: #666;
+}
+#footer .footer-menu .split {
+    margin: 0 4px;
+    color: #aaa;
+    display: block;
 }
