@@ -5,26 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <title>즐거운 미식 생활의 시작, 캐치테이블</title>
+    <div th:replace="fragment/link :: link"/>
     <link rel="stylesheet" href="/css/list_style.css">
 </head>
 <body>
     <div id="root">
+        <div th:replace="fragment/header :: header"/>
         <div class="wrapper">
-            <header id="header" class="opaque line" style="background: none;">
-                <div class="container" style="position: relative;">
-                    <div class="header-left">
-                        <button class="btn-back">이전</button>
-                        <h1 class="page-title">우마카세</h1>
-                    </div>
-                </div>
-            </header>
+
             <main id="main" style="padding-bottom: 0px;">
                 <div class="search-header __autohide" style="background: none; top: 48px;">
-                    <div class="datetime-selector">
-                        <a>
-                            <span class="value">내일(화) / 2명 / 오후 7:00</span>
-                        </a>
-                    </div>
                     <div style="background: rgb(255, 255, 255);">
                         <div class="__filter-list">
                             <div class="__actions">
@@ -77,8 +68,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="datetime-selector">
+                            <a>
+                                <span class="value">내일(화) / 2명 / 오후 7:00</span>
+                            </a>
+                        </div>
                     </div>
-                    <hr class="separator">
+       
+                    <!-- <hr class="separator"> -->
                     <div class="__search-result-header mb-20">
                         <div class="__total-count">
                             <strong>102개</strong>의 레스토랑
@@ -386,6 +383,7 @@
                 </div>
             </main>
         </div>
+        <div th:replace="fragment/footer :: footer"/>
     </div>
 </body>
 </html>
