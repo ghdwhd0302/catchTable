@@ -3556,3 +3556,126 @@ button.review-footer-register:focus, button.review-footer-register:active {
   background-color: rgb(255, 61, 0);
   color: white;
 }
+.gutter-sm-1{
+  padding: 0;
+}
+
+.info-icon-div {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+  background: 50% 50% no-repeat;
+  position: relative;
+  text-indent: -999em;
+  overflow: hidden;
+}
+.info-icon-div-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-icon-div {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTggMTVDMTEuODY2IDE1IDE1IDExLjg2NiAxNSA4QzE1IDQuMTM0MDEgMTEuODY2IDEgOCAxQzQuMTM0MDEgMSAxIDQuMTM0MDEgMSA4QzEgMTEuODY2IDQuMTM0MDEgMTUgOCAxNVoiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNENUQ1RDUiLz4NCiAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTguODE1ODQgNC43ODg2M0M4LjY1MjE1IDQuOTQ4MDEgOC40NDk2OCA1LjAyNzcxIDguMjA4NDUgNS4wMjc3MUM3Ljk2NzIyIDUuMDI3NzEgNy43NjQ3NiA0Ljk0ODAxIDcuNjAxMDcgNC43ODg2M0M3LjQzNzM4IDQuNjI5MjQgNy4zNTU1MyA0LjQzMzI0IDcuMzU1NTMgNC4yMDA2M0M3LjM1NTUzIDMuOTc2NjMgNy40MzczOCAzLjc4NDk0IDcuNjAxMDcgMy42MjU1NUM3Ljc2NDc2IDMuNDY2MTcgNy45NjcyMiAzLjM4NjQ3IDguMjA4NDUgMy4zODY0N0M4LjQ0OTY4IDMuMzg2NDcgOC42NTIxNSAzLjQ2NjE3IDguODE1ODQgMy42MjU1NUM4Ljk3OTUzIDMuNzg0OTQgOS4wNjEzOCAzLjk3NjYzIDkuMDYxMzggNC4yMDA2M0M5LjA2MTM4IDQuNDMzMjQgOC45Nzk1MyA0LjYyOTI0IDguODE1ODQgNC43ODg2M1pNOC42NTQzIDEyLjcyOThDOC41MjkzNyAxMi44MTYgOC4zODA3NiAxMi44NTkxIDguMjA4NDUgMTIuODU5MUM4LjA0NDc2IDEyLjg1OTEgNy44OTgzIDEyLjgxNiA3Ljc2OTA2IDEyLjcyOThDNy42Mzk4MyAxMi42NDM3IDcuNTc1MjIgMTIuNTEwMSA3LjU3NTIyIDEyLjMyOTJWNi40NzUwNkM3LjU3NTIyIDYuMjk0MTMgNy42Mzk4MyA2LjE2MDU5IDcuNzY5MDYgNi4wNzQ0NEM3Ljg5ODMgNS45ODgyOSA4LjA0NDc2IDUuOTQ1MjEgOC4yMDg0NSA1Ljk0NTIxQzguMzgwNzYgNS45NDUyMSA4LjUyOTM3IDUuOTg4MjkgOC42NTQzIDYuMDc0NDRDOC43NzkyMiA2LjE2MDU5IDguODQxNjggNi4yOTQxMyA4Ljg0MTY4IDYuNDc1MDZWMTIuMzI5MkM4Ljg0MTY4IDEyLjUxMDEgOC43NzkyMiAxMi42NDM3IDguNjU0MyAxMi43Mjk4WiIgZmlsbD0iIzY2NjY2NiIvPg0KPC9zdmc+DQo=");
+  background-size: 14px auto;
+  width: 14px;
+  height: 14px;
+}
+
+/* 딤처리 레이어 팝업 */
+.pop-layer .pop-container {
+  padding: 50px 25px 40px;
+}
+
+.pop-layer p.ctxt {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+
+
+
+.pop-layer .btn-r {
+  width: 100%;
+  margin: 10px 0 20px;
+  padding-top: 10px;
+  /* border-top: 1px solid #DDD; */
+  text-align: center;
+}
+
+.pop-layer {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 410px;
+  height: auto;
+  background-color: #fff;
+  /* border: 5px solid #3571B5; */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.dim-layer {
+  display: none;
+  position: fixed;
+  _position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.dim-layer .dimBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+.dim-layer .pop-layer {
+  display: block;
+}
+
+a.btn-layerClose {
+  display: inline-block;
+  height: 25px;
+  padding: 10px 160px 10px 135px;
+  /* border: 1px solid rgb(198, 198, 198); */
+  /* background-color: #fff; */
+  font-size: 13px;
+  /* color: #000; */
+  background: #ff3d00;
+  border-color: #ff3d00;
+  color: #fff;
+  border-radius: 5px;
+  line-height: 25px;
+}
+
+
+
+.pop-layer {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  height: auto;
+  background-color: #fff;
+  /* border: 5px solid #3571B5; */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+#layer2 {
+
+  margin-top: -346px;
+  margin-left: -205px;
+}
+
