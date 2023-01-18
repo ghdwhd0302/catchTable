@@ -11,7 +11,9 @@
 <body class="disable-user-select">
 <div id="root">
 <!-- header 시작 -->
-<div th:replace="fragment/header :: header"/>
+    <header id="header">
+        ㅎㄷㅎㄷ
+    </header>
 <!-- header 끝 -->
         <div style="background-color : #FEF7EA;">
             <a href="#" class="__banner">
@@ -26,8 +28,8 @@
                 <section class="section mb-30">
                     <div class="container gutter-sm">
                         <div class="tag-radio-group mt--10">
-                            <label><input type="radio" name="type" value="planned"><span class="label">방문예정</span></label>
-                            <label><input type="radio" name="type" value="done"><span class="label">방문완료</span></label>
+                            <label><input type="radio" name="type" value="planned"><span class="label"><a href="planned">방문예정</a></span></label>
+                            <label><input type="radio" name="type" value="done"><span class="label"><a href="done">방문완료</a></span></label>
                             <label><input type="radio" name="type" value="cancel" checked=""><span class="label">취소/노쇼</span></label>
                         </div>
                     </div>
