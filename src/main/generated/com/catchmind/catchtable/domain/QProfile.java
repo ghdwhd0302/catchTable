@@ -41,6 +41,8 @@ public class QProfile extends EntityPathBase<Profile> {
 
     public final NumberPath<Integer> prNoshow = createNumber("prNoshow", Integer.class);
 
+    public final NumberPath<Integer> prPoint = createNumber("prPoint", Integer.class);
+
     public final StringPath prRegion = createString("prRegion");
 
     public final NumberPath<Integer> prReview = createNumber("prReview", Integer.class);
