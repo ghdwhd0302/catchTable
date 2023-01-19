@@ -25,11 +25,12 @@ public record CatchPrincipal(
         String prMemo,
         int prReview,
         int prNoshow,
-        boolean prBlock
+        boolean prBlock,
+        int prPoint
 
 ) implements UserDetails {
 
-    public static CatchPrincipal of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock){
+    public static CatchPrincipal of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint){
         Set<RoleType> roleTypes = Set.of(RoleType.USER);
         return new CatchPrincipal(
                 prIdx,
@@ -47,7 +48,8 @@ public record CatchPrincipal(
                 prMemo,
                 prReview,
                 prNoshow,
-                prBlock
+                prBlock,
+                prPoint
         );
     }
 
@@ -65,7 +67,8 @@ public record CatchPrincipal(
                 dto.prMemo(),
                 dto.prReview(),
                 dto.prNoshow(),
-                dto.prBlock()
+                dto.prBlock(),
+                dto.prPoint()
         );
     }
 
@@ -83,7 +86,8 @@ public record CatchPrincipal(
                 prMemo,
                 prReview,
                 prNoshow,
-                prBlock
+                prBlock,
+                prPoint
         );
     }
 
@@ -101,7 +105,6 @@ public record CatchPrincipal(
     public String getUsername() {
         return prName;
     }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;

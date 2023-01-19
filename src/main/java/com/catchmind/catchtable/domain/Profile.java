@@ -1,9 +1,7 @@
 package com.catchmind.catchtable.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -24,14 +22,16 @@ public class Profile extends AuditingFields {
     @Setter @Column(length = 10) private String prGender;
     @Setter @Column(length = 100) private String prBirth;
     @Setter @Column(length = 2000) private String prMemo;
-    @Setter private int prReview;    @Setter private int prNoshow;
+    @Setter private int prReview;
+    @Setter private int prNoshow;
     @Setter private boolean prBlock;
+    @Setter private int prPoint;
 
 
     protected Profile() {}
 
     @Builder
-    public Profile(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock) {
+    public Profile(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint) {
         this.prIdx = prIdx;
         this.prNick = prNick;
         this.prName = prName;
@@ -45,12 +45,13 @@ public class Profile extends AuditingFields {
         this.prReview = prReview;
         this.prNoshow = prNoshow;
         this.prBlock = prBlock;
+        this.prPoint = prPoint;
     }
 
 
 
-    public static Profile of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock) {
-        return new Profile(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock);
+    public static Profile of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint) {
+        return new Profile(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock, prPoint);
     }
 
     @Override

@@ -19,15 +19,16 @@ public record ProfileDto(
         LocalDateTime updateDate,
         int prReview,
         int prNoshow,
-        boolean prBlock
+        boolean prBlock,
+        int prPoint
 
 ) {
-    public static ProfileDto of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock){
-        return new ProfileDto(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, null, null, prReview, prNoshow, prBlock);
+    public static ProfileDto of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint){
+        return new ProfileDto(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, null, null, prReview, prNoshow, prBlock, prPoint);
     }
 
-    public static ProfileDto of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, LocalDateTime regDate, LocalDateTime updateDate, int prReview, int prNoshow, boolean prBlock){
-        return new ProfileDto(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, regDate, updateDate, prReview, prNoshow, prBlock);
+    public static ProfileDto of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, LocalDateTime regDate, LocalDateTime updateDate, int prReview, int prNoshow, boolean prBlock, int prPoint){
+        return new ProfileDto(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, regDate, updateDate, prReview, prNoshow, prBlock,prPoint);
     }
 
     public static ProfileDto from(Profile entity){
@@ -46,11 +47,12 @@ public record ProfileDto(
                 entity.getUpdateDate(),
                 entity.getPrReview(),
                 entity.getPrNoshow(),
-                entity.isPrBlock()
+                entity.isPrBlock(),
+                entity.getPrPoint()
         );
     }
 
     public Profile toEntity(){
-        return Profile.of(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock);
+        return Profile.of(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock,prPoint);
     }
 }

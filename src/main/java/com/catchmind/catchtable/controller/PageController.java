@@ -1,5 +1,7 @@
-package com.catchmind.catchtable.controller.page;
+package com.catchmind.catchtable.controller;
 
+import com.catchmind.catchtable.domain.Profile;
+import com.catchmind.catchtable.dto.ProfileDto;
 import com.catchmind.catchtable.service.ProfileLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("")
@@ -29,14 +33,15 @@ public class PageController {
         return new ModelAndView("/login");
     }
 
-    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
+    @PostMapping(path="/loginOk")   // http://localhost:8888/loginOk
     public String loginOk(HttpServletRequest request, String prHp, String prUserpw){
-        if(profileLogicService.read(prHp, prUserpw).getData() != null){
+        if(profileLogicService.login(prHp, prUserpw) != null){
             HttpSession session = request.getSession();
-            Long prIdx = profileLogicService.read(prHp, prUserpw).getData().getPrIdx();
-            session.setAttribute("prIdx", prIdx);
+            ProfileDto profile = profileLogicService.login(prHp, prUserpw);
+            session.setAttribute("prIdx", profile.prIdx());
+            session.setAttribute("prName", profile.prName());
             session.setAttribute("prHp", prHp);
-            return "redirect:/index";
+            return "redirect:/";
         }else{
             return "redirect:/login";
         }
