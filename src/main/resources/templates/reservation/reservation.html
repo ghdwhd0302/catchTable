@@ -11,6 +11,7 @@
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/air-datepicker/dist/js/datepicker.min.js"></script>
     <script src="/air-datepicker/dist/js/i18n/datepicker.ko.js"></script>
+    <script defer src ="/js/calendar.js"></script>
 </head>
     <style>
         .datepicker {
@@ -144,23 +145,23 @@
         <div th:replace="fragment/footer :: footer"/>
     </div>
 
-<script>
-<!-- 캘린더를 위한 스크립트-->
-        $("#datepicker").datepicker({
-          language: "ko",
-        });
+<!--<script>-->
+<!--&lt;!&ndash; 캘린더를 위한 스크립트&ndash;&gt;-->
+<!--        $("#datepicker").datepicker({-->
+<!--          language: "ko",-->
+<!--        });-->
 
-        $(function () {
-          $("#datepicker").datepicker({
-            onSelect: function (dateText) {
-              //  $('#datepicker-display').datepicker("setDate", $(this).datepicker("getDate"));
-              var date = $("#datepicker")
-                .datepicker({ dateFormat: "yyyy.mm.dd" })
-                .val();
-              console.log(date);
-            },
-          });
-        });
-    </script>
+<!--        $(function () {-->
+<!--          $("#datepicker").datepicker({-->
+<!--            onSelect: function (dateText) {-->
+<!--              //  $('#datepicker-display').datepicker("setDate", $(this).datepicker("getDate"));-->
+<!--              var date = $("#datepicker")-->
+<!--                .datepicker({ dateFormat: "yyyy.mm.dd" })-->
+<!--                .val();-->
+<!--              console.log(date);-->
+<!--            },-->
+<!--          });-->
+<!--        });-->
+<!--    </script>-->
 </body>
 </html>
