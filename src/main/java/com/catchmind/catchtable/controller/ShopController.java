@@ -19,7 +19,7 @@ public class ShopController {
     }
     @GetMapping("/menulist")
     public ModelAndView menuList() {
-        return new ModelAndView("shop/menuList");
+        return new ModelAndView("shop/menuAllList");
     }
 
     @GetMapping("/list")
