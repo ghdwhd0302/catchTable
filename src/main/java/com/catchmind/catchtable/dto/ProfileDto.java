@@ -52,7 +52,5 @@ public record ProfileDto(
         );
     }
 
-    public Profile toEntity(){
-        return Profile.of(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock,prPoint);
-    }
+
 }
