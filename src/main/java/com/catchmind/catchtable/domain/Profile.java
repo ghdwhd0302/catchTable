@@ -1,36 +1,38 @@
 package com.catchmind.catchtable.domain;
 
-import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-import javax.persistence.*;
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Getter
-@ToString
+@EqualsAndHashCode(callSuper = true)
 @Entity
-public class Profile extends AuditingFields {
+@Data
+@ToString(callSuper = true)
+public class Profile extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long prIdx;
-    @Setter @Column(unique = true, length = 100) private String prNick;
-    @Setter @Column(nullable = false, length = 100) private String prName;
-    @Setter @Column(length = 2000) private String prIntro;
-    @Setter @Column(length = 100) private String prRegion;
-    @Setter @Column(length = 100, nullable = false) private String prHp;
-    @Setter @Column(length = 100, nullable = false) private String prUserpw;
-    @Setter @Column(length = 10) private String prGender;
-    @Setter @Column(length = 100) private String prBirth;
-    @Setter @Column(length = 2000) private String prMemo;
-    @Setter private int prReview;
-    @Setter private int prNoshow;
-    @Setter private boolean prBlock;
-    @Setter private int prPoint;
+    private String prNick;
+    private String prName;
+    private String prIntro;
+    private String prRegion;
+    private String prHp;
+    private String prUserpw;
+    private String prGender;
+    private String prBirth;
+    private String prMemo;
+    private int prReview;
+    private int prNoshow;
+    private boolean prBlock;
+    private int prPoint;
 
+    public Profile(){}
 
-    protected Profile() {}
-
-    @Builder
     public Profile(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint) {
         this.prIdx = prIdx;
         this.prNick = prNick;
@@ -46,23 +48,5 @@ public class Profile extends AuditingFields {
         this.prNoshow = prNoshow;
         this.prBlock = prBlock;
         this.prPoint = prPoint;
-    }
-
-
-
-    public static Profile of(Long prIdx, String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint) {
-        return new Profile(prIdx, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock, prPoint);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(prIdx);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(!(obj instanceof Profile profile)) return false;
-        return prIdx != null && prIdx.equals(profile.prIdx);
     }
 }

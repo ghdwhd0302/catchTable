@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>즐거운 미식 생활의 시작, 캐치테이블</title>
-  <div th:replace="fragment/link :: link"/>
-  <link rel="stylesheet" href="/css/detail.css">
-  <link rel="stylesheet" href="/css/collection_detail.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>즐거운 미식 생활의 시작, 캐치테이블</title>
+    <div th:replace="fragment/link :: link"/>
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/collection_detail.css">
+  </head>
+  <body>
 <div id="root">
   <header id="header">
     ㅎㄷㅎㄷ
   </header>
-  <div class="wrapper">
+    <div class="wrapper">
     <main id="main">
-      <section class="section bg-gray mb-30">
+      <section class="section bg-gray mb-30" style="background-color: white;">
         <div class="restaurant-reservation-detail">
           <div class="detail-box p-10">
             <div class="box">
@@ -26,7 +26,7 @@
                 </div>
                 <h2 class="name">
                   <a href="/ct/shop/Y2F0Y2hfMCtRcEsrMGd5ZUloTGszSitWY2xhdz09"
-                     th:text="${detail.resAdminDto().resaBisName()}"></a
+                    th:text="${detail.resAdminDto().resaBisName()}"></a
                   >
                 </h2>
                 <div style="display: flex;justify-content: center">
@@ -40,7 +40,7 @@
                   <div class="date">
                     <span th:text="${detail.resMonth()}"></span>
                     <span th:text="${detail.resDay()}"></span>
-                    <!--                    <span>(</span>-->
+<!--                    <span>(</span>-->
                     <span></span>
                   </div>
                   <div class="time">
@@ -52,26 +52,42 @@
                   </div>
                 </div>
                 <hr class="hairline" />
-                <div class="reservation-info">
-                  <div>
-                    <div class="reservation-info">
-                      <dl>
-                        <dt>취소일시</dt>
-                        <dd>12.08(목) 오후 8:06</dd>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-                <hr class="hairline" />
                 <div>
-                  <div class="cancel-msg">
-                    <h6>예약이 취소되었습니다.</h6>
-                    <p>
-                      변경사항을 미리 알려 주셔서 감사합니다. 다음에 다시
-                      찾아주세요 :)
-                    </p>
+                  <div style="text-align: right;">
+                    <button>예약변경</button>
+                    <span style="border-right: 1px solid #ded7d7;height: 12px;
+    margin: 0 10px;
+    display: inline-block;"></span>
+                    <button>예약취소</button>
                   </div>
                 </div>
+<!--                <div class="reservation-info">-->
+<!--                  <div>-->
+<!--                    <div class="reservation-info">-->
+<!--                      <dl>-->
+<!--                        <dt>예약 일시</dt>-->
+<!--                        <dd>-->
+<!--                          <span th:text="${#temporals.month(detail.regDate())}"></span>-->
+<!--                          <span>.</span>-->
+<!--                          <span th:text="${#temporals.day(detail.regDate())}"></span>-->
+<!--                          <span>(</span><span th:text="${#temporals.dayOfWeekNameShort(detail.regDate())}"></span><span>)</span>&nbsp-->
+<!--                          <span th:text="${#temporals.hour(detail.regDate())}"></span><span>:</span><span th:text="${#temporals.minute(detail.regDate())}"></span>-->
+<!--&lt;!&ndash;                          12.08(목) 오후 8:06&ndash;&gt;-->
+<!--                        </dd>-->
+<!--                      </dl>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <hr class="hairline" />-->
+<!--                <div>-->
+<!--                  <div class="cancel-msg">-->
+<!--                    <h6>예약이 완료되었습니다.</h6>-->
+<!--                    <p>-->
+<!--                      변경사항을 미리 알려 주셔서 감사합니다. 다음에 다시-->
+<!--                      찾아주세요 :)-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </div>-->
               </div>
             </div>
           </div>
@@ -85,13 +101,13 @@
           <div class="section-body">
             <div class="reservation-info-summary">
               <dl>
-                <dt>예약자</dt>
+                <dt style="margin-right: 28px;">예약자</dt>
                 <dd style="word-break: break-all" th:text="${detail.prName()}">전지혜</dd>
               </dl>
-              <dl>
-                <dt>예약경로</dt>
-                <dd>캐치테이블 앱</dd>
-              </dl>
+<!--              <dl>-->
+<!--                <dt>예약경로</dt>-->
+<!--                <dd>캐치테이블 앱</dd>-->
+<!--              </dl>-->
             </div>
           </div>
         </div>
@@ -104,10 +120,10 @@
           </div>
           <div class="section-body">
             <div class="well">
-              <p class="font-12 color-gray">
-                예약은 전날 까지 가능하며, 좌석은 직원들이 안내 해드릴
-                겁니다.<br />공연은 매주 목,금,토 19:30~21:00 진행하니 예약 시
-                참고 부탁 드리겠습니다.
+              <p class="font-12 color-gray" th:text="${detail.bistroDetailDto().bdCaution()}">
+<!--                예약은 전날 까지 가능하며, 좌석은 직원들이 안내 해드릴-->
+<!--                겁니다.<br />공연은 매주 목,금,토 19:30~21:00 진행하니 예약 시-->
+<!--                참고 부탁 드리겠습니다.-->
               </p>
             </div>
           </div>
@@ -122,20 +138,20 @@
           <div class="section-body">
             <div class="sc-gsnTZi hLhZKP">
               <div
-                      class="map"
-                      id="mapContainer"
-                      style="
+                class="map"
+                id="mapContainer"
+                style="
                   height: 240px;
                   overflow: hidden;
                   background: url('https://t1.daumcdn.net/mapjsapi/images/2x/bg_tile.png');
                 "
               >
                 <img
-                        src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons/location-red.svg"
-                        class="icon"
+                  src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons/location-red.svg"
+                  class="icon"
                 />
                 <div
-                        style="
+                  style="
                     position: absolute;
                     left: 0px;
                     top: 0px;
@@ -147,7 +163,7 @@
                   <div style="position: absolute">
                     <div style="position: absolute; z-index: 0"></div>
                     <div
-                            style="
+                      style="
                         position: absolute;
                         z-index: 1;
                         left: 0px;
@@ -155,11 +171,11 @@
                       "
                     >
                       <img
-                              src="https://map1.daumcdn.net/map_2d_hd/2212ejo/L3/1999/889.png"
-                              alt=""
-                              role="presentation"
-                              draggable="false"
-                              style="
+                        src="https://map1.daumcdn.net/map_2d_hd/2212ejo/L3/1999/889.png"
+                        alt=""
+                        role="presentation"
+                        draggable="false"
+                        style="
                           position: absolute;
                           user-select: none;
                           -webkit-user-drag: none;
@@ -177,11 +193,11 @@
                           height: 256px;
                         "
                       /><img
-                            src="https://map2.daumcdn.net/map_2d_hd/2212ejo/L3/1999/890.png"
-                            alt=""
-                            role="presentation"
-                            draggable="false"
-                            style="
+                        src="https://map2.daumcdn.net/map_2d_hd/2212ejo/L3/1999/890.png"
+                        alt=""
+                        role="presentation"
+                        draggable="false"
+                        style="
                           position: absolute;
                           user-select: none;
                           -webkit-user-drag: none;
@@ -198,12 +214,12 @@
                           width: 256px;
                           height: 256px;
                         "
-                    /><img
-                            src="https://map3.daumcdn.net/map_2d_hd/2212ejo/L3/1999/891.png"
-                            alt=""
-                            role="presentation"
-                            draggable="false"
-                            style="
+                      /><img
+                        src="https://map3.daumcdn.net/map_2d_hd/2212ejo/L3/1999/891.png"
+                        alt=""
+                        role="presentation"
+                        draggable="false"
+                        style="
                           position: absolute;
                           user-select: none;
                           -webkit-user-drag: none;
@@ -220,12 +236,12 @@
                           width: 256px;
                           height: 256px;
                         "
-                    /><img
-                            src="https://map1.daumcdn.net/map_2d_hd/2212ejo/L3/2000/889.png"
-                            alt=""
-                            role="presentation"
-                            draggable="false"
-                            style="
+                      /><img
+                        src="https://map1.daumcdn.net/map_2d_hd/2212ejo/L3/2000/889.png"
+                        alt=""
+                        role="presentation"
+                        draggable="false"
+                        style="
                           position: absolute;
                           user-select: none;
                           -webkit-user-drag: none;
@@ -242,12 +258,12 @@
                           width: 256px;
                           height: 256px;
                         "
-                    /><img
-                            src="https://map2.daumcdn.net/map_2d_hd/2212ejo/L3/2000/890.png"
-                            alt=""
-                            role="presentation"
-                            draggable="false"
-                            style="
+                      /><img
+                        src="https://map2.daumcdn.net/map_2d_hd/2212ejo/L3/2000/890.png"
+                        alt=""
+                        role="presentation"
+                        draggable="false"
+                        style="
                           position: absolute;
                           user-select: none;
                           -webkit-user-drag: none;
@@ -264,12 +280,12 @@
                           width: 256px;
                           height: 256px;
                         "
-                    /><img
-                            src="https://map3.daumcdn.net/map_2d_hd/2212ejo/L3/2000/891.png"
-                            alt=""
-                            role="presentation"
-                            draggable="false"
-                            style="
+                      /><img
+                        src="https://map3.daumcdn.net/map_2d_hd/2212ejo/L3/2000/891.png"
+                        alt=""
+                        role="presentation"
+                        draggable="false"
+                        style="
                           position: absolute;
                           user-select: none;
                           -webkit-user-drag: none;
@@ -286,11 +302,11 @@
                           width: 256px;
                           height: 256px;
                         "
-                    />
+                      />
                     </div>
                     <div style="position: absolute; z-index: 1"></div>
                     <div
-                            style="
+                      style="
                         width: 480px;
                         height: 240px;
                         position: absolute;
@@ -299,8 +315,8 @@
                     ></div>
                     <div style="position: absolute; z-index: 1">
                       <svg
-                              version="1.1"
-                              style="
+                        version="1.1"
+                        style="
                           stroke: none;
                           stroke-dashoffset: 0.5;
                           stroke-linejoin: round;
@@ -312,13 +328,13 @@
                           left: -960px;
                           top: -480px;
                         "
-                              viewBox="0 0 2400 1200"
+                        viewBox="0 0 2400 1200"
                       >
                         <defs></defs>
                       </svg>
                     </div>
                     <div
-                            style="
+                      style="
                         position: absolute;
                         z-index: 1;
                         width: 100%;
@@ -327,7 +343,7 @@
                       "
                     >
                       <div
-                              style="
+                        style="
                           position: absolute;
                           margin: -35px 0px 0px -12px;
                           z-index: 0;
@@ -336,12 +352,12 @@
                         "
                       >
                         <img
-                                draggable="false"
-                                src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons/location-red.svg"
-                                alt=""
-                                role="presentation"
-                                title=""
-                                style="
+                          draggable="false"
+                          src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons/location-red.svg"
+                          alt=""
+                          role="presentation"
+                          title=""
+                          style="
                             min-width: 0px;
                             min-height: 0px;
                             max-width: 99999px;
@@ -363,7 +379,7 @@
                   </div>
                 </div>
                 <div
-                        style="
+                  style="
                     position: absolute;
                     cursor: default;
                     z-index: 1;
@@ -376,7 +392,7 @@
                   "
                 >
                   <div
-                          style="
+                    style="
                       color: rgb(0, 0, 0);
                       text-align: center;
                       font-size: 10px;
@@ -384,7 +400,7 @@
                     "
                   >
                     <div
-                            style="
+                      style="
                         float: left;
                         margin: 2px 3px 0px 4px;
                         height: 6px;
@@ -398,7 +414,7 @@
                       "
                     ></div>
                     <div
-                            style="
+                      style="
                         float: left;
                         margin: 0px 4px 0px 0px;
                         font-family: AppleSDGothicNeo-Regular, 돋움, dotum,
@@ -412,14 +428,14 @@
                   </div>
                   <div style="margin: 0px 4px; float: left">
                     <a
-                            target="_blank"
-                            href="http://map.kakao.com/"
-                            title="Kakao 지도로 보시려면 클릭하세요."
-                            style="float: left; width: 32px; height: 10px"
-                    ><img
-                            src="https://t1.daumcdn.net/mapjsapi/images/2x/m_bi_b.png"
-                            alt="Kakao 지도로 이동"
-                            style="
+                      target="_blank"
+                      href="http://map.kakao.com/"
+                      title="Kakao 지도로 보시려면 클릭하세요."
+                      style="float: left; width: 32px; height: 10px"
+                      ><img
+                        src="https://t1.daumcdn.net/mapjsapi/images/2x/m_bi_b.png"
+                        alt="Kakao 지도로 이동"
+                        style="
                           float: left;
                           width: 32px;
                           height: 10px;
@@ -427,7 +443,7 @@
                         "
                     /></a>
                     <div
-                            style="
+                      style="
                         font: 11px / 11px Arial, Tahoma, Dotum, sans-serif;
                         float: left;
                       "
@@ -435,7 +451,7 @@
                   </div>
                 </div>
                 <div
-                        style="
+                  style="
                     cursor: auto;
                     position: absolute;
                     z-index: 2;
@@ -445,15 +461,15 @@
                 ></div>
               </div>
               <div class="addr">
-                <a class="btn-copy">매장주소 복사하기</a>
-                <p>서울특별시 중구 세종대로 135 코리아나호텔 2층</p>
+<!--                <a class="btn-copy">매장주소 복사하기</a>-->
+                <p th:text="${detail.bistroDetailDto().bdAddr()}">서울특별시 중구 세종대로 135 코리아나호텔 2층</p>
               </div>
             </div>
-            <div class="btn-centered">
-              <a href="#" class="btn full-width btn-lg"
-              ><strong class="label arrow">레스토랑 길찾기</strong></a
-              >
-            </div>
+<!--            <div class="btn-centered">-->
+<!--              <a href="#" class="btn full-width btn-lg"-->
+<!--                ><strong class="label arrow">레스토랑 길찾기</strong></a-->
+<!--              >-->
+<!--            </div>-->
           </div>
         </div>
       </section>
@@ -468,26 +484,26 @@
               <div class="desc-block">
                 <dl>
                   <dt>전화번호</dt>
-                  <dd>02-2171-7830</dd>
+                  <dd th:text="${detail.bistroDetailDto().bdHp()}">02-2171-7830</dd>
                 </dl>
-                <div class="action">
-                  <a class="btn-call"><span>전화하기</span></a>
-                </div>
+<!--                <div class="action">-->
+<!--                  <a class="btn-call"><span>전화하기</span></a>-->
+<!--                </div>-->
               </div>
               <div class="desc-block">
                 <dl>
                   <dt><a class="__toggle">매장 소개</a></dt>
-                  <dd class="color-gray">
-                    안녕하세요 호텔 코리아나 피아 라운지입니다.<br />아늑한
-                    라운지에서 라이브 재즈 공연과 함께 이탈리안 음식을 이용
-                    가능하니<br />많은 이용 부탁드리겠습니다.
+                  <dd class="color-gray" th:text="${detail.bistroDetailDto().bdIntro()}">
+<!--                    안녕하세요 호텔 코리아나 피아 라운지입니다.<br />아늑한-->
+<!--                    라운지에서 라이브 재즈 공연과 함께 이탈리안 음식을 이용-->
+<!--                    가능하니<br />많은 이용 부탁드리겠습니다.-->
                   </dd>
                 </dl>
               </div>
               <div class="desc-block">
                 <dl>
                   <dt><a class="__toggle">영업시간</a></dt>
-                  <dd class="color-gray">
+                  <dd class="color-gray" th:text="${detail.bistroDetailDto().bdHour()}">
                     월-토 18:00~23:00 디너 브레이크타임 없이 운영<br />(라스트오더
                     20:30)<br />
                   </dd>
@@ -496,13 +512,13 @@
               <div class="desc-block">
                 <dl>
                   <dt><a class="__toggle">정기 휴무</a></dt>
-                  <dd class="color-gray">매주 일요일은 정기 휴무입니다.</dd>
+                  <dd class="color-gray" th:text="${detail.bistroDetailDto().bdHoliday()}">매주 일요일은 정기 휴무입니다.</dd>
                 </dl>
               </div>
               <div class="desc-block">
                 <dl>
                   <dt><a class="__toggle">안내 및 유의사항</a></dt>
-                  <dd class="color-gray">
+                  <dd class="color-gray" th:text="${detail.bistroDetailDto().bdCaution()}">
                     예약은 전날 까지 가능하며, 좌석은 직원들이 안내 해드릴
                     겁니다.<br />공연은 매주 목,금,토 19:30~21:00 진행하니 예약
                     시 참고 부탁 드리겠습니다.
@@ -515,8 +531,8 @@
       </section>
       <div class="space-40"></div>
     </main>
+    </div>
+    <div th:replace="fragment/footer :: footer"/>
   </div>
-  <div th:replace="fragment/footer :: footer"/>
-</div>
-</body>
+  </body>
 </html>
