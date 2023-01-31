@@ -9,15 +9,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Objects;
-@NoArgsConstructor
-@Getter
-@Table(name = "profile")
-@ToString
+
+
+//@Table(name = "profile")
+@ToString(callSuper = true)
 @Entity
+@Data
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pr_idx")
     private Long prIdx;
     private String prNick;
     private String prName;
@@ -35,6 +35,7 @@ public class Profile {
     @Enumerated(EnumType.STRING)
     private MemberRole role;
 
+    public Profile(){}
 
     @Builder
     public Profile(String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint, MemberRole role) {
@@ -73,6 +74,14 @@ public class Profile {
 
     public static Profile of(String prNick, String prName, String prIntro, String prRegion, String prHp, String prUserpw, String prGender, String prBirth, String prMemo, int prReview, int prNoshow, boolean prBlock, int prPoint, MemberRole role) {
         return new Profile(prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock, prPoint, role);
+    }
+
+    public Profile(Long prIdx){
+        this.prIdx = prIdx;
+    }
+
+    public static Profile of(Long prIdx) {
+        return new Profile(prIdx);
     }
 
 }

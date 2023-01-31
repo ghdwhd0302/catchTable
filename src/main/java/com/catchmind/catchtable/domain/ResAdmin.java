@@ -43,6 +43,13 @@ public class ResAdmin extends AuditingField{
         return new ResAdmin(resaBisName, resaUserid, resaUserpw, resaName, resaHp, resaRegion);
     }
 
+    public ResAdmin(String resaBisName) {
+        this.resaBisName = resaBisName;
+    }
+    public static ResAdmin of1(String resaBisName) {
+        return new ResAdmin(resaBisName);
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(resaBisName);
@@ -54,4 +61,6 @@ public class ResAdmin extends AuditingField{
         if(!(obj instanceof ResAdmin resAdmin)) return false;
         return resaBisName != null && resaBisName.equals(resAdmin.resaBisName);
     }
+
+
 }
