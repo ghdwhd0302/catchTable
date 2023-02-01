@@ -3,15 +3,14 @@ package com.catchmind.catchtable.controller;
 
 import com.catchmind.catchtable.domain.Ask;
 import com.catchmind.catchtable.dto.*;
-import com.catchmind.catchtable.dto.network.AskRequest;
-import com.catchmind.catchtable.dto.network.ImprovementRequest;
+import com.catchmind.catchtable.dto.network.request.AskRequest;
+import com.catchmind.catchtable.dto.network.request.ImprovementRequest;
 import com.catchmind.catchtable.dto.security.CatchPrincipal;
 import com.catchmind.catchtable.repository.*;
 import com.catchmind.catchtable.service.NoticeService;
 import com.catchmind.catchtable.service.PaginationService;
 import com.catchmind.catchtable.service.ProfileLogicService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -22,7 +21,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller

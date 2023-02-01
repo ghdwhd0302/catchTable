@@ -1,11 +1,9 @@
 package com.catchmind.catchtable.controller;
 
 import com.catchmind.catchtable.domain.Profile;
-import com.catchmind.catchtable.dto.ProfileDto;
-import com.catchmind.catchtable.dto.network.ProfileRequest;
+import com.catchmind.catchtable.dto.network.request.ProfileRequest;
 import com.catchmind.catchtable.service.ProfileLogicService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-import java.util.Optional;
-import java.util.stream.Stream;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("")

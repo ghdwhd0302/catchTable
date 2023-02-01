@@ -6,8 +6,8 @@ import com.catchmind.catchtable.dto.ReserveDto;
 import com.catchmind.catchtable.dto.ReviewDto;
 
 import com.catchmind.catchtable.dto.ReviewPhotoDto;
-import com.catchmind.catchtable.dto.network.ReviewPhotoRequest;
-import com.catchmind.catchtable.dto.network.ReviewRequest;
+import com.catchmind.catchtable.dto.network.request.ReviewPhotoRequest;
+import com.catchmind.catchtable.dto.network.request.ReviewRequest;
 import com.catchmind.catchtable.repository.ReserveRepository;
 import com.catchmind.catchtable.repository.ReviewPhotoRepository;
 import com.catchmind.catchtable.repository.ReviewRepository;

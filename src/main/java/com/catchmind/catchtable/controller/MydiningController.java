@@ -1,12 +1,11 @@
 package com.catchmind.catchtable.controller;
 
 import com.catchmind.catchtable.domain.Reserve;
-import com.catchmind.catchtable.domain.Review;
 import com.catchmind.catchtable.domain.type.ReservationType;
 import com.catchmind.catchtable.dto.ProfileDto;
 import com.catchmind.catchtable.dto.ReserveDto;
 
-import com.catchmind.catchtable.dto.network.ReviewRequest;
+import com.catchmind.catchtable.dto.network.request.ReviewRequest;
 import com.catchmind.catchtable.dto.security.CatchPrincipal;
 import com.catchmind.catchtable.repository.ReserveRepository;
 import com.catchmind.catchtable.service.MydiningService;

@@ -1,4 +1,4 @@
-package com.catchmind.catchtable.dto.network;
+package com.catchmind.catchtable.dto.network.request;
 
 import com.catchmind.catchtable.dto.ImprovementDto;
 import com.catchmind.catchtable.dto.ProfileDto;
