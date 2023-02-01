@@ -98,9 +98,9 @@ public class MydiningController {
     @PostMapping("/reserve/doneDetail")
     public String uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("files") List<MultipartFile> files, ReviewRequest review) throws IOException {
         System.out.println("💵 -> " +review);
-
+        Long saveIdx = mydiningService.saveReview(review);
         for (MultipartFile multipartFile : files) {
-            mydiningService.saveFile(multipartFile, review);
+            mydiningService.saveFile(multipartFile, saveIdx);
         }
         System.out.println("⭕" + file);
         System.out.println("🎁" + files);

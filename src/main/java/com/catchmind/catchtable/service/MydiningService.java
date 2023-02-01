@@ -5,8 +5,11 @@ import com.catchmind.catchtable.domain.type.ReservationType;
 import com.catchmind.catchtable.dto.ReserveDto;
 import com.catchmind.catchtable.dto.ReviewDto;
 
+import com.catchmind.catchtable.dto.ReviewPhotoDto;
+import com.catchmind.catchtable.dto.network.ReviewPhotoRequest;
 import com.catchmind.catchtable.dto.network.ReviewRequest;
 import com.catchmind.catchtable.repository.ReserveRepository;
+import com.catchmind.catchtable.repository.ReviewPhotoRepository;
 import com.catchmind.catchtable.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +29,7 @@ import java.util.UUID;
 public class MydiningService {
     private final ReserveRepository reserveRepository;
     private final ReviewRepository reviewRepository;
+    private final ReviewPhotoRepository reviewPhotoRepository;
 
     @Transactional
     public ReserveDto getDetail(Long resIdx) {
@@ -45,27 +49,42 @@ public class MydiningService {
 
     }
 
-    public Long saveFile(MultipartFile files, ReviewRequest reviews) throws IOException {
-        if (files.isEmpty()){
+    public Long saveReview(ReviewRequest reviews) {
+        ReviewRequest request = reviews;
+        System.out.println(request);
+        ReviewDto newReview = request.of(request.prIdx(), request.revContent(), request.revScore(), request.resaBisName(), request.resIdx()).toDto();
+        Long saveIdx = reviewRepository.save(newReview.toEntity()).getRevIdx();
+
+        if (saveIdx != null) {
+            Optional<Reserve> reserve = reserveRepository.findById(request.resIdx());
+            reserve.ifPresent(
+                    newRes -> {
+                        newRes.setRevStatus(true);
+                        reserveRepository.save(newRes);
+                    }
+            );
+        }
+        return saveIdx;
+    }
+
+
+    public Long saveFile(MultipartFile files, Long saveIdx) throws IOException {
+        if (files.isEmpty()) {
             return null;
         }
-        ReviewRequest request = reviews;
+        Long phIdx = 0L;
         String origName = files.getOriginalFilename();
         String uuid = UUID.randomUUID().toString();
         String extension = origName.substring(origName.lastIndexOf("."));
         String savedName = uuid + extension;
         // 파일을 불러올 때 사용할 파일 경로
         String savedPath = "D:\\test/" + savedName;
-        ReviewDto newReview = request.of(request.prIdx(),request.revContent(),request.revScore(),request.resaBisName(),origName,savedName,savedPath,request.resIdx()).toDto();
         files.transferTo(new File(savedPath));
-        reviewRepository.save(newReview.toEntity());
-        Optional<Reserve> reserve =  reserveRepository.findById(request.resIdx());
-        reserve.ifPresent(
-                newRes -> {
-                    newRes.setRevStatus(true);
-                    reserveRepository.save(newRes);
-                }
-        );
-        return null;
+        if (saveIdx != null) {
+            System.out.println(saveIdx);
+            ReviewPhotoDto reviewRequest = new ReviewPhotoRequest(origName, savedName, savedPath, saveIdx).toDto();
+            phIdx = reviewPhotoRepository.save(reviewRequest.toEntity()).getPhIdx();
+        }
+        return phIdx;
     }
 }

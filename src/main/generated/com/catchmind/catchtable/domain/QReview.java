@@ -24,10 +24,6 @@ public class QReview extends EntityPathBase<Review> {
 
     public final QAuditingFields _super = new QAuditingFields(this);
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
-
-    public final StringPath orgNm = createString("orgNm");
-
     public final QProfile profile;
 
     //inherited
@@ -39,13 +35,11 @@ public class QReview extends EntityPathBase<Review> {
 
     public final StringPath revContent = createString("revContent");
 
+    public final NumberPath<Long> revIdx = createNumber("revIdx", Long.class);
+
     public final NumberPath<Long> revLike = createNumber("revLike", Long.class);
 
     public final NumberPath<Double> revScore = createNumber("revScore", Double.class);
-
-    public final StringPath savedNm = createString("savedNm");
-
-    public final StringPath savedPath = createString("savedPath");
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;

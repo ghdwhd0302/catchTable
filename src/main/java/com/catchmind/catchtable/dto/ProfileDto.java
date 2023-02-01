@@ -29,7 +29,7 @@ public record ProfileDto(
         return new ProfileDto(null, prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, null, 0, 0,false, 0, null);
     }
 
-    public static ProfileDto of(Long prIdx){
+    public static ProfileDto ofIdx(Long prIdx){
         return new ProfileDto(prIdx,null,null,null,null,null,null,null,null,null,0,0,false,0,null);
     }
 
@@ -61,8 +61,8 @@ public record ProfileDto(
         return Profile.of(prNick, prName, prIntro, prRegion, prHp, prUserpw, prGender, prBirth, prMemo, prReview, prNoshow, prBlock,prPoint,role);
     }
 
-    public Profile toEntity1() {
-        return Profile.of(
+    public Profile toEntityIdx() {
+        return Profile.ofIdx(
                 prIdx
         );
     }
