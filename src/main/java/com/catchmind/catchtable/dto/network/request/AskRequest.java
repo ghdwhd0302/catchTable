@@ -1,4 +1,4 @@
-package com.catchmind.catchtable.dto.network;
+package com.catchmind.catchtable.dto.network.request;
 
 import com.catchmind.catchtable.dto.AskDto;
 import com.catchmind.catchtable.dto.ProfileDto;
@@ -17,7 +17,7 @@ public record AskRequest(
             String askContent,
             Long prIdx,
             String askAnswer
-           ){
+    ){
         return new AskRequest(askTitle, askContent, prIdx, askAnswer);
     }
 

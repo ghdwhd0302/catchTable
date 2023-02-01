@@ -2,8 +2,14 @@ package com.catchmind.catchtable.repository;
 
 import com.catchmind.catchtable.domain.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
-public interface ReviewRepository extends JpaRepository<Review, Long> {
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-    Review findAllByReserve_ResIdx(Long resIdx);
-//    findAllByProfile_PrIdx(Long prIdx);
+import java.util.List;
+
+@RepositoryRestResource
+public interface ReviewRepository extends JpaRepository<Review, Long> {
+    List<Review> findAllByProfile_PrIdx(Long prIdx);
+//    @EntityGraph(attributePaths = {"reviewPhotos"})
+//    List<Review> findAllByRevIdxAndProfile_PrIdx(Long revIdx, Long prIdx);
+//    Review findAllByReserve_ResIdx(Long resIdx);
 }
