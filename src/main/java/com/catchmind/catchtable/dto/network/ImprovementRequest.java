@@ -19,6 +19,6 @@ public record ImprovementRequest(
     }
 
     public ImprovementDto toDto(){
-        return ImprovementDto.of(impTitle, impContent, ProfileDto.of(prIdx), impAnswer);
+        return ImprovementDto.of(impTitle, impContent, ProfileDto.ofIdx(prIdx), impAnswer);
     }
 }

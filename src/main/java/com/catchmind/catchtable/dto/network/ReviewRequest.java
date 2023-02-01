@@ -10,9 +10,6 @@ public record ReviewRequest(
         String revContent,
         double revScore,
         String resaBisName,
-        String orgNm,
-        String savedNm,
-        String savedPath,
         Long resIdx
 ) {
 
@@ -20,14 +17,11 @@ public record ReviewRequest(
                             String revContent,
                             double revScore,
                             String resaBisName,
-                            String orgNm,
-                            String savedNm,
-                            String savedPath,
                             Long resIdx) {
-        return new ReviewRequest(prIdx,revContent,revScore,resaBisName,orgNm,savedNm,savedPath,resIdx);
+        return new ReviewRequest(prIdx,revContent,revScore,resaBisName,resIdx);
     }
 
     public ReviewDto toDto() {
-        return ReviewDto.of(ProfileDto.of(prIdx), revContent, revScore, ResAdminDto.of(resaBisName), orgNm, savedNm, savedPath, ReserveDto.of(resIdx));
+        return ReviewDto.of(ProfileDto.ofIdx(prIdx), revContent, revScore, ResAdminDto.of(resaBisName), ReserveDto.of(resIdx));
     }
 }

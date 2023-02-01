@@ -1,8 +1,5 @@
 package com.catchmind.catchtable.dto;
 
-import com.catchmind.catchtable.domain.Profile;
-import com.catchmind.catchtable.domain.ResAdmin;
-import com.catchmind.catchtable.domain.Reserve;
 import com.catchmind.catchtable.domain.Review;
 
 import java.time.LocalDateTime;
@@ -14,9 +11,6 @@ public record ReviewDto(
         String revContent,
         double revScore,
         ResAdminDto resAdminDto,
-        String orgNm,
-        String savedNm,
-        String savedPath,
         LocalDateTime regDate,
         LocalDateTime updateDate,
         ReserveDto reserveDto
@@ -25,15 +19,12 @@ public record ReviewDto(
 
     public static ReviewDto from(Review review) {
         return new ReviewDto(
-                review.getId(),
+                review.getRevIdx(),
                 ProfileDto.from(review.getProfile()),
                 review.getRevLike(),
                 review.getRevContent(),
                 review.getRevScore(),
                 ResAdminDto.from(review.getResAdmin()),
-                review.getOrgNm(),
-                review.getSavedNm(),
-                review.getSavedPath(),
                 review.getRegDate(),
                 review.getUpdateDate(),
                 ReserveDto.from(review.getReserve())
@@ -45,23 +36,31 @@ public record ReviewDto(
             String revContent,
             double revScore,
             ResAdminDto resAdminDto,
-            String orgNm,
-            String savedNm,
-            String savedPath,
-            ReserveDto reserveDto) {
-        return new ReviewDto(0L, profileDto, 0L, revContent, revScore, resAdminDto, orgNm, savedNm, savedPath, null, null, reserveDto);
+            ReserveDto reserveDto
+    ) {
+        return new ReviewDto(0L, profileDto, 0L, revContent, revScore, resAdminDto,null,null, reserveDto);
+    }
+
+    public static ReviewDto ofIdx(
+            Long revIdx
+    ) {
+        return new ReviewDto(revIdx, null, 0L, null, 0, null,null,null, null);
     }
 
     public Review toEntity() {
         return Review.of(
-                profileDto.toEntity1(),
+                profileDto.toEntityIdx(),
                 revContent,
                 revScore,
                 resAdminDto.toEntity(),
-                orgNm,
-                savedNm,
-                savedPath,
                 reserveDto.toEntity()
+        );
+
+    }
+
+    public Review toEntityIdx() {
+        return Review.of(
+                revIdx
         );
 
     }

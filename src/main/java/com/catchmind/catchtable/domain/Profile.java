@@ -80,7 +80,7 @@ public class Profile {
         this.prIdx = prIdx;
     }
 
-    public static Profile of(Long prIdx) {
+    public static Profile ofIdx(Long prIdx) {
         return new Profile(prIdx);
     }
 

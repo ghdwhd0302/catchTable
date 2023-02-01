@@ -43,7 +43,7 @@ public record AskDto(
         return Ask.of(
                 askTitle,
                 askContent,
-                profileDto.toEntity1(),
+                profileDto.toEntityIdx(),
                 askAnswer
 
         );

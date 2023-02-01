@@ -22,7 +22,7 @@ public record AskRequest(
     }
 
     public AskDto toDto(){
-        return AskDto.of(askTitle, askContent, ProfileDto.of(prIdx), askAnswer);
+        return AskDto.of(askTitle, askContent, ProfileDto.ofIdx(prIdx), askAnswer);
     }
 
 }

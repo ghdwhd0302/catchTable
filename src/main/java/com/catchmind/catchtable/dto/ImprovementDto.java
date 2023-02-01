@@ -39,7 +39,7 @@ public record ImprovementDto(
         return Improvement.of(
                 impTitle,
                 impContent,
-                profileDto.toEntity1(),
+                profileDto.toEntityIdx(),
                 impAnswer
         );
     }
