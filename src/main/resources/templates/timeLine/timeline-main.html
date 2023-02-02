@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/collection_detail.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <style>
     .page_nation {
@@ -55,6 +56,16 @@
     .page_nation a.page-disabled{
         pointer-events: none;
     }
+
+    .comment__review {
+        display: none;
+    }
+
+    .comment__review1 {
+        display: block;
+    }
+
+
 </style>
 <body>
 <div id="root">
@@ -71,7 +82,7 @@
                             <div class="__my-review-list ml--20 mr--20">
                                 <div id="shopReviewListScroll">
                                     <div id="shopReviewListScroll_0" data-dummy="495.6363830566406">
-                                        <article class="__my-review-post" style="overflow-x: hidden;"
+                                        <article class="__my-review-post" style="overflow-x: hidden;" id="hz"
                                                  th:each="review : ${reviews}">
                                             <div class="__header">
                                                 <div class="__user-info">
@@ -131,8 +142,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="timeline-post-footer">
-                                                    <div class="__post-meta"><span class="__like">0</span><span
-                                                            class="__comment">0</span>
+                                                    <div class="__post-meta"><span class="__like">0</span>
+                                                        <button id="hh"><span class="__comment">0</span></button>
                                                         <!-- <a class="__more">MORE</a> -->
                                                         <div class="__more">
                                                             <div class="header-right"><a href="#layer2"
@@ -161,10 +172,73 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <main id="main" class="comment__review" th:fragment="comment" style="margin-top: 15px;padding-bottom: 24px;">
+                                                    <article class="timeline-post-item" id="timeline-posts">
+                                                        <div class="__comments">
+                                                            <div class="container gutter-sm">
+                                                                <div class="__comment-list __comment-detail-list">
+                                                                    <div>
+                                                                        <!--                                                                        <article class="__comment-item ">-->
+                                                                        <!--                                                                            <div class="__user-info">-->
+                                                                        <!--                                                                                <a class="profile">-->
+                                                                        <!--                                                                                    <div class="profile-pic "><img-->
+                                                                        <!--                                                                                            src="https://catchtable.co.kr/web-static/static_webapp_v2/img/noimg/profile_default_v2.png"-->
+                                                                        <!--                                                                                            alt="" class="img"-->
+                                                                        <!--                                                                                            style="background: url(&quot;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7&quot;) center center no-repeat transparent;">-->
+                                                                        <!--                                                                                    </div>-->
+                                                                        <!--                                                                                    <h4 class="name username">-->
+                                                                        <!--                                                                                        <span class="txt">예율</span>-->
+                                                                        <!--                                                                                    </h4>-->
+                                                                        <!--                                                                                    <span class="__date">2022년 09월 09일</span>-->
+                                                                        <!--                                                                                </a>-->
+                                                                        <!--                                                                            </div>-->
+                                                                        <!--                                                                            <div class="__content"><p>예약 어떻게 성공 하셨나요 ,,, ㅠㅠ </p></div>-->
+                                                                        <!--                                                                            <div class="__post-meta">-->
+                                                                        <!--                                                                                <span class="__like">0</span>-->
+                                                                        <!--                                                                                <a class="__more">MORE</a>-->
+                                                                        <!--                                                                            </div>-->
+                                                                        <!--                                                                        </article>-->
+                                                                        <article class="__comment-item " style="padding: 16px 20px 0px;">
+                                                                            <div class="__user-info">
+                                                                                <a class="profile">
+                                                                                    <div class="profile-pic ">
+                                                                                        <img
+                                                                                                src="https://catchtable.co.kr/web-static/static_webapp_v2/img/noimg/profile_default_v2.png"
+                                                                                                alt="" class="img"
+                                                                                                style="background: url(&quot;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7&quot;) center center no-repeat transparent;">
+                                                                                    </div>
+                                                                                    <h4 class="name username">
+                                                                                        <span class="txt">예율</span>
+                                                                                    </h4>
+                                                                                    <div class="__post-meta">
+                                                                                        <span class="__like">0</span>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="__content"><p>예약 어떻게 성공 하셨나요 ,,, ㅠㅠ </p></div>
+                                                                            <div class="__post-meta">
+                                                                                <span class="__date" style="font-size: 13px;flex-direction: row-reverse;">2022년 09월 09일</span>
+                                                                                <a class="__more">MORE</a>
+                                                                            </div>
+                                                                        </article>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <form class="__comment-form">
+                                                        <div class="__box"><input type="text" placeholder="리뷰에 따뜻한 댓글을 달아주세요." name="content" id="registReplyInput"
+                                                                                  value="" style="font-family: auto; min-width: 150px;margin-right: 28px;margin-left: 16px;">
+                                                            <button type="submit">등록</button>
+                                                        </div>
+                                                    </form>
+                                                </main>
+
                                             </div>
                                             <hr class="hairline">
+
                                         </article>
-<!--                                        <div th:replace="fragment/comment :: comment"/>-->
+                                        <!--                                        <div th:replace="fragment/comment :: comment"/>-->
                                     </div>
                                 </div>
                             </div>
@@ -189,6 +263,26 @@
     </div>
     <div th:replace="fragment/footer :: footer"/>
 </div>
+
+<script>
+
+    const items = document.querySelectorAll("#hh");
+    items.forEach((item) => {
+        item.addEventListener('click', ()=>{
+
+            const ch = item.parentNode.parentNode.parentNode.childNodes[7];
+            console.log(ch);
+
+            if (ch.getAttribute('class', 'comment__review')){
+                ch.removeAttribute('class', 'comment__review');
+            } else {
+                ch.setAttribute('class', 'comment__review');
+            }
+        })
+    })
+
+
+</script>
 <script type="text/javascript" src="/js/script.js"></script>
 </body>
 
