@@ -47,6 +47,13 @@ public record ReviewDto(
         return new ReviewDto(revIdx, null, 0L, null, 0, null,null,null, null);
     }
 
+    public static ReviewDto ofLike(
+            Long revIdx,
+            Long revLike
+    ) {
+        return new ReviewDto(revIdx, null, revLike, null, 0, null,null,null, null);
+    }
+
     public Review toEntity() {
         return Review.of(
                 profileDto.toEntityIdx(),
@@ -59,8 +66,14 @@ public record ReviewDto(
     }
 
     public Review toEntityIdx() {
-        return Review.of(
+        return Review.ofIdx(
                 revIdx
+        );
+    }
+    public Review toEntityLike() {
+        return Review.ofLike(
+                revIdx,
+                revLike
         );
 
     }
