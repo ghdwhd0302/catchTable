@@ -21,6 +21,7 @@ public class Review extends AuditingFields{
     @JoinColumn(name = "pr_idx")
     private Profile profile;
     private Long revLike;
+    private Long revComm;
     private String revContent;
     private double revScore;
     @ManyToOne(optional = false)
