@@ -211,14 +211,14 @@ public class NoticeController {
 
 
     // 리뷰 신고
-    @GetMapping("/report/review")
-    public ModelAndView reportReview() {
+    @GetMapping("/report/review/{revIdx}")
+    public ModelAndView reportReview(@PathVariable(name="revIdx")Long revIdx) {
         return new ModelAndView("notice/report_review");
     }
 
     // 댓글 신고
-    @GetMapping("/report/comment")
-    public ModelAndView reportReply() {
+    @GetMapping("/report/comment/{comIdx}")
+    public ModelAndView reportReply(@PathVariable(name="comIdx")Long comIdx) {
         return new ModelAndView("notice/report_comment");
     }
 }

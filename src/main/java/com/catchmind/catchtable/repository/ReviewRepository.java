@@ -9,7 +9,4 @@ import java.util.List;
 @RepositoryRestResource
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     List<Review> findAllByProfile_PrIdx(Long prIdx);
-//    @EntityGraph(attributePaths = {"reviewPhotos"})
-//    List<Review> findAllByRevIdxAndProfile_PrIdx(Long revIdx, Long prIdx);
-//    Review findAllByReserve_ResIdx(Long resIdx);
 }
