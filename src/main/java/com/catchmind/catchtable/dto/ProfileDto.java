@@ -1,10 +1,7 @@
 package com.catchmind.catchtable.dto;
 
-import com.catchmind.catchtable.domain.MemberRole;
+import com.catchmind.catchtable.domain.type.MemberRole;
 import com.catchmind.catchtable.domain.Profile;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.time.LocalDateTime;
 
 public record ProfileDto(
         Long prIdx,
