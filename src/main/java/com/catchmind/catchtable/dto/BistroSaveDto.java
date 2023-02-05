@@ -11,7 +11,8 @@ public record BistroSaveDto(
         Long saveIdx,
         ResAdminDto resAdminDto,
         ProfileDto profileDto,
-        BistroDetailDto bistroDetailDto
+        BistroDetailDto bistroDetailDto,
+        Long colIdx
 
 ) {
     public static BistroSaveDto from(BistroSave entity){
@@ -19,7 +20,8 @@ public record BistroSaveDto(
                 entity.getSaveIdx(),
                 ResAdminDto.from(entity.getResAdmin()),
                 ProfileDto.from(entity.getProfile()),
-                BistroDetailDto.from(entity.getBistroDetail())
+                BistroDetailDto.from(entity.getBistroDetail()),
+                entity.getColIdx()
         );
     }
 

@@ -54,7 +54,12 @@ public class TimeLineService {
         String prNick = profileDto.prNick();
         String prRegion = profileDto.prRegion();
         String prIntro = profileDto.prIntro();
-        double avgScore = totalScore / reviewDtos.size();
+        double avgScore = 0;
+        if (totalScore == 0) {
+            avgScore = 0;
+        } else {
+            avgScore = totalScore / reviewDtos.size();
+        }
 
 
         TimeLineResponse timeLineResponse = new TimeLineResponse(prName, prNick, prRegion, prIntro, followingNum, followerNum, snsList, avgScore);
