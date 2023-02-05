@@ -2,6 +2,7 @@ package com.catchmind.catchtable.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -24,6 +25,12 @@ public class BistroInfo extends AuditingField{
     private String bisDinner;   // 저녁 시간대 가격
     // 테이블에서 빠짐 -> 편의시설 테이블로
 //    private String bisConvenience;  // 편의시설
+
+    @ManyToOne
+    @JoinColumn(name="ph_idx")
+    @Setter
+    private Photo photo;
+    protected BistroInfo() {}
 
 
 }

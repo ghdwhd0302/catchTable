@@ -13,8 +13,12 @@ public record BistroInfoDto(
         String bisLunch,
         String bisDinner,
 //        String bisConvenience,
-        LocalDateTime regDate
+        LocalDateTime regDate,
+        PhotoDto photoDto
 ) {
+    public static BistroInfoDto of(Long bisIdx,ResAdminDto resAdminDto, String bisDesc,String bisCategory,String bisRegion,String bisLunch,String bisDinner,LocalDateTime regDate,PhotoDto photoDto){
+        return new BistroInfoDto(bisIdx,resAdminDto,bisDesc,bisCategory,bisRegion,bisLunch,bisDinner,regDate,photoDto);
+    }
     public static BistroInfoDto from(BistroInfo bistroInfo){
         return new BistroInfoDto(
                 bistroInfo.getBisIdx(),
@@ -24,7 +28,8 @@ public record BistroInfoDto(
                 bistroInfo.getBisRegion(),
                 bistroInfo.getBisLunch(),
                 bistroInfo.getBisDinner(),
-                bistroInfo.getRegDate()
+                bistroInfo.getRegDate(),
+                PhotoDto.from(bistroInfo.getPhoto())
 //                bistroInfo.getBisConvenience(),
         );
     }

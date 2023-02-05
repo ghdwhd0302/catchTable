@@ -1,6 +1,6 @@
 package com.catchmind.catchtable.dto.network.request;
 
-import com.catchmind.catchtable.domain.MemberRole;
+import com.catchmind.catchtable.domain.type.MemberRole;
 import com.catchmind.catchtable.dto.ProfileDto;
 
 public record ProfileRequest(
