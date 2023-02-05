@@ -35,4 +35,18 @@ public class DeclareReview extends AuditingField {
         this.derTitle = derTitle;
         this.derContent = derContent;
     }
+
+    public DeclareReview (Review review, String derNick, Profile profile,  String derTitle, String derContent){
+        this.review = review;
+        this.derNick = derNick;
+        this.profile = profile;
+        this.derTitle = derTitle;
+        this.derContent = derContent;
+    }
+
+    public static DeclareReview of(Review review, String derNick, Profile profile, String derTitle, String derContent){
+        return new DeclareReview(review, derNick, profile, derTitle, derContent);
+    }
+
+
 }

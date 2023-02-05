@@ -4,6 +4,8 @@ import com.catchmind.catchtable.domain.Ask;
 import com.catchmind.catchtable.domain.Improvement;
 import com.catchmind.catchtable.dto.*;
 import com.catchmind.catchtable.dto.network.request.AskRequest;
+import com.catchmind.catchtable.dto.network.request.DeclareCommentRequest;
+import com.catchmind.catchtable.dto.network.request.DeclareReviewRequest;
 import com.catchmind.catchtable.dto.network.request.ImprovementRequest;
 import com.catchmind.catchtable.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -109,4 +111,31 @@ public class NoticeService {
     public void impDeletePost(Long impIdx) {
         improvementRepository.deleteById(impIdx);
     }
+
+
+    public String saveDeclareReview(DeclareReviewRequest declareReviewRequest) {
+        DeclareReviewDto newDeclareReview = declareReviewRequest.of(
+                declareReviewRequest.revIdx(),
+                declareReviewRequest.derNick(),
+                declareReviewRequest.prIdx(),
+                declareReviewRequest.derTitle(),
+                declareReviewRequest.derContent()
+        ).toDto();
+        declareReviewRepository.save(newDeclareReview.toEntity());
+        return null;
+    }
+
+    public void saveDeclareComment(DeclareCommentRequest declareCommentRequest) {
+        DeclareCommentDto newDeclareComment = declareCommentRequest.of(
+                declareCommentRequest.revIdx(),
+                declareCommentRequest.comIdx(),
+                declareCommentRequest.decNick(),
+                declareCommentRequest.prIdx(),
+                declareCommentRequest.decTitle(),
+                declareCommentRequest.decContent()
+        ).toDto();
+        declareCommentRepository.save(newDeclareComment.toDeclareCommentEntity());
+    }
 }
+
+
