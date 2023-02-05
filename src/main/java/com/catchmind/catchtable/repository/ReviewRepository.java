@@ -9,4 +9,5 @@ import java.util.List;
 @RepositoryRestResource
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     List<Review> findAllByProfile_PrIdx(Long prIdx);
+    Review findByRevIdx(Long revIdx);
 }
