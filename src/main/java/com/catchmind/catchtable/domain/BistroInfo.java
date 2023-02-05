@@ -31,6 +31,10 @@ public class BistroInfo extends AuditingField{
     @Setter
     private Photo photo;
     protected BistroInfo() {}
-
-
+    public BistroInfo(Long bisIdx){
+        this.bisIdx = bisIdx;
+    }
+    public static BistroInfo ofBisIdx(Long bisIdx) {
+        return new BistroInfo(bisIdx);
+    }
 }

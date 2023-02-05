@@ -14,4 +14,6 @@ import java.util.Optional;
 @RepositoryRestResource
 public interface BistroSaveRepository extends JpaRepository<BistroSave, Long> {
     List<BistroSave> findAllByProfile_PrIdx(Long prIdx);
+    List<BistroSave> findAllByColIdx(Long colIdx);
+    BistroSave findByResAdmin_ResaBisName(String resaBisName);
 }
