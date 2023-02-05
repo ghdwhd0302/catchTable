@@ -17,6 +17,6 @@ public record ReviewResponse(
         Long resIdx,
         LocalDateTime regDate,
         LocalDateTime updateDate,
-        Long revCom
+        boolean isReview        // 리뷰 본인 작성 여부
 ) {
 }

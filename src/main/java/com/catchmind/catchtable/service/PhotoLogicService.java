@@ -55,12 +55,12 @@ public class PhotoLogicService {
             if (photoList.isEmpty() || reviewDtos.get(i).updateDate() == null) {
                 ReviewResponse response = new ReviewResponse(reviewDtos.get(i).revIdx(), reviewDtos.get(i).profileDto(), reviewDtos.get(i).revContent(), reviewDtos.get(i).revScore(),
                         reviewDtos.get(i).resAdminDto(), null, reviewDtos.get(i).reserveDto().resIdx(),
-                        reviewDtos.get(i).regDate(), null, reviewDtos.get(i).revComm());
+                        reviewDtos.get(i).regDate(), null, true);
                 reviewList.add(response);
             } else {
                 ReviewResponse response = new ReviewResponse(reviewDtos.get(i).revIdx(), reviewDtos.get(i).profileDto(), reviewDtos.get(i).revContent(), reviewDtos.get(i).revScore(),
                         reviewDtos.get(i).resAdminDto(), photoList, reviewDtos.get(i).reserveDto().resIdx(),
-                        reviewDtos.get(i).regDate(), reviewDtos.get(i).updateDate(), reviewDtos.get(i).revComm());
+                        reviewDtos.get(i).regDate(), reviewDtos.get(i).updateDate(), true);
                 reviewList.add(response);
             }
         }

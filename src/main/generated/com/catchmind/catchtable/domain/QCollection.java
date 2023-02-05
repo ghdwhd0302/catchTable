@@ -11,20 +11,20 @@ import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
- * QMyCollection is a Querydsl query type for MyCollection
+ * QCollection is a Querydsl query type for Collection
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QMyCollection extends EntityPathBase<MyCollection> {
+public class QCollection extends EntityPathBase<Collection> {
 
-    private static final long serialVersionUID = -657146809L;
+    private static final long serialVersionUID = 1709575355L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
-    public static final QMyCollection myCollection = new QMyCollection("myCollection");
+    public static final QCollection collection = new QCollection("collection");
 
     public final QAuditingFields _super = new QAuditingFields(this);
 
-    public final StringPath bisNames = createString("bisNames");
+    public final StringPath bisIdx = createString("bisIdx");
 
     public final StringPath colContent = createString("colContent");
 
@@ -42,23 +42,23 @@ public class QMyCollection extends EntityPathBase<MyCollection> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updateDate = _super.updateDate;
 
-    public QMyCollection(String variable) {
-        this(MyCollection.class, forVariable(variable), INITS);
+    public QCollection(String variable) {
+        this(Collection.class, forVariable(variable), INITS);
     }
 
-    public QMyCollection(Path<? extends MyCollection> path) {
+    public QCollection(Path<? extends Collection> path) {
         this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
-    public QMyCollection(PathMetadata metadata) {
+    public QCollection(PathMetadata metadata) {
         this(metadata, PathInits.getFor(metadata, INITS));
     }
 
-    public QMyCollection(PathMetadata metadata, PathInits inits) {
-        this(MyCollection.class, metadata, inits);
+    public QCollection(PathMetadata metadata, PathInits inits) {
+        this(Collection.class, metadata, inits);
     }
 
-    public QMyCollection(Class<? extends MyCollection> type, PathMetadata metadata, PathInits inits) {
+    public QCollection(Class<? extends Collection> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.profile = inits.isInitialized("profile") ? new QProfile(forProperty("profile")) : null;
     }
