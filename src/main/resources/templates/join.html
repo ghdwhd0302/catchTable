@@ -10,6 +10,7 @@
     <div th:replace="fragment/link :: link"/>
     <link rel="stylesheet" href="/css/regist_hp.css">
     <link rel="stylesheet" href="/css/collection_detail.css">
+    <script src="/js/jquery-3.1.1.min.js"></script>
 </head>
 <style>
     .modal-overlay {
@@ -166,7 +167,7 @@
                                 </div>
                             </div>
                             <div class="css-1w0ksfz e744wfw2">
-                                <button class="css-ufulao e4nu7ef3" type="button">
+                                <button onclick="double_check()" class="css-ufulao e4nu7ef3" type="button">
                                     <span class="css-ymwvow e4nu7ef1">중복확인</span>
                                 </button>
                             </div>

@@ -12,22 +12,16 @@ import com.catchmind.catchtable.repository.MyCollectionRepository;
 import com.catchmind.catchtable.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 @Transactional
 @Service
 @RequiredArgsConstructor
@@ -146,4 +140,8 @@ public class ProfileLogicService {
     }
 
 
+    public Optional<Profile> checkNick(String prNick) {
+        Optional<Profile> profile = profileRepository.findByPrNick(prNick);
+        return profile;
+    }
 }
