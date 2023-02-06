@@ -5,7 +5,6 @@ function delColRes(){
 
     }else {
         const saveIdx = document.getElementById("saveIdx");
-        const prIdx = document.getElementById("prIdx");
         let param = {"saveIdx": saveIdx.value};
         $.ajax({
             type: 'POST',

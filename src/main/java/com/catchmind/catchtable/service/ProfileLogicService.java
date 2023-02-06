@@ -139,11 +139,11 @@ public class ProfileLogicService {
 //            bistroSaveRepository.save(bistroSave);
         }
     }
-//    public BistroSave delCollectionSave(Long saveIdx){
-//        BistroSave bistroSave = bistroSaveRepository.findById(saveIdx).orElse(null);
-//        bistroSave.setColIdx(null);
-//        return bistroSaveRepository.save(bistroSave);
-//    }
+    public BistroSave delCollectionSave(Long saveIdx){
+        BistroSave bistroSave = bistroSaveRepository.findById(saveIdx).orElse(null);
+        bistroSave.setColIdx(null);
+        return bistroSaveRepository.save(bistroSave);
+    }
 
 
 }
