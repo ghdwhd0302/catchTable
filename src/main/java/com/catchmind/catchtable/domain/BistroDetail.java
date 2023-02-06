@@ -46,8 +46,15 @@ public class BistroDetail {
         this.bdHome = bdHome;
         this.resAdmin = resAdmin;
     }
+    public BistroDetail(Long bdIdx) {
+        this.bdIdx = bdIdx;
+    }
 
     public static BistroDetail of(Long bdIdx, String bdNotice, String bdPark, String bdAddr, String bdHp, String bdIntro, String bdCaution, String bdHour, String bdHoliday, String bdHome, ResAdmin resAdmin) {
         return new BistroDetail(bdIdx, bdNotice, bdPark,bdAddr,bdHp,bdIntro,bdCaution,bdHour,bdHoliday,bdHome,resAdmin);
+    }
+
+    public static BistroDetail ofIdx(Long bdIdx) {
+        return new BistroDetail(bdIdx);
     }
 }
