@@ -52,7 +52,7 @@ public class MydiningService {
     public Long saveReview(ReviewRequest reviews) {
         ReviewRequest request = reviews;
         System.out.println(request);
-        ReviewDto newReview = request.of(request.prIdx(), request.revContent(), request.revScore(), request.resaBisName(), request.resIdx()).toDto();
+        ReviewDto newReview = request.of(request.prIdx(), request.revContent(), (request.revScore()*0.5), request.resaBisName(), request.resIdx()).toDto();
         Long saveIdx = reviewRepository.save(newReview.toEntity()).getRevIdx();
 
         if (saveIdx != null) {
