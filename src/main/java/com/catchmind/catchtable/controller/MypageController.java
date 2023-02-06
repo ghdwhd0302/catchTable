@@ -160,13 +160,13 @@ public class MypageController {
     }
 
     // 컬렉션에 저장된 식당 삭제
-//    @PostMapping("/collection/detail/delRes")
-//    @ResponseBody
-//    public String myCollectionDelRes(@RequestBody BistroSaveDto request){
-//        Long saveIdx = request.saveIdx();
-//        profileLogicService.delCollectionSave(saveIdx);
-//        return "ok";
-//    }
+    @PostMapping("/collection/detail/delRes")
+    @ResponseBody
+    public String myCollectionDelRes(@RequestBody BistroSaveDto request){
+        Long saveIdx = request.saveIdx();
+        profileLogicService.delCollectionSave(saveIdx);
+        return "ok";
+    }
 
 
     // 내 컬렉션 삭제
