@@ -1,6 +1,7 @@
 package com.catchmind.catchtable.domain;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
+@DynamicInsert
 @ToString(callSuper = true)
 @Table(name = "review")
 public class Review extends AuditingFields{

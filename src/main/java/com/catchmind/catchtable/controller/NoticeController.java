@@ -192,23 +192,19 @@ public class NoticeController {
     }
     // 리뷰 신고내역
     @GetMapping("/report/review/list")
-    public String reportList(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal, @PageableDefault(size=10, sort="derIdx", direction = Sort.Direction.DESC) Pageable pageable) {
+    public String reportList(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         Long prIdx = catchPrincipal.prIdx();
-        Page<DeclareReviewDto> declareReviewDto = noticeService.listDe(pageable, prIdx);
-        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), declareReviewDto.getTotalPages());
+        List<DeclareReviewDto> declareReviewDto = noticeService.listDe(prIdx);
         model.addAttribute("notice", declareReviewDto);
-        model.addAttribute("paginationBarNumbers", barNumbers);
         return "notice/report_list";
     }
 
     // 댓글 신고내역
     @GetMapping("/report/comment/list")
-    public String reportCommentList(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal, @PageableDefault(size=10, sort="decIdx", direction = Sort.Direction.DESC) Pageable pageable) {
+    public String reportCommentList(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         Long prIdx = catchPrincipal.prIdx();
-        Page<DeclareCommentDto> declareCommentDto = noticeService.listDec(pageable, prIdx);
-        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), declareCommentDto.getTotalPages());
+        List<DeclareCommentDto> declareCommentDto = noticeService.listDec(prIdx);
         model.addAttribute("notice", declareCommentDto);
-        model.addAttribute("paginationBarNumbers", barNumbers);
         return "notice/report_list_comment";
     }
 

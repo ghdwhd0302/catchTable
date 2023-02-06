@@ -12,9 +12,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j  // 로그를 찍기 위해서 사용하는 어노테이션
@@ -38,12 +40,12 @@ public class NoticeService {
         return improvementRepository.findAllByProfile_PrIdx(prIdx, pageable);
     }
 
-    public Page<DeclareReviewDto> listDe(Pageable pageable, Long prIdx){
-        return declareReviewRepository.findAllByProfile_PrIdx(prIdx, pageable).map(DeclareReviewDto::from);
+    public List<DeclareReviewDto> listDe(Long prIdx){
+        return declareReviewRepository.findAllByProfile_PrIdx(prIdx, Sort.by(Sort.Direction.DESC, "derIdx")).stream().map(DeclareReviewDto::from).toList();
     }
 
-    public Page<DeclareCommentDto> listDec(Pageable pageable, Long prIdx){
-        return declareCommentRepository.findAllByProfile_PrIdx(pageable, prIdx).map(DeclareCommentDto::from);
+    public List<DeclareCommentDto> listDec(Long prIdx){
+        return declareCommentRepository.findAllByProfile_PrIdx(prIdx, Sort.by(Sort.Direction.DESC, "decIdx")).stream().map(DeclareCommentDto::from).toList();
     }
 
     public AskDto getDetail(Long askIdx){
