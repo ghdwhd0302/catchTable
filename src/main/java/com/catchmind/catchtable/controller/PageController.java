@@ -50,4 +50,9 @@ public class PageController {
         }
         return "redirect:/";
     }
+
+    @GetMapping("/pending")
+    public ModelAndView inquiry (){
+        return new ModelAndView("/inquiry");
+    }
 }
