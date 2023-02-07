@@ -29,51 +29,59 @@
             </div>
         </header>
         <main id="main">
-            <form id="join-form" role="form" method="post" onsubmit="return saveSNS()" th:action="@{/newSNS}">
+            <form id="join-form" role="form" method="post" th:action="@{/newSNS}">
+                <input type="hidden" id="prIdx" th:value="${prIdx}">
                 <div class="my-account">
                     <div class="pb-10 pt-10">
                         <div class="container gutter-sm">
-                            <div class="form-block mb-24">
 
+                            <!--                            sns입력 시작-->
+                            <div class="form-block mb-24">
                                 <div class="mb-6"><label class="color-gray font-12">인스타그램</label></div>
                                 <div style="position: relative;"><i
                                         style="display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 10px;"><img
                                         src="https://d1il53drs2cmia.cloudfront.net/resources/img/icons/insta.svg"
-                                        style="height: 20px; width: 20px;"></i><input type="text" class="form-input"
-                                                                                      placeholder="인스타그램 프로필 주소를 입력해주세요"
-                                                                                      name="snsAddr" value=""
-                                                                                      style="padding-left: 40px;"></div>
+                                        style="height: 20px; width: 20px;"></i>
+                                    <input type="text" class="form-input" placeholder="인스타그램 프로필 주소를 입력해주세요" id="sns_Ins" name="snsAddr" style="padding-left: 40px;" value="">
+                                    <input type="hidden" name="snsType" value="INSTAGRAM">
+                                </div>
                             </div>
+
                             <div class="form-block mb-24">
                                 <div class="mb-6"><label class="color-gray font-12">트위터</label></div>
                                 <div style="position: relative;"><i
                                         style="display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 10px;"><img
                                         src="https://d1il53drs2cmia.cloudfront.net/resources/img/icons/twitter.svg"
-                                        style="height: 20px; width: 20px;"></i><input type="text" class="form-input"
-                                                                                      placeholder="트위터 프로필 주소를 입력해주세요"
-                                                                                      name="snsAddr" value=""
-                                                                                      style="padding-left: 40px;"></div>
+                                        style="height: 20px; width: 20px;"></i>
+                                    <input type="text" class="form-input" placeholder="트위터 프로필 주소를 입력해주세요" id="sns_twi" name="snsAddr" value="" style="padding-left: 40px;">
+                                    <input type="hidden" name="snsType" value="TWITTER">
+                                </div>
                             </div>
+
                             <div class="form-block mb-24">
                                 <div class="mb-6"><label class="color-gray font-12">유튜브</label></div>
                                 <div style="position: relative;"><i
                                         style="display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 10px;"><img
                                         src="https://d1il53drs2cmia.cloudfront.net/resources/img/icons/youtube.svg"
-                                        style="height: 20px; width: 20px;"></i><input type="text" class="form-input"
-                                                                                      placeholder="유튜브 프로필 주소를 입력해주세요"
-                                                                                      name="snsAddr" value=""
-                                                                                      style="padding-left: 40px;"></div>
+                                        style="height: 20px; width: 20px;"></i>
+                                    <input type="text" class="form-input" placeholder="유튜브 프로필 주소를 입력해주세요" id="sns_you" name="snsAddr" style="padding-left: 40px;">
+                                    <input type="hidden" name="snsType" value="YOUTUBE">
+                                </div>
                             </div>
+
                             <div class="form-block mb-24">
                                 <div class="mb-6"><label class="color-gray font-12">블로그</label></div>
                                 <div style="position: relative;"><i
                                         style="display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 10px;"><img
                                         src="https://d1il53drs2cmia.cloudfront.net/resources/img/icons/blog.svg"
-                                        style="height: 20px; width: 20px;"></i><input type="text" class="form-input"
-                                                                                      placeholder="블로그 프로필 주소를 입력해주세요"
-                                                                                      name="snsAddr" value=""
-                                                                                      style="padding-left: 40px;"></div>
+                                        style="height: 20px; width: 20px;"></i>
+                                    <input type="text" class="form-input" placeholder="블로그 프로필 주소를 입력해주세요" id="sns_blog" name="snsAddr" style="padding-left: 40px;">
+                                    <input type="hidden" name="snsType" value="BLOG">
+                                </div>
                             </div>
+                            <!--sns 입력 끝-->
+
+
                         </div>
                     </div>
                 </div>
