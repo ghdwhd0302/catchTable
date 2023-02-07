@@ -65,7 +65,7 @@ public class ProfileLogicService {
             Optional<Profile> profile = profileRepository.findById(prIdx);
             profile.ifPresent(
                     member -> {
-                        if(profileDto.prUserpw() != null) {member.setPrUserpw(passwordEncoder.encode(profileDto.prUserpw()));}
+                        if(profileDto.prUserpw() != null && profileDto.prUserpw() != "") {member.setPrUserpw(passwordEncoder.encode(profileDto.prUserpw()));}
                         if(profileDto.prHp() != null) {member.setPrHp(profileDto.prHp());}
                         if(profileDto.prGender() != null) {member.setPrGender(profileDto.prGender());}
                         if(profileDto.prIntro() != null) {member.setPrIntro(profileDto.prIntro());}

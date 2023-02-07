@@ -114,7 +114,7 @@ public class MypageController {
 //        System.out.println(request.toDto());
         profileLogicService.updateProfile(prIdx, request.toDto());
 //        System.out.println(request);
-        return "redirect:/login";
+        return "redirect:/mypage";
     }
 
     // 내 리뷰 보기
