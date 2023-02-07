@@ -111,6 +111,12 @@
                                 alt="snsIcon"></a>
                         </th:block>
                     </th:block>
+                    <!--                    <button th:if="${#lists.isEmpty(snsList)}" onclick="location.href='/newSNS'">-->
+                    <!--                        SNS 추가하기-->
+                    <!--                    </button>-->
+                    <button th:if="${header.snsList.size() == 0}" onclick="location.href='/newSNS'">
+                        SNS 추가하기
+                    </button>
                 </div>
             </div>
             <div class="__loc __d-flex __v-center" style="color: rgb(102, 102, 102);display: flex;margin-bottom: 15px;">

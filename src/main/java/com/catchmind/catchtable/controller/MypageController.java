@@ -7,6 +7,7 @@ import com.catchmind.catchtable.dto.*;
 //import com.catchmind.catchtable.dto.network.request.ProfileRequest;
 import com.catchmind.catchtable.dto.network.request.MyCollectionRequest;
 import com.catchmind.catchtable.dto.network.request.ProfileRequest;
+import com.catchmind.catchtable.dto.network.response.ReviewResponse;
 import com.catchmind.catchtable.dto.network.response.TimeLineResponse;
 import com.catchmind.catchtable.dto.security.CatchPrincipal;
 import com.catchmind.catchtable.repository.BistroSaveRepository;
@@ -16,6 +17,10 @@ import com.catchmind.catchtable.service.PaginationService;
 import com.catchmind.catchtable.service.ProfileLogicService;
 import com.catchmind.catchtable.service.TimeLineService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -114,10 +119,15 @@ public class MypageController {
 
     // 내 리뷰 보기
     @GetMapping("/review")
-    public ModelAndView myReview(@AuthenticationPrincipal CatchPrincipal catchPrincipal) {
+    public ModelAndView myReview(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal,
+                                 @PageableDefault(size = 10, sort = "revIdx", direction = Sort.Direction.DESC) Pageable pageable) {
         Long prIdx = catchPrincipal.prIdx();
         TimeLineResponse header = header(prIdx);
-        System.out.println(catchPrincipal.prIdx());
+        Page<ReviewResponse> reviews = timeLineService.getReviews(pageable, prIdx);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), reviews.getTotalPages());
+        model.addAttribute("reviews", reviews);
+        model.addAttribute("prIdx", prIdx);
+        model.addAttribute("paginationBarNumbers", barNumbers);
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
         ModelAndView modelAndView = new ModelAndView("/mypage/myReview");
         modelAndView.addObject("profile",profile);
@@ -173,7 +183,6 @@ public class MypageController {
     @DeleteMapping("/collection/detail")
     @ResponseBody
     public String delMyCollection(@RequestBody MyCollectionRequest request){
-        System.out.println("💕💕💕💕   " + request.colIdx());
         Long colIdx = request.colIdx();
         profileLogicService.delMyCollection(colIdx);
         return "ok";
