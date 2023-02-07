@@ -22,7 +22,7 @@ public class BistroDetail {
     private String bdCaution;
     private String bdHour;
     private String bdHoliday;
-    private String bdHome;
+    private String bdHomepage;
     @ManyToOne(optional = false)
     @JoinColumn(name = "resa_bis_name")
     private ResAdmin resAdmin;
@@ -43,7 +43,7 @@ public class BistroDetail {
         this.bdCaution = bdCaution;
         this.bdHour = bdHour;
         this.bdHoliday = bdHoliday;
-        this.bdHome = bdHome;
+        this.bdHomepage = bdHome;
         this.resAdmin = resAdmin;
     }
     public BistroDetail(Long bdIdx) {

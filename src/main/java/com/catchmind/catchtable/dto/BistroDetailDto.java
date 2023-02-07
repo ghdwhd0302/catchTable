@@ -36,7 +36,7 @@ public record BistroDetailDto(
                 bistroDetail.getBdCaution(),
                 bistroDetail.getBdHour(),
                 bistroDetail.getBdHoliday(),
-                bistroDetail.getBdHome(),
+                bistroDetail.getBdHomepage(),
                 BistroInfoDto.from(bistroDetail.getBistroInfo())
 
         );
