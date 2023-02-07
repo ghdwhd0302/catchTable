@@ -87,7 +87,7 @@ public class MydiningController {
         }
         System.out.println("⭕" + file);
         System.out.println("🎁" + files);
-        return "redirect:/mydining/done";
+        return "redirect:/mypage/review";
     }
 
     @PostMapping("/reserve/plannedDetail/{resIdx}")
