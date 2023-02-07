@@ -4,7 +4,7 @@ let day;
 <!-- 캘린더를 위한 스크립트-->
 $("#datepicker").datepicker({
     language: "ko",
-    minDate: 0
+    minDate : new Date()
 });
 
 $(function () {
