@@ -33,10 +33,9 @@ public class ProfileLogicService {
     private final ProfileRepository profileRepository;
     private final BistroSaveRepository bistroSaveRepository;
     private final MyCollectionRepository myCollectionRepository;
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     private final ReviewRepository reviewRepository;
     private final ReviewPhotoRepository reviewPhotoRepository;
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
 
     public boolean login(String prHp, String prUserpw) {
         ProfileDto profileDto = profileRepository.findByPrHp(prHp).map(ProfileDto::from).orElseThrow();
