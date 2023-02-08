@@ -38,6 +38,18 @@ public class ReservationController {
         model.addAttribute("resaBisName", resaBisName);
         return "reservation/reservation";
     }
+    @GetMapping("/blockCheck")
+    @ResponseBody
+    public boolean blockCheck(@AuthenticationPrincipal CatchPrincipal catchPrincipal){
+        Long prIdx = catchPrincipal.prIdx();
+        ProfileDto loginUser = reserveLogicService.getUser(prIdx);
+        System.out.println(loginUser.prBlock());
+        if(!loginUser.prBlock()){
+            return false;
+        }else {
+            return true;
+        }
+    }
 
     @PostMapping(path="{resaBisName}")
     @ResponseBody
