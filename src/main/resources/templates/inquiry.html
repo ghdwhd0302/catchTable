@@ -96,16 +96,22 @@
                                             </div>
                                         </div>
                                         <div class="__form-block">
-                                            <label for="customer_phone" class="__form-label">문의자 번호</label>
+                                            <label for="customer_phone" class="__form-label">문의자 전화번호</label>
                                             <div class="__form-control">
-                                                <input type="phone" placeholder="문의자 번호를 입력해주세요." id="customer_phone" name="penHp" value="" class="__form-input">
+                                                <input type="phone" placeholder="문의자 전화번호를 입력해주세요." id="customer_phone" name="penHp" value="" class="__form-input">
+                                            </div>
+                                        </div>
+                                        <div class="__form-block">
+                                            <label for="customer_address" class="__form-label">매장 지역</label>
+                                            <div class="__form-control">
+                                                <input type="phone" placeholder="매장의 위치를 시/구, 시/군/구 순으로 작성해주세요" id="customer_address" name="penRegion" value="" class="__form-input">
                                             </div>
                                         </div>
                                         <div class="__form-block">
                                             <label for="reservationCntAvg" class="__form-label">월 평균 예약건수</label>
                                             <div class="__form-control">
                                                 <select id="reservationCntAvg" name="penBook" class="__form-input">
-                                                    <option value="" selected="">월 평균 예약건수를 선택해주세요.</option>
+                                                    <option value="" selected="" disabled>월 평균 예약건수를 선택해주세요.</option>
                                                     <option value="50">0~50건</option>
                                                     <option value="150">50~150건</option>
                                                     <option value="300">150~300건</option>
