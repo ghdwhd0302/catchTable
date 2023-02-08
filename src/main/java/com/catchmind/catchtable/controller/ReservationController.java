@@ -113,7 +113,7 @@ public class ReservationController {
         //	orderNo, payMathod, 주문명.
         // - 카카오 페이로 넘겨받은 결재정보값을 저장.
 
-        return "redirect:/";
+        return "redirect:/mydining/planned";
     }
 
     // 결제 취소시 실행 url
