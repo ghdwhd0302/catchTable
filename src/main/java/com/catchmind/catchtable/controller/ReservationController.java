@@ -38,6 +38,21 @@ public class ReservationController {
         model.addAttribute("resaBisName", resaBisName);
         return "reservation/reservation";
     }
+
+    @GetMapping("/update/{resaBisName}/{resIdx}")
+    public String resUpdate(@PathVariable String resaBisName, @PathVariable Long resIdx,Model model){
+        model.addAttribute("resaBisName",resaBisName);
+        model.addAttribute("resIdx",resIdx);
+        return "reservation/reservation_update";
+    }
+
+    @PostMapping("/update/planned/{resIdx}")
+    @ResponseBody
+    public String resUpdatePlanned(@RequestBody ReserveRequest request,@PathVariable Long resIdx){
+        reserveLogicService.updateReserve(request,resIdx);
+        return "/mydining/planned";
+    }
+
     @GetMapping("/blockCheck")
     @ResponseBody
     public boolean blockCheck(@AuthenticationPrincipal CatchPrincipal catchPrincipal){
@@ -72,7 +87,6 @@ public class ReservationController {
         System.out.println(bistroDetailDto);
         return "reservation/payment";
     }
-
 
     @PostMapping("/pay")
     public @ResponseBody ReadyResponse payReady(@RequestBody PaymentRequest request, Model model){
