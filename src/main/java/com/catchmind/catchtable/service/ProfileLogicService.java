@@ -7,10 +7,7 @@ import com.catchmind.catchtable.dto.*;
 import com.catchmind.catchtable.dto.network.request.MyCollectionRequest;
 import com.catchmind.catchtable.dto.network.request.SnsRequest;
 import com.catchmind.catchtable.dto.network.response.ReviewResponse;
-import com.catchmind.catchtable.repository.BistroSaveRepository;
-import com.catchmind.catchtable.repository.MyCollectionRepository;
-import com.catchmind.catchtable.repository.ProfileRepository;
-import com.catchmind.catchtable.repository.SnsRepository;
+import com.catchmind.catchtable.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -36,6 +33,8 @@ public class ProfileLogicService {
     private final ProfileRepository profileRepository;
     private final BistroSaveRepository bistroSaveRepository;
     private final MyCollectionRepository myCollectionRepository;
+    private final ReviewRepository reviewRepository;
+    private final ReviewPhotoRepository reviewPhotoRepository;
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
