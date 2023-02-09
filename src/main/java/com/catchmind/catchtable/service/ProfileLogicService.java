@@ -154,9 +154,8 @@ public class ProfileLogicService {
                         if (myCollectionDto.colContent() != null) {
                             collection.setColContent(myCollectionDto.colContent());
                         }
-                        if (!myCollectionDto.colLock()) {
-                            collection.setColLock(false);
-                        }
+                        if(myCollectionDto.colLock() != true) {collection.setColLock(false);}
+                        if(myCollectionDto.colLock() != false) {collection.setColLock(true);}
                     }
             );
         } catch (EntityNotFoundException e) {
