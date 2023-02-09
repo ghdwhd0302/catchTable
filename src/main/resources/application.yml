@@ -19,6 +19,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 server:
-  port: 8889
+  port: 8888
 
 
