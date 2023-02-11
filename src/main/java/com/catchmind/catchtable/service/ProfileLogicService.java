@@ -222,7 +222,7 @@ public class ProfileLogicService {
 
     public Page<ReviewResponse> getReview(Long prIdx, Pageable pageable) {
         List<ReviewResponse> reviewList = new ArrayList<>();
-        List<ReviewDto> reviewDtos = reviewRepository.findAllByProfile_PrIdx(prIdx).stream().map(ReviewDto::from).toList();
+        List<ReviewDto> reviewDtos = reviewRepository.findAllByProfile_PrIdxOrderByRevIdxDesc(prIdx).stream().map(ReviewDto::from).toList();
         List<ReviewPhotoDto> photoDtos = reviewPhotoRepository.findAll().stream().map(ReviewPhotoDto::from).toList();
 
         for (int i = 0; i < reviewDtos.size(); i++) {
