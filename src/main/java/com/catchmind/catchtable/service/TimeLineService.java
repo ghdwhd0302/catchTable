@@ -219,7 +219,7 @@ public class TimeLineService {
 
     // 컬렉션 리스트
     public List<MyCollectionDto> getCollection(Long timeLineIdx) {
-        List<MyCollectionDto> collectionDtos = collectionRepository.findAllByProfile_PrIdxAndColLock(timeLineIdx, false).stream().map(MyCollectionDto::from).toList();
+        List<MyCollectionDto> collectionDtos = collectionRepository.findAllByProfile_PrIdxAndColLock(timeLineIdx, true).stream().map(MyCollectionDto::from).toList();
         return collectionDtos;
     }
 

@@ -36,7 +36,7 @@ public class BistroSave {
     }
 
     @Builder
-    public BistroSave( Long prIdx, String resaBisName ) {
+    public BistroSave( Long prIdx, String resaBisName) {
 //        this.saveIdx = saveIdx;
         this.resAdmin = new ResAdmin(resaBisName);
         this.profile = new Profile(prIdx);
