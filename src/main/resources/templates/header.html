@@ -1,4 +1,10 @@
+<!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/header.css">
+    <script src="https://kit.fontawesome.com/495cfd393e.js" crossorigin="anonymous"></script>
+    <script defer src="/js/header.js"></script>
+</head>
 <body>
 <header class="header-wrap">
     <div class="header">
@@ -26,17 +32,16 @@
                 </ul>
             </div>
             <div class="searchBar">
-                <form>
+                <form action="/shop/search/list" type="GET">
                     <div class="searchWarp">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input class="searchText" type="text" placeholder="레스토랑명검색">
+                        <input class="searchText" name="resaBisName" type="text" placeholder="레스토랑명검색">
                     </div>
                 </form>
             </div>
         </div>
         <hr class="lastLine">
     </div>
-
     <!-- 스크롤시 나타나는 헤더 -->
     <div class="small_header">
         <div class="small_headerCategory">
@@ -46,12 +51,12 @@
                         <a href="/"><img class="small_logoImg" src="/images/small_logo.svg"/></a>
                     </li>
                     <li><a href="/timeline">타임라인</a></li>
-                    <li><a href="/mydining/planned">마이다이닝</a></li>
+                    <li><a href="/mydining">마이다이닝</a></li>
                     <li><a href="/mypage">마이페이지</a></li>
                 </ul>
             </div>
             <div class="small_searchBar">
-                <form>
+                <form action="/shop/search/list" type="GET">
                     <div class="small_searchWarp">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input class="searchText" type="text" placeholder="레스토랑명검색">
@@ -105,7 +110,7 @@
             </div>
             <div  class="drop_mydining">
                 <ul>
-                    <li style="font-weight: 700"><a href="/mydining/planned">마이다이닝</a></li>
+                    <li><a href="/mydining/planned">마이다이닝</a></li>
                     <li><a href="/mydining/planned">나의 예약</a></li>
                     <li><a href="/mydining/notifications">나의 알림</a></li>
                 </ul>
@@ -129,4 +134,4 @@
         </div>
 </header>
 </body>
-
+</html>

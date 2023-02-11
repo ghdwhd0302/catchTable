@@ -335,17 +335,17 @@
                 <!--페이징 처리-->
                 <div class="page_wrap">
                     <div class="page_nation" aria-label="Page navigation example">
-                        <a th:href="@{'/shop/list/'+'?page='+${pageable.getPageNumber() - 1}+'&size=10&sort='+${sort}}"
+                        <a th:href="@{'/shop/list/'+${bisCategory}'+'?page='+${pageable.getPageNumber() - 1}+'&size=10&sort='+${sort}}"
                            th:class="'page-prev' + (${pageable.getPageNumber()} <= 0 ? ' page-disabled':'')">
 
                         </a>
                         <span th:each="pageNumber : ${paginationBarNumbers}">
                         <a th:text="${pageNumber + 1}"
-                           th:href="@{'/shop/list/'+'?page='+${pageNumber}+'&size=10&sort='+${sort}}"
+                           th:href="@{'/shop/list/'+${bisCategory}+'?page='+${pageNumber}+'&size=10&sort='+${sort}}"
                            th:class="(${pageNumber} == ${pageable.getPageNumber()} ? 'active' : '')">1</a>
                         </span>
 
-                        <a th:href="@{'/shop/list/'+'?page='+${pageable.getPageNumber() + 1}+'&size=10&sort='+${sort}}"
+                        <a th:href="@{'/shop/list/'+${bisCategory}+'?page='+${pageable.getPageNumber() + 1}+'&size=10&sort='+${sort}}"
                            th:class="'page-next' +
                         (${pageable.getPageNumber()} >= ${totalpage - 1} ? ' page-disabled':'')">
                         </a>
