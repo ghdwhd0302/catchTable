@@ -22,4 +22,6 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     Review findByRevIdx(Long revIdx);
 
+    List<Review> findTop6By();
+
 }
