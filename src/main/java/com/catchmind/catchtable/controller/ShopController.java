@@ -6,6 +6,8 @@ import com.catchmind.catchtable.domain.Photo;
 import com.catchmind.catchtable.dto.*;
 import com.catchmind.catchtable.dto.network.request.BistroSaveRequest;
 import com.catchmind.catchtable.dto.network.response.ReviewResponse;
+import com.catchmind.catchtable.dto.network.response.ShopListResponse;
+import com.catchmind.catchtable.dto.network.response.ShopResponse;
 import com.catchmind.catchtable.dto.security.CatchPrincipal;
 import com.catchmind.catchtable.repository.BistroInfoRepository;
 import com.catchmind.catchtable.repository.BistroSaveRepository;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("shop")
@@ -226,7 +229,27 @@ public class ShopController {
 
     }
 
-
+    @GetMapping("/list")
+    public String list(@PageableDefault(size=10, sort="resaBisName", direction = Sort.Direction.DESC) Pageable pageable,
+                       ModelMap map, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
+        if(catchPrincipal == null) {
+            Page<ShopListResponse> shopList = shopService.shopList(pageable,null);
+            List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+            map.addAttribute("shopList" , shopList);
+            map.addAttribute("paginationBarNumbers", barNumbers);
+            map.addAttribute("prIdx", null);
+            System.out.println(shopList);
+        } else {
+            Long prIdx = catchPrincipal.prIdx();
+            Page<ShopListResponse> shopList = shopService.shopList(pageable, prIdx);
+            List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+            map.addAttribute("shopList" , shopList);
+            map.addAttribute("paginationBarNumbers", barNumbers);
+            map.addAttribute("prIdx", prIdx);
+            System.out.println(shopList);
+        }
+        return "shop/list";
+    }
 
     @GetMapping("/list/{bisCategory}")
     public String list(@PageableDefault(size=10, sort="bisIdx", direction = Sort.Direction.DESC) Pageable pageable,
@@ -320,11 +343,11 @@ public class ShopController {
 
     @GetMapping("/list/region/{bisRegion}")
     public String regionList(@PageableDefault(size=10, sort="bisIdx", direction = Sort.Direction.DESC) Pageable pageable,
-                       @RequestParam(value = "page",required = false) Integer page,
-                       @RequestParam(value="size",required = false) Integer size,
-                       @RequestParam(value="sort",required = false) String sort,
-                       ModelMap map,@PathVariable String bisRegion,
-                       @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
+                             @RequestParam(value = "page",required = false) Integer page,
+                             @RequestParam(value="size",required = false) Integer size,
+                             @RequestParam(value="sort",required = false) String sort,
+                             ModelMap map,@PathVariable String bisRegion,
+                             @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         PageRequest pageRequest=null;
         String filtername=null;
         Page<BistroInfoDto> list=null;
@@ -407,29 +430,35 @@ public class ShopController {
         return "shop/list";
     }
 
-
     // 북마크 저장
     @PostMapping(path = "/new/bookmark")
     @ResponseBody
-    public void newBookmark(@RequestBody BistroSaveRequest request) {
+    public String newBookmark(@RequestBody BistroSaveRequest request) {
         System.out.println(request);
-        bistroSaveService.newBookmark(request);
+        BistroSave bistroSave = bistroSaveService.newBookmark(request);
+        if(bistroSave != null) {
+            return "OK";
+        } else {
+            return "NO";
+        }
     }
 
     // 북마크 삭제
     @PostMapping(path = "/del/bookmark")
     @ResponseBody
-    public void delBookmark(@RequestBody BistroSaveRequest request) {
+    public String delBookmark(@RequestBody BistroSaveRequest request) {
         System.out.println("컨트롤러 진입"+request);
-        bistroSaveService.delBookmark(request);
+        Optional<BistroSave> bistroSave =  bistroSaveService.delBookmark(request);
+        if(bistroSave != null) {
+            return "OK";
+        } else {
+            return "NO";
+        }
     }
 
 
     @GetMapping("/{resaBisName}")
     public String service(@PathVariable String resaBisName, ModelMap map) {
-//        BistroInfoDto list = bistroInfoLogicService.infoList(resaBisName);
-//        System.out.println(list);
-//        map.addAttribute("bisInfo", list);
 
         BistroDetailDto lists = bistroDetailLogicService.detailList(resaBisName);
         map.addAttribute("bisDetail" ,lists);
@@ -446,7 +475,7 @@ public class ShopController {
 
         //식당 평균 별점
         List<ReviewDto> rlists = reviewLogicService.reviewList(resaBisName);
-        System.out.println(rlists);
+        List<ShopResponse> reviewAndPhoto = reviewLogicService.reviewPhotoList(resaBisName);
         Double sum=0.0;
         Double avg=0.0;
         int cnt=0;
@@ -459,9 +488,10 @@ public class ShopController {
         map.addAttribute("reviews",rlists);
         map.addAttribute("avgpoint",average);
         map.addAttribute("revcnt",cnt);
+        map.addAttribute("reviewAndPhoto",reviewAndPhoto);
 
         List<Photo> photos = photoLogicService.photoDto(resaBisName);
-        map.addAttribute("shopPic",photos.get(0).getSavedPath());
+        map.addAttribute("shopPic",photos);
         return "shop/shop";
 
     }
@@ -486,7 +516,6 @@ public class ShopController {
         map.addAttribute("resaBisName",resaBisName);
         return "shop/search_list";
     }
-
 
 
 

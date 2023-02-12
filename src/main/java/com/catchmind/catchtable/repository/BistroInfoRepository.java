@@ -12,7 +12,6 @@ import java.util.Optional;
 @RepositoryRestResource
 public interface BistroInfoRepository extends JpaRepository<BistroInfo, Long> {
     Optional<BistroInfo> findByResAdmin_ResaBisName(String resaBisName);
-
     Page<BistroInfo> findByResAdmin_ResaBisNameContaining(String resaBisName, Pageable pageable);
 
     List<BistroInfo> findAllByBisCategoryContaining(String bisCategory);

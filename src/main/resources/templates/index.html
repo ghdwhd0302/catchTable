@@ -228,15 +228,15 @@
                                                 </div>
                                             </th:block>
                                             <th:block th:if="${not #lists.isEmpty(list.photo)}">
-                                                <th:block th:each="photo : ${list.photo}">
-                                                    <div class="img" th:if="${photo.savedPath() != null and photo.orgNm() == null and photo.savedNm() == null}">                                                        <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/375x250.png"
+                                                <th:block>
+                                                    <div class="img" th:if="${list.photo.savedPath() != null and list.photo.orgNm() == null and list.photo.savedNm() == null}">                                                        <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/375x250.png"
                                                              class="guide-img" style="width: 100%; max-height:500px; display: block;"
-                                                             th:src="${photo.savedPath()}">
+                                                             th:src="${list.photo.savedPath()}">
                                                     </div>
-                                                    <div class="img" th:unless="${photo.savedPath() != null and photo.orgNm() == null and photo.savedNm() == null}">
+                                                    <div class="img" th:unless="${list.photo.savedPath() != null and list.photo.orgNm() == null and list.photo.savedNm() == null}">
                                                         <img src="https://dau2wmhjxkxtx.cloudfront.net/web-static/static_webapp_v2/img/375x250.png"
                                                              class="guide-img" style="width: 100%; max-height:500px; display: block;"
-                                                             th:src="'/photo/' + ${photo.savedNm()}">
+                                                             th:src="'/photo/' + ${list.photo.savedNm()}">
                                                     </div>
                                                 </th:block>
                                             </th:block>
@@ -266,7 +266,7 @@
             <section class="section pb-45">
                 <div class="container gutter-sm">
                     <div class="section-header section-header-v">
-                        <h3 class="section-title ebold">12월 3주차 추천 레스토랑</h3>
+                        <h3 class="section-title ebold">2월 3주차 추천 레스토랑</h3>
                         <p style="color: rgb(98, 98, 98);">가장 주목 받는 맛집을 모아봤어요</p>
                         <a href="#" class="btn-more">전체보기</a>
                     </div>

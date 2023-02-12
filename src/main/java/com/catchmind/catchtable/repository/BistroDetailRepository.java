@@ -10,6 +10,5 @@ import java.util.Optional;
 @RepositoryRestResource
 public interface BistroDetailRepository extends JpaRepository<BistroDetail,Long> {
     Optional<BistroDetail> findByResAdmin_ResaBisName(String resaBisName);
-
     List<BistroDetail> findTop8By();
 }
