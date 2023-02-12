@@ -22,13 +22,5 @@ public class BistroDetailLogicService {
         return bistroDetailRepository.findTop8By();
     }
 
-//    public List<BistroDetail> bistroList() {
-//        return bistroDetailRepository.findAll();
-//    }
-
-
-
-
-
 }
 

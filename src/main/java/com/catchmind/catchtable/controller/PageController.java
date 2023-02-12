@@ -5,7 +5,6 @@ import com.catchmind.catchtable.domain.Profile;
 import com.catchmind.catchtable.dto.PendingDto;
 import com.catchmind.catchtable.dto.network.request.ProfileRequest;
 import com.catchmind.catchtable.dto.network.response.IndexResponse;
-import com.catchmind.catchtable.dto.network.response.TimeLineResponse;
 import com.catchmind.catchtable.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,11 +30,6 @@ public class PageController {
     private final ReviewLogicService reviewLogicService;
     private final BistroDetailLogicService bistroDetailLogicService;
 
-    // 마이페이지 헤더
-    public TimeLineResponse header(Long prIdx) {
-        TimeLineResponse response = timeLineService.getHeader(prIdx);
-        return response;
-    }
     @GetMapping("")
     public String index(Model model) {
         List<IndexResponse> list = reviewLogicService.indexReviewList();
