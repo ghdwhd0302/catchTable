@@ -213,6 +213,16 @@ public class MypageController {
         }
         Long prIdx = catchPrincipal.prIdx();
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
+
         Page<ReviewResponse> reviews = profileLogicService.getReview(prIdx, pageable);
         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), reviews.getTotalPages());
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
@@ -222,6 +232,7 @@ public class MypageController {
         map.addAttribute("paginationBarNumbers", barNumbers);
         map.addAttribute("profile", profile);
         map.addAttribute("header", header);
+        map.addAttribute("isSnsAddr", isSnsAddr);
         return "/mypage/myReview";
     }
 
@@ -230,11 +241,21 @@ public class MypageController {
     public ModelAndView myCollection(@AuthenticationPrincipal CatchPrincipal catchPrincipal, Model model) {
         Long prIdx = catchPrincipal.prIdx();
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
         List<MyCollectionDto> MyCollections = profileLogicService.getColList(prIdx);
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
         model.addAttribute("profile", profile);
         model.addAttribute("list", MyCollections);
         model.addAttribute("header", header);
+        model.addAttribute("isSnsAddr", isSnsAddr);
         System.out.println(MyCollections);
         ModelAndView modelAndView = new ModelAndView("/mypage/mycollection");
         return modelAndView;
@@ -246,6 +267,15 @@ public class MypageController {
     public ModelAndView myCollectionDetail(@PathVariable Long colIdx, @AuthenticationPrincipal CatchPrincipal catchPrincipal, Model model) {
         Long prIdx = catchPrincipal.prIdx();
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
         List<BistroSaveDto> bistroSaves = profileLogicService.getSaveList(colIdx);
         System.out.println(catchPrincipal.prIdx());
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
@@ -256,6 +286,7 @@ public class MypageController {
         modelAndView.addObject("header", header);
         modelAndView.addObject("list", bistroSaves);
         modelAndView.addObject("myCollection", myCollection);
+        modelAndView.addObject("isSnsAddr", isSnsAddr);
         return modelAndView;
     }
 
@@ -283,6 +314,15 @@ public class MypageController {
     public ModelAndView myCollectionModify(@PathVariable Long colIdx, @AuthenticationPrincipal CatchPrincipal catchPrincipal, Model model) {
         Long prIdx = catchPrincipal.prIdx();
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
         System.out.println(catchPrincipal.prIdx());
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
         MyCollectionDto myCollection = profileLogicService.getMyCollectionElements(colIdx);
@@ -291,6 +331,7 @@ public class MypageController {
         modelAndView.addObject("profile", profile);
         modelAndView.addObject("header", header);
         modelAndView.addObject("myCollection", myCollection);
+        modelAndView.addObject("isSnsAddr", isSnsAddr);
         return modelAndView;
     }
 
@@ -315,11 +356,21 @@ public class MypageController {
     public ModelAndView myCollectionNew(@AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         Long prIdx = catchPrincipal.prIdx();
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
         System.out.println("🥩🥩" + prIdx);
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
         ModelAndView modelAndView = new ModelAndView("/mypage/new_mycollection");
         modelAndView.addObject("profile", profile);
         modelAndView.addObject("header", header);
+        modelAndView.addObject("isSnsAddr", isSnsAddr);
         return modelAndView;
     }
 
@@ -337,11 +388,21 @@ public class MypageController {
     public ModelAndView addColSaveList(@PathVariable Long prIdx, Model model, @PathVariable Long colIdx) {
         List<BistroSaveDto> bistroSaves = profileLogicService.getList(prIdx);
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
         model.addAttribute("profile", profile);
         model.addAttribute("list", bistroSaves);
         model.addAttribute("colIdx", colIdx);
         model.addAttribute("header", header);
+        model.addAttribute("isSnsAddr", isSnsAddr);
         System.out.println(bistroSaves);
         ModelAndView modelAndView = new ModelAndView("/mypage/myCollection_save_restaurant");
         return modelAndView;
@@ -363,10 +424,20 @@ public class MypageController {
     public ModelAndView myList(@PathVariable Long prIdx, Model model) {
         List<BistroSaveDto> bistroSaves = profileLogicService.getList(prIdx);
         TimeLineResponse header = header(prIdx);
+        boolean isSnsAddr = false;
+        for(int i=0; i < header.snsList().size(); i++){
+            if(header.snsList().get(i).snsAddr().isBlank()){
+                isSnsAddr = true;
+            }
+        }
+        if(header.snsList().isEmpty()){
+            isSnsAddr = true;
+        }
         ProfileDto profile = profileLogicService.getProfileElements(prIdx);
         model.addAttribute("profile", profile);
         model.addAttribute("list", bistroSaves);
         model.addAttribute("header", header);
+        model.addAttribute("isSnsAddr", isSnsAddr);
         System.out.println(bistroSaves);
         ModelAndView modelAndView = new ModelAndView("/mypage/save_restaurant");
         return modelAndView;
