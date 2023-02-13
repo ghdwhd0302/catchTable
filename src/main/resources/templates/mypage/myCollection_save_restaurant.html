@@ -49,10 +49,17 @@
                                             <input type="checkbox" class="form-checkbox" id="bisNames" name="bisNames" style="margin-top: 42px;"
                                                    th:value="${list.resAdminDto.resaBisName}">
                                             <div class="saved-restaurant-list-item" style="min-width: 100%;">
-                                                <div class="restaurant-info">
-                                                    <a href="#" class="tb">
-                                                        <div class="img" style="background-image: url('#');margin-left: 22px;"></div>
-                                                    </a>
+                                                <div class="restaurant-info" style="margin-left: 10px;">
+                                                    <th:block th:if="${list.bistroDetailDto.bistroInfoDto.photoDto.savedPath != null and list.bistroDetailDto.bistroInfoDto.photoDto.orgNm == null and list.bistroDetailDto.bistroInfoDto.photoDto.savedNm == null}">
+                                                        <a class="tb" th:href="'/shop/'+${list.resAdminDto.resaBisName}" >
+                                                            <img class="img" th:src="${list.bistroDetailDto.bistroInfoDto.photoDto.savedPath}" alt="">
+                                                        </a>
+                                                    </th:block>
+                                                    <th:block th:unless="${list.bistroDetailDto.bistroInfoDto.photoDto.savedPath != null and list.bistroDetailDto.bistroInfoDto.photoDto.orgNm == null and list.bistroDetailDto.bistroInfoDto.photoDto.savedNm == null}">
+                                                        <a class="tb" th:href="'/shop/'+${list.resAdminDto.resaBisName}">
+                                                            <img class="img" th:src="'/photo/'+${list.bistroDetailDto.bistroInfoDto.photoDto.savedNm}" alt="">
+                                                        </a>
+                                                    </th:block>
                                                     <a href="#" class="detail">
                                                         <h4 class="name" th:text="${list.resAdminDto.resaBisName}">
                                                             스시대옥</h4>

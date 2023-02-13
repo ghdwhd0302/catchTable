@@ -82,7 +82,7 @@
             </section>
             <section class="section">
                 <div class="container gutter-sm">
-                    <div class="restaurant-summary mb-20">
+                    <div class="restaurant-summary mb-20" style="margin-left: 0">
                         <h2 id="resa_bis_name" class="name"
                             th:text="${bisDetail.bistroInfoDto().resAdminDto().resaBisName()}"></h2>
                         <p class="slogan" style="line-height: 1.5;" th:text="${bisDetail.bistroInfoDto().bisDesc()}">
@@ -96,23 +96,23 @@
                         </div>
                         <div class="price">
                             <span class="lunch"
-                                  th:text=" |점심 ${bisDetail.bistroInfoDto().bisLunch()} 만원|">점심 5 - 7만원</span>
+                                  th:text=" |${bisDetail.bistroInfoDto().bisLunch()}|">점심 5 - 7만원</span>
                             <span class="dinner"
-                                  th:text=" |저녁 ${bisDetail.bistroInfoDto().bisDinner()} 만원|">저녁 6.8만원</span></div>
+                                  th:text=" |${bisDetail.bistroInfoDto().bisDinner()}|">저녁 6.8만원</span></div>
                     </div>
                 </div>
             </section>
             <hr class="separator">
-            <section class="section pb-30 pt-20 ">
-                <div class="container gutter-sm">
+            <section class="section pb-30" style="padding-top: 30px;">
+                <div class="container gutter-sm" style="margin: 0">
                     <div class="section-body">
                         <div class="btn-centered"><a th:href="'/reservation/'+${bisDetail.bistroInfoDto().resAdminDto().resaBisName()}"
                                 th:onclick="checkBlock([[${bisDetail.resAdminDto().resaBisName()}]])"
                                 class="btn btn-rounded btn-outline-red"><span
                                 class="label arrow">예약가능 날짜 찾기</span></a></div>
             </section>
-            <hr class="separator">
-            <section class="section pt-30 pb-30 section-overflow-hidden">
+            <hr class="separator" th:if="${!#lists.isEmpty(bisNotice)}">
+            <section class="section pt-30 pb-30 section-overflow-hidden" th:if="${!#lists.isEmpty(bisNotice)}">
                 <div class="container gutter-sm">
                     <div class="section-header mb-30">
                         <h3 class="section-title __sm">레스토랑 공지</h3>
@@ -208,7 +208,7 @@
 
                             </div>
                         </div>
-                        <div><a th:href="'/shop/menulist/' + ${bisDetail.resAdminDto().resaBisName()}"
+                        <div style="margin-top: 30px"><a th:href="'/shop/menulist/' + ${bisDetail.resAdminDto().resaBisName()}"
                                 class="btn-menupan-photo"><span>메뉴 전체보기</span></a></div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                                  style="height: 240px; overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/2x/bg_tile.png&quot;);">
 
                             </div>
-                            <div class="addr">
+                            <div class="addr" style="padding-left: 0">
                                 <p th:text="${bisDetail.bdAddr()}">서울특별시 서초구 사평대로 205 CENTRALCITY 반포천 복개주차장</p>
                             </div>
                         </div>
@@ -332,7 +332,7 @@
                                 <dl>
                                     <dt><a class="__toggle">매장 소개</a></dt>
                                     <!--                                        th:text="${shop.bdIntro}"-->
-                                    <dd class="color-gray" th:text="${bisDetail.bdIntro()}">강렬한 삼바 리듬과 함께 즐기는 브라질 슈하스코
+                                    <dd class="color-gray" th:text="${bisDetail.bdIntro()}" style="white-space: pre-line">강렬한 삼바 리듬과 함께 즐기는 브라질 슈하스코
                                         하우스<br><br>15가지의 브라질 정통 스테이크인
                                         슈하스코와 50여가지의 신선한 계절 샐러드를 함께 즐길 수 있으며 <br>고객이 계신 테이블로 카버가 찾아가 스테이크를 직접
                                         카빙서비스해드리기에, 원하시는 부위별로 마음껏 골라 드실 수 있습니다.<br><br>‘맛’과 ‘재미‘ 가 공존하는 텍사스 데

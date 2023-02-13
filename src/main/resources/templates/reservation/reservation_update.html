@@ -85,10 +85,10 @@
                 <div id="datepicker" onclick="sendRes()">
                 </div>
                 <div class="select-all">
-                    <div class="option-personnel swiper-container mb-24">
-                        <div id="optionPersonalCntList" class="v-scroll">
-                            <div class="v-scroll-inner">
-                                <div id="optionPersonalCntList" class="" style="display: flex; flex-wrap: nowrap;">
+                    <div class="option-personnel swiper-container mb-24" style="margin-left: 29px;">
+                        <div id="optionPersonalCntList">
+                            <div class="v-scroll-inner" style="min-width: 100%">
+                                <div id="optionPersonalCntList" class="" style="display: flex; flex-wrap: nowrap;justify-content: center;margin-right: 49px;">
                                     <label class="swiper-slide" style="margin-right: 6px;">
                                         <input class="count" type="radio" name="count" value="1"
                                                onclick="sendRes()"><span>1명</span>
@@ -130,26 +130,26 @@
                         </div>
                     </div>
                     <div class="v-scroll" id="scrollContainer_1671430849_164" style="">
-                        <div class="v-scroll-inner" style="display: flex;">
+                        <div class="v-scroll-inner" style="display: flex;margin-right: 36px;">
                             <div id="timelist" class="timetable-list timetable-list-sm" style="">
                                 <a href="#" id="scrollContainer_1671430849_164_itemElem_17002"
                                    class="timetable-list-item empty" style="margin-bottom: auto; margin-top: auto;">
                                     <span class="time">빈자리 알림신청</span>
                                 </a>
                             </div>
-                            <div class="timetable-list timetable-list-sm">
-                                <a class="timetable-list-item" style="width: 1px; border-color: rgb(255, 255, 255);">
-                                    <span class="time" style="background-color: rgb(255, 255, 255);">&nbsp;</span>
-                                    <span class="event">&nbsp;</span>
-                                </a>
-                            </div>
+<!--                            <div class="timetable-list timetable-list-sm">-->
+<!--                                <a class="timetable-list-item" style="width: 1px; border-color: rgb(255, 255, 255);">-->
+<!--                                    <span class="time" style="background-color: rgb(255, 255, 255);">&nbsp;</span>-->
+<!--                                    <span class="event">&nbsp;</span>-->
+<!--                                </a>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
-                <div class="drawer-box-footer">
-                    <div class="btn-group">
-                        <button class="btn btn-lg btn-outline" onclick="history.back()">이전</button>
-                        <button class="btn btn-lg btn-red" onclick="upDateReservation()">수정하기</button>
+                <div class="drawer-box-footer" style="padding: 0 30px;min-width: 100%;margin-top: 34px;">
+                    <div class="btn-group" style="display: flex;justify-content: center;margin-right: 18px;">
+                        <button class="btn btn-lg btn-outline" onclick="history.back()" style="width: 33%;padding: 0;">이전</button>
+                        <button class="btn btn-lg btn-red" onclick="upDateReservation()" style="width: 33%;margin-left: 24px;margin-right: 39px;">수정하기</button>
                     </div>
                 </div>
             </section>
