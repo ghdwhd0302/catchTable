@@ -1,9 +1,6 @@
 package com.catchmind.catchtable.service;
 
-import com.catchmind.catchtable.dto.BistroDetailDto;
-import com.catchmind.catchtable.dto.BistroSaveDto;
-import com.catchmind.catchtable.dto.ReviewDto;
-import com.catchmind.catchtable.dto.ReviewPhotoDto;
+import com.catchmind.catchtable.dto.*;
 import com.catchmind.catchtable.dto.network.response.ReviewResponse;
 import com.catchmind.catchtable.dto.network.response.ShopListResponse;
 import com.catchmind.catchtable.repository.*;
@@ -17,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -80,7 +78,7 @@ public class ShopService {
                 }
                 boolean isReview = false;
                 for (ReviewDto login : loginReview) {
-                    if(bisNameReview.get(i).profileDto().prIdx() == login.profileDto().prIdx()) {
+                    if (bisNameReview.get(i).profileDto().prIdx() == login.profileDto().prIdx()) {
                         isReview = true;
                     }
                 }
@@ -125,6 +123,97 @@ public class ShopService {
         if (prIdx == null) {
             List<ReviewDto> reviewDtos = new ArrayList<>();
 
+            for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
+                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
+                Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
+                if (reviewDtos.isEmpty()) {
+                    ShopListResponse response = new ShopListResponse("0.0", reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
+                            bistroDetailDto.bistroInfoDto().photoDto(), false,
+                            bistroDetailDto.bistroInfoDto().regDate());
+                    shopListResponses.add(response);
+                } else {
+                    double totalScore = 0;
+                    double avg = 0;
+                    for (ReviewDto reviewDto : reviewDtos) {
+                        System.out.println(reviewDto.revScore());
+                        totalScore += reviewDto.revScore();
+                    }
+                    avg = totalScore / reviewDtos.size();
+                    System.out.println(totalScore);
+                    System.out.println("❤️" + avg);
+                    ShopListResponse response = new ShopListResponse(String.format("%.1f", avg), reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
+                            bistroDetailDto.bistroInfoDto().photoDto(), false,
+                            bistroDetailDto.bistroInfoDto().regDate());
+                    shopListResponses.add(response);
+                }
+            }
+        } else {
+            List<BistroSaveDto> bistroSaveDtos = bistroSaveRepository.findAllByProfile_PrIdx(prIdx).stream().map(BistroSaveDto::from).toList();
+            List<ReviewDto> reviewDtos = new ArrayList<>();
+
+            for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
+                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
+                Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
+                boolean isSaved = false;
+                for (BistroSaveDto bistroSaveDto : bistroSaveDtos) {
+                    if (bistroDetailDto.bdIdx() == bistroSaveDto.bistroDetailDto().bdIdx()) {
+                        isSaved = true;
+                    }
+                }
+                if (reviewDtos.isEmpty()) {
+                    ShopListResponse response = new ShopListResponse("0.0", reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
+                            bistroDetailDto.bistroInfoDto().photoDto(), isSaved,
+                            bistroDetailDto.bistroInfoDto().regDate());
+                    shopListResponses.add(response);
+                } else {
+                    double totalScore = 0;
+                    double avg = 0;
+                    for (ReviewDto reviewDto : reviewDtos) {
+                        System.out.println(reviewDto.revScore());
+                        totalScore += reviewDto.revScore();
+                    }
+                    avg = totalScore / reviewCnt;
+                    System.out.println("💙" + avg);
+                    ShopListResponse response = new ShopListResponse(String.format("%.1f", avg), reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
+                            bistroDetailDto.bistroInfoDto().photoDto(), isSaved,
+                            bistroDetailDto.bistroInfoDto().regDate()
+                    );
+                    shopListResponses.add(response);
+                }
+            }
+
+        }
+        if (sort != null) {
+            switch (sort) {
+                case "regDate":
+                    shopListResponses.sort((o1, o2) -> o2.regDate().compareTo(o1.regDate()));
+                    break;
+                case "revCnt":
+                    shopListResponses.sort((o1, o2) -> o2.revCnt().compareTo(o1.revCnt()));
+                    break;
+                case "revScore":
+                    shopListResponses.sort((o1, o2) -> o2.avgScore().compareTo(o1.avgScore()));
+            }
+
+        }
+        final int start = (int) pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), shopListResponses.size());
+        PageImpl<ShopListResponse> shopListResponsePage = new PageImpl<>(shopListResponses.subList(start, end), pageable, shopListResponses.size());
+        return shopListResponsePage;
+    }
+
+    // 카테고리
+    public Page<ShopListResponse> categoryList(Pageable pageable, Long prIdx, String sort, String bisCategory, String bisRegion) {
+        List<ShopListResponse> shopListResponses = new ArrayList<>();
+        List<BistroDetailDto> bistroDetailDtos = new ArrayList<>();
+        if (bisCategory != null) {
+            bistroDetailDtos = bistroDetailRepository.findAllByBistroInfo_BisCategoryContaining(bisCategory).stream().map(BistroDetailDto::from).toList();
+        }
+        if(bisRegion != null) {
+            bistroDetailDtos = bistroDetailRepository.findAllByBistroInfo_BisRegionContaining(bisRegion).stream().map(BistroDetailDto::from).toList();
+        }
+        if (prIdx == null) {
+            List<ReviewDto> reviewDtos = new ArrayList<>();
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
                 reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
