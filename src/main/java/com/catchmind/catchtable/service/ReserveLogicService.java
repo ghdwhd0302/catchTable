@@ -132,10 +132,6 @@ public class ReserveLogicService {
             return shopResTableList;
         }
 
-
-//        for(int i=0; i<shopResTableList.size(); i++){
-//            timeList.add(shopResTableList.get(i).getShopResTime());
-//        }
     }
 
 
