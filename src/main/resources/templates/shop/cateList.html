@@ -202,14 +202,14 @@
                                                     <th:block
                                                             th:if="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 154px"
                                                                  th:src="${list.photoDto.savedPath}">
                                                         </a>
                                                     </th:block>
                                                     <th:block
                                                             th:unless="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 154px"
                                                                  th:src="'/photo/'+${list.photoDto.savedNm}">
                                                         </a>
                                                     </th:block>
@@ -256,7 +256,7 @@
                                                         <span class="tags"
                                                               th:text=" ${list.bistroDetailDto.bistroInfoDto.bisCategory}">한식 • 이태원</span>
                                                         <span class="price"
-                                                              th:text="|점심 ${list.bistroDetailDto.bistroInfoDto.bisLunch} · 저녁 ${list.bistroDetailDto.bistroInfoDto.bisDinner}|"></span>
+                                                              th:text="|${list.bistroDetailDto.bistroInfoDto.bisLunch} · ${list.bistroDetailDto.bistroInfoDto.bisDinner}|"></span>
                                                     </div>
                                                     <!--                                                    *****-->
                                                     <div class="timetable-list timetable-list-sm">

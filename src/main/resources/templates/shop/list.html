@@ -122,7 +122,7 @@
         }
 
         .info-icon-div-1 {
-            margin-left: 860px;
+            margin-left: 828px;
         }
 
 
@@ -138,8 +138,8 @@
         <main id="main" style="padding-bottom: 0px;">
             <div class="search-header __autohide" style="background: none; top: 48px;">
                 <div class="__search-result-header mb-20">
-                    <div class="__total-count">
-                        <strong th:text="|총 ${shopList.getTotalElements()}개|">104</strong>의 레스토랑
+                    <div class="__total-count" style="width: 141px;">
+                        <strong th:text="|총 ${shopList.getTotalElements()}개의 레스토랑|">104</strong>
                     </div>
                     <div class="info-icon-div-1">
                         <a href="#layer2" th:if="${filtername!=null}" id="btn-example" class="info-icon-div"
@@ -204,14 +204,14 @@
                                                     <th:block
                                                             th:if="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 154px"
                                                                  th:src="${list.photoDto.savedPath}">
                                                         </a>
                                                     </th:block>
                                                     <th:block
                                                             th:unless="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 154px"
                                                                  th:src="'/photo/'+${list.photoDto.savedNm}">
                                                         </a>
                                                     </th:block>
@@ -258,7 +258,7 @@
                                                         <span class="tags"
                                                               th:text=" ${list.bistroDetailDto.bistroInfoDto.bisCategory}">한식 • 이태원</span>
                                                         <span class="price"
-                                                              th:text="|점심 ${list.bistroDetailDto.bistroInfoDto.bisLunch} · 저녁 ${list.bistroDetailDto.bistroInfoDto.bisDinner}|"></span>
+                                                              th:text="|${list.bistroDetailDto.bistroInfoDto.bisLunch} · ${list.bistroDetailDto.bistroInfoDto.bisDinner}|"></span>
                                                     </div>
                                                     <!--                                                    *****-->
                                                     <div class="timetable-list timetable-list-sm">
