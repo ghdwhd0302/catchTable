@@ -1,6 +1,9 @@
 package com.catchmind.catchtable.service;
 
-import com.catchmind.catchtable.dto.*;
+import com.catchmind.catchtable.dto.BistroDetailDto;
+import com.catchmind.catchtable.dto.BistroSaveDto;
+import com.catchmind.catchtable.dto.ReviewDto;
+import com.catchmind.catchtable.dto.ReviewPhotoDto;
 import com.catchmind.catchtable.dto.network.response.ReviewResponse;
 import com.catchmind.catchtable.dto.network.response.ShopListResponse;
 import com.catchmind.catchtable.repository.*;
@@ -14,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -284,6 +286,7 @@ public class ShopService {
                     break;
                 case "revScore":
                     shopListResponses.sort((o1, o2) -> o2.avgScore().compareTo(o1.avgScore()));
+                    break;
             }
 
         }
@@ -292,6 +295,8 @@ public class ShopService {
         PageImpl<ShopListResponse> shopListResponsePage = new PageImpl<>(shopListResponses.subList(start, end), pageable, shopListResponses.size());
         return shopListResponsePage;
     }
+
+
 
 }
 

@@ -287,7 +287,7 @@ public class ShopController {
     // 식당 카테고리 리스트
     @GetMapping("/list/bisCategory/{bisCategory}")
     public String cateList(@PathVariable String bisCategory,
-                            @RequestParam(required = false) String sort,
+                           @RequestParam(required = false) String sort,
                            @PageableDefault(size = 10) Pageable pageable,
                            ModelMap map,
                            @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
@@ -386,6 +386,110 @@ public class ShopController {
             }
         }
         return "shop/cateList";
+    }
+
+    @GetMapping("/list/bisRegion/{bisRegion}")
+    public String regionList(@PathVariable String bisRegion,
+                             @RequestParam(required = false) String sort,
+                             @PageableDefault(size = 10) Pageable pageable,
+                             ModelMap map,
+                             @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
+        String filtername = "최신등록순";
+        if (sort == "" || sort == null) {
+            if (catchPrincipal == null) {
+                Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, null, null, bisRegion);
+                List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                map.addAttribute("shopList", shopList);
+                map.addAttribute("paginationBarNumbers", barNumbers);
+                map.addAttribute("prIdx", 0);
+                map.addAttribute("sort", sort);
+                map.addAttribute("filtername", filtername);
+                map.addAttribute("bisRegion", bisRegion);
+            } else {
+                Long prIdx = catchPrincipal.prIdx();
+                Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, null, null, bisRegion);
+                List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                map.addAttribute("shopList", shopList);
+                map.addAttribute("paginationBarNumbers", barNumbers);
+                map.addAttribute("prIdx", prIdx);
+                map.addAttribute("sort", sort);
+                map.addAttribute("filtername", filtername);
+                map.addAttribute("bisRegion", bisRegion);
+            }
+        } else {
+            switch (sort) {
+                case "regDate":
+                    if (catchPrincipal == null) {
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, null, bisRegion);
+                        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                        map.addAttribute("shopList", shopList);
+                        map.addAttribute("paginationBarNumbers", barNumbers);
+                        map.addAttribute("prIdx", 0);
+                        map.addAttribute("sort", sort);
+                        map.addAttribute("filtername", filtername);
+                        map.addAttribute("bisRegion", bisRegion);
+                    } else {
+                        Long prIdx = catchPrincipal.prIdx();
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, null, bisRegion);
+                        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                        map.addAttribute("shopList", shopList);
+                        map.addAttribute("paginationBarNumbers", barNumbers);
+                        map.addAttribute("prIdx", prIdx);
+                        map.addAttribute("sort", sort);
+                        map.addAttribute("filtername", filtername);
+                        map.addAttribute("bisRegion", bisRegion);
+                    }
+                    break;
+                case "revCnt":
+                    if (catchPrincipal == null) {
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisRegion,null);
+                        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                        filtername = "리뷰 많은순";
+                        map.addAttribute("shopList", shopList);
+                        map.addAttribute("paginationBarNumbers", barNumbers);
+                        map.addAttribute("prIdx", 0);
+                        map.addAttribute("sort", sort);
+                        map.addAttribute("filtername", filtername);
+                        map.addAttribute("bisRegion", bisRegion);
+                    } else {
+                        Long prIdx = catchPrincipal.prIdx();
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, null,bisRegion);
+                        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                        filtername = "리뷰 많은순";
+                        map.addAttribute("shopList", shopList);
+                        map.addAttribute("paginationBarNumbers", barNumbers);
+                        map.addAttribute("prIdx", prIdx);
+                        map.addAttribute("sort", sort);
+                        map.addAttribute("filtername", filtername);
+                        map.addAttribute("bisRegion", bisRegion);
+                    }
+                    break;
+                case "revScore":
+                    if (catchPrincipal == null) {
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, null,bisRegion);
+                        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                        filtername = "별점 높은순";
+                        map.addAttribute("shopList", shopList);
+                        map.addAttribute("paginationBarNumbers", barNumbers);
+                        map.addAttribute("prIdx", 0);
+                        map.addAttribute("sort", sort);
+                        map.addAttribute("filtername", filtername);
+                        map.addAttribute("bisRegion", bisRegion);
+                    } else {
+                        Long prIdx = catchPrincipal.prIdx();
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort,null,bisRegion);
+                        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
+                        filtername = "별점 높은순";
+                        map.addAttribute("shopList", shopList);
+                        map.addAttribute("paginationBarNumbers", barNumbers);
+                        map.addAttribute("prIdx", prIdx);
+                        map.addAttribute("sort", sort);
+                        map.addAttribute("filtername", filtername);
+                        map.addAttribute("bisRegion", bisRegion);
+                    }
+            }
+        }
+        return "shop/regionList";
     }
 
 
