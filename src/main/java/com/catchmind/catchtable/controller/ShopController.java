@@ -2,7 +2,6 @@ package com.catchmind.catchtable.controller;
 
 import com.catchmind.catchtable.domain.BistroInfo;
 import com.catchmind.catchtable.domain.BistroSave;
-import com.catchmind.catchtable.domain.Photo;
 import com.catchmind.catchtable.dto.*;
 import com.catchmind.catchtable.dto.network.request.BistroSaveRequest;
 import com.catchmind.catchtable.dto.network.response.ReviewResponse;
@@ -10,12 +9,9 @@ import com.catchmind.catchtable.dto.network.response.ShopListResponse;
 import com.catchmind.catchtable.dto.network.response.ShopResponse;
 import com.catchmind.catchtable.dto.network.response.ShopReviewResponse;
 import com.catchmind.catchtable.dto.security.CatchPrincipal;
-import com.catchmind.catchtable.repository.BistroInfoRepository;
-import com.catchmind.catchtable.repository.BistroSaveRepository;
 import com.catchmind.catchtable.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -25,7 +21,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -100,6 +95,7 @@ public class ShopController {
                 map.addAttribute("paginationBarNumbers",barNumbers);
                 map.addAttribute("sort", sort);
                 map.addAttribute("filtername", filtername);
+                map.addAttribute("prIdx", 0);
             } else {
                 Long prIdx = catchPrincipal.prIdx();
                 reviews = shopService.getBisNameReviews(pageable, resaBisName, prIdx, sort);
@@ -200,13 +196,13 @@ public class ShopController {
                        @RequestParam(required = false) String bisCategory,
                        @RequestParam(required = false) String bisRegion) {
         String filtername = "최신등록순";
-        if (sort == null) {
+        if (sort == "" || sort == null) {
             if (catchPrincipal == null) {
                 Page<ShopListResponse> shopList = shopService.shopList(pageable, null, null);
                 List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                 map.addAttribute("shopList", shopList);
                 map.addAttribute("paginationBarNumbers", barNumbers);
-                map.addAttribute("prIdx", "");
+                map.addAttribute("prIdx", 0);
                 map.addAttribute("sort", sort);
                 map.addAttribute("filtername", filtername);
             } else {
@@ -227,7 +223,7 @@ public class ShopController {
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         map.addAttribute("shopList", shopList);
                         map.addAttribute("paginationBarNumbers", barNumbers);
-                        map.addAttribute("prIdx", "");
+                        map.addAttribute("prIdx", 0);
                         map.addAttribute("sort", sort);
                         map.addAttribute("filtername", filtername);
                     } else {
@@ -248,7 +244,7 @@ public class ShopController {
                         filtername = "리뷰 많은순";
                         map.addAttribute("shopList", shopList);
                         map.addAttribute("paginationBarNumbers", barNumbers);
-                        map.addAttribute("prIdx", "");
+                        map.addAttribute("prIdx", 0);
                         map.addAttribute("sort", sort);
                         map.addAttribute("filtername", filtername);
                     } else {
@@ -270,7 +266,7 @@ public class ShopController {
                         filtername = "별점 높은순";
                         map.addAttribute("shopList", shopList);
                         map.addAttribute("paginationBarNumbers", barNumbers);
-                        map.addAttribute("prIdx", "");
+                        map.addAttribute("prIdx", 0);
                         map.addAttribute("sort", sort);
                         map.addAttribute("filtername", filtername);
                     } else {
