@@ -54,7 +54,7 @@ function sendRes() {
             console.log(data)
             if (data.length == 0) {
                 let item_empty = '';
-                item_empty = "<a href=\"#\" id=\"scrollContainer_1671430849_164_itemElem_17002\" class=\"timetable-list-item empty\" style=\"margin-bottom: auto; margin-top: auto;\"> <span class=\"time\">빈자리 알림신청</span></a>"
+                item_empty = "<a href=\"#\" id=\"scrollContainer_1671430849_164_itemElem_17002\" class=\"timetable-list-item empty\" style=\"margin-bottom: auto; margin-top: auto;\"> <span class=\"time\">예약 마감</span></a>"
                 $("#timelist").html(item_empty);
             } else {
                 let btn = '';

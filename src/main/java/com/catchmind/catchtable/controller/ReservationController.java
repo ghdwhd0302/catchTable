@@ -35,7 +35,13 @@ public class ReservationController {
 
     @GetMapping("{resaBisName}")
     public String resMain(@PathVariable String resaBisName, Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
-        model.addAttribute("resaBisName", resaBisName);
+        if (catchPrincipal == null) {
+            model.addAttribute("prIdx",0);
+            return "redirect:/login";
+        } else {
+            model.addAttribute("prIdx", catchPrincipal.prIdx());
+            model.addAttribute("resaBisName", resaBisName);
+        }
         return "reservation/reservation";
     }
 
