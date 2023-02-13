@@ -61,14 +61,18 @@
                 <div class="video-swiper-wrapper">
                     <div class="swiper swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
                         <div class="img-container" style="position: relative;">
-                            <th:block th:if="${shopPic.savedPath() != null and shopPic.orgNm() == null and shopPic.savedNm() == null}">
+                            <th:block
+                                    th:if="${shopPic.savedPath() != null and shopPic.orgNm() == null and shopPic.savedNm() == null}">
                                 <div class="img swiper-lazy swiper-lazy-loaded">
-                                    <img class="guide-img" style="width: 100%; max-height:500px; display: block;" th:src="${shopPic.savedPath()}" alt="">
+                                    <img class="guide-img" style="width: 100%; max-height:500px; display: block;"
+                                         th:src="${shopPic.savedPath()}" alt="">
                                 </div>
                             </th:block>
-                            <th:block th:unless="${shopPic.savedPath() != null and shopPic.orgNm() == null and shopPic.savedNm() == null}">
+                            <th:block
+                                    th:unless="${shopPic.savedPath() != null and shopPic.orgNm() == null and shopPic.savedNm() == null}">
                                 <div class="img swiper-lazy swiper-lazy-loaded">
-                                    <img class="guide-img" style="width: 100%; max-height:500px; display: block;" th:src="'/photo/' + ${shopPic.savedNm()}" alt="">
+                                    <img class="guide-img" style="width: 100%; max-height:500px; display: block;"
+                                         th:src="'/photo/' + ${shopPic.savedNm()}" alt="">
                                 </div>
                             </th:block>
                         </div>
@@ -234,18 +238,23 @@
                                                th:if="${revStat.index>(revStat.size-4)}">
                                                 <div class="tb">
                                                     <div class="img">
-                                                        <th:block
-                                                                th:if="${review.reviewPhotoDto.savedPath != null and review.reviewPhotoDto.orgNm == null and review.reviewPhotoDto.savedNm == null}">
-                                                            <img th:src="${review.reviewPhotoDto.savedPath}" alt=""
-                                                                 style="width: 300px; height:200px; object-fit: cover;">
-                                                        </th:block>
-                                                        <th:block
-                                                                th:unless="${review.reviewPhotoDto.savedPath != null and review.reviewPhotoDto.orgNm == null and review.reviewPhotoDto.savedNm == null}">
-                                                            <img
-                                                                    th:src="'/photo/'+${review.reviewPhotoDto.savedNm}"
-                                                                    alt=""
-                                                                    style="width: 300px; height:200px; object-fit: cover;">
-                                                        </th:block>
+                                                        <div th:if="${review.reviewPhotoDto == null}">
+                                                            <img src="" alt="">
+                                                        </div>
+                                                        <div th:unless="${review.reviewPhotoDto == null}">
+                                                            <th:block
+                                                                    th:if="${review.reviewPhotoDto.savedPath != null and review.reviewPhotoDto.orgNm == null and review.reviewPhotoDto.savedNm == null}">
+                                                                <img th:src="${review.reviewPhotoDto.savedPath}" alt=""
+                                                                     style="width: 300px; height:200px; object-fit: cover;">
+                                                            </th:block>
+                                                            <th:block
+                                                                    th:unless="${review.reviewPhotoDto.savedPath != null and review.reviewPhotoDto.orgNm == null and review.reviewPhotoDto.savedNm == null}">
+                                                                <img
+                                                                        th:src="'/photo/'+${review.reviewPhotoDto.savedNm}"
+                                                                        alt=""
+                                                                        style="width: 300px; height:200px; object-fit: cover;">
+                                                            </th:block>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="detail">
