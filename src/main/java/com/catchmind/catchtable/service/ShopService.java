@@ -125,8 +125,6 @@ public class ShopService {
         if (prIdx == null) {
             List<ReviewDto> reviewDtos = new ArrayList<>();
 
-            double totalScore = 0;
-            double avg = 0;
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
                 reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
@@ -136,12 +134,15 @@ public class ShopService {
                             bistroDetailDto.bistroInfoDto().regDate());
                     shopListResponses.add(response);
                 } else {
+                    double totalScore = 0;
+                    double avg = 0;
                     for (ReviewDto reviewDto : reviewDtos) {
                         System.out.println(reviewDto.revScore());
                         totalScore += reviewDto.revScore();
-                        System.out.println(totalScore);
                     }
-                    System.out.println(avg = totalScore / reviewDtos.size());
+                    avg = totalScore / reviewDtos.size();
+                    System.out.println(totalScore);
+                    System.out.println("❤️" + avg);
                     ShopListResponse response = new ShopListResponse(String.format("%.1f", avg), reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
                             bistroDetailDto.bistroInfoDto().photoDto(), false,
                             bistroDetailDto.bistroInfoDto().regDate());
@@ -152,8 +153,6 @@ public class ShopService {
             List<BistroSaveDto> bistroSaveDtos = bistroSaveRepository.findAllByProfile_PrIdx(prIdx).stream().map(BistroSaveDto::from).toList();
             List<ReviewDto> reviewDtos = new ArrayList<>();
 
-            double totalScore = 0;
-            double avg = 0;
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
                 reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
@@ -161,7 +160,6 @@ public class ShopService {
                 for (BistroSaveDto bistroSaveDto : bistroSaveDtos) {
                     if (bistroDetailDto.bdIdx() == bistroSaveDto.bistroDetailDto().bdIdx()) {
                         isSaved = true;
-                        break;
                     }
                 }
                 if (reviewDtos.isEmpty()) {
@@ -170,12 +168,14 @@ public class ShopService {
                             bistroDetailDto.bistroInfoDto().regDate());
                     shopListResponses.add(response);
                 } else {
+                    double totalScore = 0;
+                    double avg = 0;
                     for (ReviewDto reviewDto : reviewDtos) {
                         System.out.println(reviewDto.revScore());
                         totalScore += reviewDto.revScore();
-                        System.out.println(totalScore);
                     }
-                    System.out.println(avg = totalScore / reviewDtos.size());
+                    avg = totalScore / reviewCnt;
+                    System.out.println("💙" + avg);
                     ShopListResponse response = new ShopListResponse(String.format("%.1f", avg), reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
                             bistroDetailDto.bistroInfoDto().photoDto(), isSaved,
                             bistroDetailDto.bistroInfoDto().regDate()
@@ -198,7 +198,6 @@ public class ShopService {
             }
 
         }
-
         final int start = (int) pageable.getOffset();
         final int end = Math.min((start + pageable.getPageSize()), shopListResponses.size());
         PageImpl<ShopListResponse> shopListResponsePage = new PageImpl<>(shopListResponses.subList(start, end), pageable, shopListResponses.size());
