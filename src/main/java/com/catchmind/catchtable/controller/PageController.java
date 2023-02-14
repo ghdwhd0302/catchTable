@@ -47,6 +47,11 @@ public class PageController {
         return new ModelAndView("/login");
     }
 
+    @GetMapping("/login/error")
+    public ModelAndView loginFail() {
+        return new ModelAndView("/loginFail");
+    }
+
     @GetMapping("join")
     public ModelAndView join() {
         return new ModelAndView("/join");
