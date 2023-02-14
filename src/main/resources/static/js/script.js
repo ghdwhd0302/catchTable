@@ -14,53 +14,39 @@ function openCloseToc() {
 }
 
 
-// <!-- 북마크 -->
-// const bmbtn = document.querySelector('.btn-bookmark')
-//
-//
-// $('.btn-bookmark').on({
-//     'click': function() {
-//         var src = ($(this).attr('src') === 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRDlEOUQ5Ii8+CiAgICA8cGF0aCBkPSJNMTUuNzgxNyAxOC44MzY5TDE1LjUyMjIgMTguNjZMMTUuMjUwMSAxOC44MTY5TDkuNSAyMi4xMzQzVjEwQzkuNSA5LjE3MTU3IDEwLjE3MTYgOC41IDExIDguNUgxOUMxOS44Mjg0IDguNSAyMC41IDkuMTcxNTcgMjAuNSAxMFYyMi4wNTM5TDE1Ljc4MTcgMTguODM2OVoiIHN0cm9rZT0id2hpdGUiLz4KPC9zdmc+Cg==') ? 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE0LjUiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNENUQ1RDUiLz4KICAgIDxwYXRoIGQ9Ik0xOSA4SDExQzkuODk1NDMgOCA5IDguODk1NDMgOSAxMFYyM0wxNS41IDE5LjI1TDIxIDIzVjEwQzIxIDguODk1NDMgMjAuMTA0NiA4IDE5IDhaIiBmaWxsPSIjRkYzRDAwIi8+Cjwvc3ZnPgo=' : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRDlEOUQ5Ii8+CiAgICA8cGF0aCBkPSJNMTUuNzgxNyAxOC44MzY5TDE1LjUyMjIgMTguNjZMMTUuMjUwMSAxOC44MTY5TDkuNSAyMi4xMzQzVjEwQzkuNSA5LjE3MTU3IDEwLjE3MTYgOC41IDExIDguNUgxOUMxOS44Mjg0IDguNSAyMC41IDkuMTcxNTcgMjAuNSAxMFYyMi4wNTM5TDE1Ljc4MTcgMTguODM2OVoiIHN0cm9rZT0id2hpdGUiLz4KPC9zdmc+Cg==';
-//         $(this).attr('src', src);
-//         var aaa = ($(this).attr('src') === 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRDlEOUQ5Ii8+CiAgICA8cGF0aCBkPSJNMTUuNzgxNyAxOC44MzY5TDE1LjUyMjIgMTguNjZMMTUuMjUwMSAxOC44MTY5TDkuNSAyMi4xMzQzVjEwQzkuNSA5LjE3MTU3IDEwLjE3MTYgOC41IDExIDguNUgxOUMxOS44Mjg0IDguNSAyMC41IDkuMTcxNTcgMjAuNSAxMFYyMi4wNTM5TDE1Ljc4MTcgMTguODM2OVoiIHN0cm9rZT0id2hpdGUiLz4KPC9zdmc+Cg==') ? toast(' 저장한 레스토랑에서 삭제되었습니다 ') : toast(' 레스토랑이 저장되었습니다 편집하기 >');
-//
-//     }
-// });
 let isSaved = document.querySelectorAll('.saved');
 let prIdx = document.querySelectorAll('.prIdx');
-let bisName = document.querySelectorAll('.bisName');
+// let bisName = document.querySelectorAll('.bisName');
 let bdIdx = document.querySelectorAll('.bdIdx');
 console.log(bdIdx.length);
 for (let i = 0; i < isSaved.length; i++) {
     if (isSaved[i].value == 'true') {
         console.log("⭕")
-        let mark = "<img class='btn-bookmark mark" + bdIdx[i].value + "' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE0LjUiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNENUQ1RDUiLz4KICAgIDxwYXRoIGQ9Ik0xOSA4SDExQzkuODk1NDMgOCA5IDguODk1NDMgOSAxMFYyM0wxNS41IDE5LjI1TDIxIDIzVjEwQzIxIDguODk1NDMgMjAuMTA0NiA4IDE5IDhaIiBmaWxsPSIjRkYzRDAwIi8+Cjwvc3ZnPgo='" +
-            " onclick=marked(" + prIdx[i].value + ",'" + bisName[i].value + "'," + true + "," + bdIdx[i].value + ")>";
+        let mark = "<a class='btn-bookmark active mark" + bdIdx[i].value + "'  onclick='marked(" + prIdx[i].value + "," + true + "," + bdIdx[i].value + ")'></a>";
         $('.bookmark' + bdIdx[i].value).append(mark);
     } else {
         console.log("❌")
-        let mark = "<img class='btn-bookmark mark" + bdIdx[i].value + "' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRDlEOUQ5Ii8+CiAgICA8cGF0aCBkPSJNMTUuNzgxNyAxOC44MzY5TDE1LjUyMjIgMTguNjZMMTUuMjUwMSAxOC44MTY5TDkuNSAyMi4xMzQzVjEwQzkuNSA5LjE3MTU3IDEwLjE3MTYgOC41IDExIDguNUgxOUMxOS44Mjg0IDguNSAyMC41IDkuMTcxNTcgMjAuNSAxMFYyMi4wNTM5TDE1Ljc4MTcgMTguODM2OVoiIHN0cm9rZT0id2hpdGUiLz4KPC9zdmc+Cg=='" +
-            "onclick=marked(" + prIdx[i].value + ",'" + bisName[i].value + "'," + false + "," + bdIdx[i].value + ")>";
+        let mark = "<a class='btn-bookmark mark" + bdIdx[i].value + "'  onclick='marked(" + prIdx[i].value + "," + false + "," + bdIdx[i].value  + ")'></a>";
         $('.bookmark' + bdIdx[i].value).append(mark);
     }
 }
 
-function marked(prIdx, resaBisName, isSaved, bdIdx) {
+function marked(prIdx, isSaved, bdIdx) {
     if (prIdx == null || prIdx == 0) {
         alert('로그인 후 이용해주세요!')
         location.href = "/login";
     }
     if (isSaved) {          // 저장된 식당이면
         console.log(isSaved);
-        changeMarked(prIdx, resaBisName, false, bdIdx);       // 저장된 식당이면 check=false
+        changeMarked(prIdx, false, bdIdx);       // 저장된 식당이면 check=false
     } else {
         console.log(isSaved);
-        changeMarked(prIdx, resaBisName, true, bdIdx);        // 저장되지 않은 식당이면 check=true
+        changeMarked(prIdx, true, bdIdx);        // 저장되지 않은 식당이면 check=true
     }
 }
 
-function changeMarked(prIdx, resaBisName, chk, bdIdx) { //북마크 저장
-    let param = {'prIdx': prIdx, 'resaBisName': resaBisName, 'bdIdx': bdIdx};
+function changeMarked(prIdx, chk, bdIdx,) { //북마크 저장
+    let param = {'prIdx': prIdx, 'bdIdx': bdIdx};
     if (chk) {      // 저장되지않앗으면 저장
         console.log(chk);
         $.ajax({
@@ -70,9 +56,9 @@ function changeMarked(prIdx, resaBisName, chk, bdIdx) { //북마크 저장
             contentType: "application/json",
             success: function (data) {
                 if (data == "OK") {
-                    let mark = "<img class='btn-bookmark mark" + bdIdx + "' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE0LjUiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNENUQ1RDUiLz4KICAgIDxwYXRoIGQ9Ik0xOSA4SDExQzkuODk1NDMgOCA5IDguODk1NDMgOSAxMFYyM0wxNS41IDE5LjI1TDIxIDIzVjEwQzIxIDguODk1NDMgMjAuMTA0NiA4IDE5IDhaIiBmaWxsPSIjRkYzRDAwIi8+Cjwvc3ZnPgo='" +
-                        " onclick=marked(" + prIdx + ",'" + resaBisName + "'," + true + "," + bdIdx + ")>";
-                    $('.bookmark' + bdIdx).replaceWith(mark);
+                    let mark = "<a class='btn-bookmark active mark" + bdIdx + "' " +
+                        "onclick='marked(" + prIdx + "," + true + "," + bdIdx+ ")'>";
+                    $('.mark' + bdIdx).replaceWith(mark);
                     toast(' 레스토랑이 저장되었습니다. ');
                 }
 
@@ -83,7 +69,7 @@ function changeMarked(prIdx, resaBisName, chk, bdIdx) { //북마크 저장
         })
     } else {
         console.log(chk);
-        let del = {'prIdx': prIdx, 'resaBisName': resaBisName};
+        let del = {'prIdx': prIdx, "bdIdx" :  bdIdx};
         $.ajax({
             type: 'POST',
             data: JSON.stringify(del),
@@ -91,9 +77,8 @@ function changeMarked(prIdx, resaBisName, chk, bdIdx) { //북마크 저장
             contentType: "application/json",
             success: function (data) {
                 if (data == "OK") {
-                    let mark = "<img class='btn-bookmark mark" + bdIdx + "' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1IiBmaWxsPSIjRDlEOUQ5Ii8+CiAgICA8cGF0aCBkPSJNMTUuNzgxNyAxOC44MzY5TDE1LjUyMjIgMTguNjZMMTUuMjUwMSAxOC44MTY5TDkuNSAyMi4xMzQzVjEwQzkuNSA5LjE3MTU3IDEwLjE3MTYgOC41IDExIDguNUgxOUMxOS44Mjg0IDguNSAyMC41IDkuMTcxNTcgMjAuNSAxMFYyMi4wNTM5TDE1Ljc4MTcgMTguODM2OVoiIHN0cm9rZT0id2hpdGUiLz4KPC9zdmc+Cg=='" +
-                        "onclick=marked(" + prIdx + ",'" + resaBisName + "'," + false + "," + bdIdx + ")>";
-                    $('.bookmark' + bdIdx).replaceWith(mark);
+                    let mark = "<a class='btn-bookmark mark" + bdIdx + "' onclick='marked(" + prIdx + "," + false + "," + bdIdx + ")'>";
+                    $('.mark' + bdIdx).replaceWith(mark);
                     toast(' 저장한 레스토랑에서 삭제되었습니다 ');
                 }
             },

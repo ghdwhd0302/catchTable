@@ -8,6 +8,7 @@ import com.catchmind.catchtable.dto.network.response.ShopResponse;
 import com.catchmind.catchtable.repository.ReviewPhotoRepository;
 import com.catchmind.catchtable.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,11 +22,11 @@ public class ReviewLogicService {
     private final ReviewPhotoRepository reviewPhotoRepository;
 
     public List<ReviewDto> reviewList(String resaBisName) {
-        return reviewRepository.findAllByResAdmin_ResaBisName(resaBisName).stream().map(ReviewDto::from).toList();
+        return reviewRepository.findAllByResAdmin_ResaBisName(resaBisName, Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
     }
 
     public List<ShopResponse> reviewPhotoList(String resaBisName) {
-        List<ReviewDto> reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(resaBisName).stream().map(ReviewDto::from).toList();
+        List<ReviewDto> reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(resaBisName, Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
         List<ReviewPhotoDto> photoDtos = new ArrayList<>();
         List<ShopResponse> shopResponseList = new ArrayList<>();
         String prNick = null;

@@ -202,14 +202,14 @@
                                                     <th:block
                                                             th:if="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 152px"
                                                                  th:src="${list.photoDto.savedPath}">
                                                         </a>
                                                     </th:block>
                                                     <th:block
                                                             th:unless="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img"style="height: 152px"
                                                                  th:src="'/photo/'+${list.photoDto.savedNm}">
                                                         </a>
                                                     </th:block>
@@ -228,8 +228,6 @@
                                                                 <input type="hidden" th:value="${list.isSaved}"
                                                                        class="saved">
                                                                 <input type="hidden" th:value="${prIdx}" class="prIdx">
-                                                                <input type="hidden" th:value="${list.resaBisName}"
-                                                                       class="bisName">
                                                                 <input type="hidden"
                                                                        th:value="${list.bistroDetailDto.bdIdx}"
                                                                        class="bdIdx">

@@ -12,5 +12,5 @@ public interface BistroSaveRepository extends JpaRepository<BistroSave, Long> {
     List<BistroSave> findAllByProfile_PrIdx(Long prIdx);
     List<BistroSave> findAllByColIdx(Long colIdx);
     BistroSave findByResAdmin_ResaBisName(String resaBisName);
-    Optional<BistroSave> deleteByProfile_prIdxAndResAdmin_ResaBisName(Long prIdx, String resaBisName);
+    Optional<BistroSave> deleteByProfile_PrIdxAndBistroDetail_BdIdx(Long prIdx, Long bdIdx);
 }
