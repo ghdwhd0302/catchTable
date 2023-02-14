@@ -138,10 +138,10 @@
         <main id="main" style="padding-bottom: 0px;">
             <div class="search-header __autohide" style="background: none; top: 48px;">
                 <div class="__search-result-header mb-20">
-                    <div class="__total-count">
-                        <strong th:text="|총 ${shopList.getTotalElements()}개|">104</strong>의 레스토랑
+                    <div class="__total-count" style="min-width: 121px">
+                        <strong th:text="|총 ${shopList.getTotalElements()}개의 레스토랑|">104</strong>
                     </div>
-                    <div class="info-icon-div-1">
+                    <div class="info-icon-div-1" style="margin-left: 850px">
                         <a href="#layer2" th:if="${filtername!=null}" id="btn-example" class="info-icon-div"
                            th:text="${filtername}">최근 등록순</a>
                         <a href="#layer2" th:unless="${filtername!=null}" id="btn-example"
@@ -204,14 +204,14 @@
                                                     <th:block
                                                             th:if="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 152px"
                                                                  th:src="${list.photoDto.savedPath}">
                                                         </a>
                                                     </th:block>
                                                     <th:block
                                                             th:unless="${list.photoDto.savedPath != null and list.photoDto.orgNm == null and list.photoDto.savedNm == null}">
                                                         <a th:href="@{/shop/{id}(id=${list.resaBisName})}">
-                                                            <img class="img" style="height: 130px"
+                                                            <img class="img" style="height: 152px"
                                                                  th:src="'/photo/'+${list.photoDto.savedNm}">
                                                         </a>
                                                     </th:block>

@@ -107,7 +107,7 @@
                 <div class="container gutter-sm" style="margin: 0">
                     <div class="section-body">
                         <div class="btn-centered"><a th:href="'/reservation/'+${bisDetail.bistroInfoDto().resAdminDto().resaBisName()}"
-                                th:onclick="checkBlock([[${bisDetail.resAdminDto().resaBisName()}]])"
+                                th:onclick="checkBlock([[${bisDetail.resAdminDto().resaBisName()}]],[[${prIdx}]])"
                                 class="btn btn-rounded btn-outline-red"><span
                                 class="label arrow">예약가능 날짜 찾기</span></a></div>
             </section>
