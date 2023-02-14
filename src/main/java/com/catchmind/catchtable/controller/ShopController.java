@@ -339,7 +339,7 @@ public class ShopController {
                     break;
                 case "revCnt":
                     if (catchPrincipal == null) {
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisCategory, null);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisCategory,null);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "리뷰 많은순";
                         map.addAttribute("shopList", shopList);
@@ -350,7 +350,7 @@ public class ShopController {
                         map.addAttribute("bisCategory", bisCategory);
                     } else {
                         Long prIdx = catchPrincipal.prIdx();
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, bisCategory, null);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, bisCategory,null);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "리뷰 많은순";
                         map.addAttribute("shopList", shopList);
@@ -362,7 +362,7 @@ public class ShopController {
                     break;
                 case "revScore":
                     if (catchPrincipal == null) {
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisCategory, null);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisCategory,null);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "별점 높은순";
                         map.addAttribute("shopList", shopList);
@@ -373,7 +373,7 @@ public class ShopController {
                         map.addAttribute("bisCategory", bisCategory);
                     } else {
                         Long prIdx = catchPrincipal.prIdx();
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, bisCategory, null);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort,bisCategory,null);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "별점 높은순";
                         map.addAttribute("shopList", shopList);
@@ -442,7 +442,7 @@ public class ShopController {
                     break;
                 case "revCnt":
                     if (catchPrincipal == null) {
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisRegion, null);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, bisRegion,null);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "리뷰 많은순";
                         map.addAttribute("shopList", shopList);
@@ -453,7 +453,7 @@ public class ShopController {
                         map.addAttribute("bisRegion", bisRegion);
                     } else {
                         Long prIdx = catchPrincipal.prIdx();
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, null, bisRegion);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, null,bisRegion);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "리뷰 많은순";
                         map.addAttribute("shopList", shopList);
@@ -466,7 +466,7 @@ public class ShopController {
                     break;
                 case "revScore":
                     if (catchPrincipal == null) {
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, null, bisRegion);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, null, sort, null,bisRegion);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "별점 높은순";
                         map.addAttribute("shopList", shopList);
@@ -477,7 +477,7 @@ public class ShopController {
                         map.addAttribute("bisRegion", bisRegion);
                     } else {
                         Long prIdx = catchPrincipal.prIdx();
-                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort, null, bisRegion);
+                        Page<ShopListResponse> shopList = shopService.categoryList(pageable, prIdx, sort,null,bisRegion);
                         List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), shopList.getTotalPages());
                         filtername = "별점 높은순";
                         map.addAttribute("shopList", shopList);
@@ -493,14 +493,24 @@ public class ShopController {
     }
 
 
+
     // 식당 상세
     @GetMapping("/{resaBisName}")
-    public String service(@PathVariable String resaBisName, ModelMap map, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
+    public String service(@PathVariable String resaBisName, ModelMap map) {
+
         BistroDetailDto lists = bistroDetailLogicService.detailList(resaBisName);
+        map.addAttribute("bisDetail", lists);
+
         List<BisNoticeDto> nlists = bisNoticeLogicService.noticeList(resaBisName);
+        map.addAttribute("bisNotice", nlists);
+
         List<MenuDto> listss = menuLogicService.menuList(resaBisName);
+        map.addAttribute("menu", listss);
+
         List<FacilityDto> flist = facilityLogicService.facilityList(resaBisName);
-        PhotoDto photos = photoLogicService.photoDto(resaBisName);
+        map.addAttribute("facility", flist);
+        System.out.println("flist" + flist);
+
         //식당 평균 별점
         List<ReviewDto> rlists = reviewLogicService.reviewList(resaBisName);
         List<ShopResponse> reviewAndPhoto = reviewLogicService.reviewPhotoList(resaBisName);
@@ -513,41 +523,13 @@ public class ShopController {
         }
         avg = sum / cnt;
         String average = String.format("%.1f", avg);
-
-        if (catchPrincipal == null) {
-            map.addAttribute("bisDetail", lists);
-            map.addAttribute("bisNotice", nlists);
-            map.addAttribute("menu", listss);
-            map.addAttribute("facility", flist);
-            System.out.println("flist" + flist);
-
-
-            map.addAttribute("reviews", rlists);
-            map.addAttribute("avgpoint", average);
-            map.addAttribute("revcnt", cnt);
-            map.addAttribute("reviewAndPhoto", reviewAndPhoto);
-            map.addAttribute("prIdx", 0);
-            map.addAttribute("shopPic", photos);
-            System.out.println(photos);
-
-        } else {
-
-            Long prIdx = catchPrincipal.prIdx();
-
-            map.addAttribute("bisDetail", lists);
-            map.addAttribute("bisNotice", nlists);
-            map.addAttribute("menu", listss);
-            map.addAttribute("facility", flist);
-            System.out.println("flist" + flist);
-
-            map.addAttribute("reviews", rlists);
-            map.addAttribute("avgpoint", average);
-            map.addAttribute("revcnt", cnt);
-            map.addAttribute("reviewAndPhoto", reviewAndPhoto);
-            map.addAttribute("prIdx", prIdx);
-            map.addAttribute("shopPic", photos);
-            System.out.println(photos);
-        }
+        map.addAttribute("reviews", rlists);
+        map.addAttribute("avgpoint", average);
+        map.addAttribute("revcnt", cnt);
+        map.addAttribute("reviewAndPhoto", reviewAndPhoto);
+        PhotoDto photos = photoLogicService.photoDto(resaBisName);
+        map.addAttribute("shopPic", photos);
+        System.out.println(photos);
         return "shop/shop";
 
     }

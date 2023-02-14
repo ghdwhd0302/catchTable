@@ -31,7 +31,7 @@ public class ShopService {
 
     // 식당 별 리뷰 리스트
     public Page<ReviewResponse> getBisNameReviews(Pageable pageable, String resaBisName, Long prIdx, String sort) {
-        List<ReviewDto> bisNameReview = reviewRepository.findAllByResAdmin_ResaBisName(resaBisName).stream().map(ReviewDto::from).toList();
+        List<ReviewDto> bisNameReview = reviewRepository.findAllByResAdmin_ResaBisName(resaBisName, Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
         List<ReviewDto> loginReview = reviewRepository.findAllByProfile_PrIdx(prIdx, Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
         List<ReviewResponse> reviewList = new ArrayList<>();
         List<ReviewPhotoDto> photoDtos = reviewPhotoRepository.findAll().stream().map(ReviewPhotoDto::from).toList();
@@ -126,7 +126,7 @@ public class ShopService {
             List<ReviewDto> reviewDtos = new ArrayList<>();
 
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
-                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
+                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName(), Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
                 if (reviewDtos.isEmpty()) {
                     ShopListResponse response = new ShopListResponse("0.0", reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
@@ -154,7 +154,7 @@ public class ShopService {
             List<ReviewDto> reviewDtos = new ArrayList<>();
 
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
-                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
+                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName(), Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
                 boolean isSaved = false;
                 for (BistroSaveDto bistroSaveDto : bistroSaveDtos) {
@@ -217,7 +217,7 @@ public class ShopService {
         if (prIdx == null) {
             List<ReviewDto> reviewDtos = new ArrayList<>();
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
-                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
+                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName(), Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
                 if (reviewDtos.isEmpty()) {
                     ShopListResponse response = new ShopListResponse("0.0", reviewCnt, bistroDetailDto.resAdminDto().resaBisName(), bistroDetailDto,
@@ -245,7 +245,7 @@ public class ShopService {
             List<ReviewDto> reviewDtos = new ArrayList<>();
 
             for (BistroDetailDto bistroDetailDto : bistroDetailDtos) {
-                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName()).stream().map(ReviewDto::from).toList();
+                reviewDtos = reviewRepository.findAllByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName(), Sort.by(Sort.Direction.DESC, "revIdx")).stream().map(ReviewDto::from).toList();
                 Long reviewCnt = reviewRepository.countByResAdmin_ResaBisName(bistroDetailDto.resAdminDto().resaBisName());
                 boolean isSaved = false;
                 for (BistroSaveDto bistroSaveDto : bistroSaveDtos) {
