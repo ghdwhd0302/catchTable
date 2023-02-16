@@ -496,24 +496,15 @@ public class ShopController {
 
     // 식당 상세
     @GetMapping("/{resaBisName}")
-    public String service(@PathVariable String resaBisName, ModelMap map) {
-
+    public String service(@PathVariable String resaBisName, ModelMap map, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         BistroDetailDto lists = bistroDetailLogicService.detailList(resaBisName);
-        map.addAttribute("bisDetail", lists);
-
         List<BisNoticeDto> nlists = bisNoticeLogicService.noticeList(resaBisName);
-        map.addAttribute("bisNotice", nlists);
-
         List<MenuDto> listss = menuLogicService.menuList(resaBisName);
-        map.addAttribute("menu", listss);
-
         List<FacilityDto> flist = facilityLogicService.facilityList(resaBisName);
-        map.addAttribute("facility", flist);
-        System.out.println("flist" + flist);
-
         //식당 평균 별점
         List<ReviewDto> rlists = reviewLogicService.reviewList(resaBisName);
         List<ShopResponse> reviewAndPhoto = reviewLogicService.reviewPhotoList(resaBisName);
+        PhotoDto photos = photoLogicService.photoDto(resaBisName);
         Double sum = 0.0;
         Double avg = 0.0;
         int cnt = 0;
@@ -523,13 +514,44 @@ public class ShopController {
         }
         avg = sum / cnt;
         String average = String.format("%.1f", avg);
-        map.addAttribute("reviews", rlists);
-        map.addAttribute("avgpoint", average);
-        map.addAttribute("revcnt", cnt);
-        map.addAttribute("reviewAndPhoto", reviewAndPhoto);
-        PhotoDto photos = photoLogicService.photoDto(resaBisName);
-        map.addAttribute("shopPic", photos);
-        System.out.println(photos);
+
+        if(catchPrincipal == null) {
+            map.addAttribute("bisDetail", lists);
+
+            map.addAttribute("bisNotice", nlists);
+
+            map.addAttribute("menu", listss);
+
+            map.addAttribute("facility", flist);
+            System.out.println("flist" + flist);
+
+            map.addAttribute("reviews", rlists);
+            map.addAttribute("avgpoint", average);
+            map.addAttribute("revcnt", cnt);
+            map.addAttribute("reviewAndPhoto", reviewAndPhoto);
+            map.addAttribute("shopPic", photos);
+            map.addAttribute("prIdx", 0);
+            System.out.println(photos);
+        } else {
+            Long prIdx = catchPrincipal.prIdx();
+            map.addAttribute("bisDetail", lists);
+
+            map.addAttribute("bisNotice", nlists);
+
+            map.addAttribute("menu", listss);
+
+            map.addAttribute("facility", flist);
+            map.addAttribute("prIdx",prIdx);
+            System.out.println("flist" + flist);
+
+            map.addAttribute("reviews", rlists);
+            map.addAttribute("avgpoint", average);
+            map.addAttribute("revcnt", cnt);
+            map.addAttribute("reviewAndPhoto", reviewAndPhoto);
+            map.addAttribute("shopPic", photos);
+            System.out.println(photos);
+        }
+
         return "shop/shop";
 
     }

@@ -32,12 +32,12 @@ public class NoticeService {
     private final DeclareCommentRepository declareCommentRepository;
 
     @Transactional(readOnly = true)
-    public Page<Ask> list(Pageable pageable, Long prIdx) {
-        return askRepository.findAllByProfile_PrIdx(prIdx, pageable);
+    public List<Ask> list(Long prIdx) {
+        return askRepository.findAllByProfile_PrIdx(prIdx, Sort.by(Sort.Direction.DESC, "askIdx"));
     }
 
-    public Page<Improvement> listImp(Pageable pageable, Long prIdx) {
-        return improvementRepository.findAllByProfile_PrIdx(prIdx, pageable);
+    public List<Improvement> listImp(Long prIdx) {
+        return improvementRepository.findAllByProfile_PrIdx(prIdx, Sort.by(Sort.Direction.DESC, "impIdx"));
     }
 
     public List<DeclareReviewDto> listDe(Long prIdx){

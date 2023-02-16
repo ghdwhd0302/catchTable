@@ -89,18 +89,18 @@ public class NoticeController {
 
     // 1대1문의 리스트
     @GetMapping("/support/contact")
-    public String contact(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal, @PageableDefault(size=10, sort="askIdx", direction = Sort.Direction.DESC) Pageable pageable) {
+    public String contact(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         if(catchPrincipal == null) {
             return "redirect:/login";
         }
         Long prIdx = catchPrincipal.prIdx();
 //        List<AskDto> askDtoList = askRepository.findAllByProfile_PrIdx(prIdx).stream().map(AskDto::from).toList();
 
-        Page<Ask> asks = noticeService.list(pageable, prIdx);
-        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), asks.getTotalPages());
+        List<Ask> asks = noticeService.list(prIdx);
+//        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), asks.getTotalPages());
 
         model.addAttribute("notice", asks);
-        model.addAttribute("paginationBarNumbers", barNumbers);
+//        model.addAttribute("paginationBarNumbers", barNumbers);
 //        model.addAttribute("notice", askDtoList);
 
         return "notice/contact1";
@@ -173,15 +173,15 @@ public class NoticeController {
 
     // 개선제안 리스트
     @GetMapping("/support/improve")
-    public String improve(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal, @PageableDefault(size=10, sort="impIdx", direction = Sort.Direction.DESC) Pageable pageable) {
+    public String improve(Model model, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
         if(catchPrincipal == null) {
             return "redirect:/login";
         }
         Long prIdx = catchPrincipal.prIdx();
 //        List<ImprovementDto> improvementDtoList = improvementRepository.findAllByProfile_PrIdx(prIdx).stream().map(ImprovementDto::from).toList();
-        Page<Improvement> improvementDtoList = noticeService.listImp(pageable, prIdx);
-        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), improvementDtoList.getTotalPages());
-        model.addAttribute("paginationBarNumbers", barNumbers);
+        List<Improvement> improvementDtoList = noticeService.listImp(prIdx);
+//        List<Integer> barNumbers = paginationService.getPaginationBarNumber(pageable.getPageNumber(), improvementDtoList.getTotalPages());
+//        model.addAttribute("paginationBarNumbers", barNumbers);
         model.addAttribute("notice", improvementDtoList);
         return "notice/improve1";
     }

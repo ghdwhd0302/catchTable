@@ -167,19 +167,19 @@ public class ProfileLogicService {
 
     public MyCollection updateMyCollectionSave(Long colIdx, String bisNames) {
         MyCollection myCollection = myCollectionRepository.findById(colIdx).orElse(null);
+//        MyCollection myCollection = myCollectionRepository.findByColIdxAndProfile_PrIdx(colIdx, prIdx);
         myCollection.setBisNames(bisNames);
         return myCollectionRepository.save(myCollection);
     }
 
     @Transactional
-    public void updateBistroSave(Long colIdx, String bisNames) {
+    public void updateBistroSave(Long colIdx, String bisNames, Long prIdx) {
         String[] saveIdx = bisNames.split(",");
         for (String idx : saveIdx) {
             System.out.println(idx);
-            BistroSave bistroSave = bistroSaveRepository.findByResAdmin_ResaBisName(idx);
+            BistroSave bistroSave = bistroSaveRepository.findByResAdmin_ResaBisNameAndProfile_PrIdx(idx, prIdx);
             System.out.println("🐒" + bistroSave);
             bistroSave.setColIdx(colIdx);
-//            bistroSaveRepository.save(bistroSave);
         }
     }
 

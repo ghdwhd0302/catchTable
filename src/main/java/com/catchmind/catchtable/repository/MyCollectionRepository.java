@@ -12,4 +12,5 @@ import java.util.List;
 public interface MyCollectionRepository extends JpaRepository<MyCollection,Long> {
     List<MyCollection> findAllByProfile_PrIdxAndColLock(Long prIdx,boolean colLock);
     List<MyCollection> findAllByProfile_PrIdx(Long prIdx);
+    MyCollection findByColIdxAndProfile_PrIdx(Long colIdx, Long prIdx);
 }

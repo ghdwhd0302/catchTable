@@ -411,11 +411,12 @@ public class MypageController {
 
     //콜렉션에 식당 저장, 저장한 식당 테이블에 콜렉션 아이디 업데이트
     @PostMapping("/collection/saveRes")
-    public String myCollectionSaveRes(@RequestParam Long colIdx, @RequestParam String bisNames) {
+    public String myCollectionSaveRes(@RequestParam Long colIdx, @RequestParam String bisNames, @AuthenticationPrincipal CatchPrincipal catchPrincipal) {
+        Long prIdx = catchPrincipal.prIdx();
         System.out.println("🤍" + bisNames);
         System.out.println("💕" + colIdx);
         profileLogicService.updateMyCollectionSave(colIdx, bisNames);
-        profileLogicService.updateBistroSave(colIdx, bisNames);
+        profileLogicService.updateBistroSave(colIdx, bisNames, prIdx);
         return "redirect:/mypage/collection/detail/" + colIdx;
     }
 
