@@ -93,4 +93,8 @@
 	- 예약 가능 날짜 오픈
 	- 편의시설 등록/수정
 
-
+## ERD
+* [ERD_원본](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/erd11.png?raw=true)
+	
+## Architecture
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/tech.png?raw=true)	
