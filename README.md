@@ -43,11 +43,16 @@
 	- 컬렉션 생성/삭제/수정
 	- 컬렉션에 저장한 레스토랑 추가
 - SNS 등록/삭제/수정
+#### 식당 예약
+	- 본인이 아닌 다른 방문자 입력 가능
+	- 카카오 
 #### 마이 다이닝
 - 나의 예약
-	- 방문 예정 확인(예약수정, 취소)
+	- 방문 예정 확인
+		- 예약수정, 취소
 	- 방문 완료 확인
-	- 취소/노쇼 환인
+		- 리뷰작성/확인
+	- 취소/노쇼 확인
 - 나의 알림
 	- 전체 관리자 혹은 식당 관리자에서 보낸 메세지 확인
 #### 타임라인
@@ -98,3 +103,34 @@
 	
 ## Architecture
 ![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/tech.png?raw=true)	
+
+# 구동 화면
+## 메인 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/index.png?raw=true)
+
+## 레스토랑 LIST 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/shoplist.png?raw=true)
+
+## 레스토랑 Detail 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/shopdetail1.png?raw=true)
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/shopdetail2.png?raw=true)
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/shopdetail3.png?raw=true)
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/shopdetail4.png?raw=true)
+
+## 로그인 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/login.png?raw=true)
+
+## 마이페이지 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/mypage.png?raw=true)
+
+## 마이다이닝 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/mydining.png?raw=true)
+
+## 예약 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/reservation.png?raw=true)
+
+## 전체관리자 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/admin.png?raw=true)
+
+## 식당관리자 화면
+![image](https://github.com/ghdwhd0302/catchMind/blob/main/src/main/resources/static/images/shopadmin.png?raw=true)
